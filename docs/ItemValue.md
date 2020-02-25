@@ -6,12 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**boolVal** | **Boolean** |  | 
-**listVal** | **List&lt;byte[]&gt;** |  | 
-**mapVal** | **Map&lt;String, String&gt;** |  | 
-**numVal** | **String** |  | 
-**strVal** | **String** |  | 
-**type** | **Integer** |  | 
+**boolVal** | **Boolean** |  |  [optional]
+**listVal** | **List&lt;byte[]&gt;** |  |  [optional]
+**mapVal** | **Map&lt;String, String&gt;** |  |  [optional]
+**numVal** | **String** |  |  [optional]
+**strVal** | **String** |  |  [optional]
+**type** | **String** |  |  [optional]
 
 
 

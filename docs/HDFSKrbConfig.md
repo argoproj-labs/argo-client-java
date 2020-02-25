@@ -2,7 +2,6 @@
 
 # HDFSKrbConfig
 
-HDFSKrbConfig is auth configurations for Kerberos
 ## Properties
 
 Name | Type | Description | Notes

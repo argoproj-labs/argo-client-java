@@ -2,7 +2,6 @@
 
 # ArtifactoryAuth
 
-ArtifactoryAuth describes the secret selectors required for authenticating to artifactory
 ## Properties
 
 Name | Type | Description | Notes

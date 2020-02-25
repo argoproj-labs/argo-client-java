@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**steps** | [**List&lt;WorkflowStep&gt;**](WorkflowStep.md) |  | 
+**steps** | [**List&lt;WorkflowStep&gt;**](WorkflowStep.md) |  |  [optional]
 
 
 
