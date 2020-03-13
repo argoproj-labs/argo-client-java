@@ -20,67 +20,68 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.argoproj.workflow.models.OSSBucket;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * LogEntry
+ * OSSArtifact
  */
 
-public class LogEntry {
-  public static final String SERIALIZED_NAME_CONTENT = "content";
-  @SerializedName(SERIALIZED_NAME_CONTENT)
-  private String content;
+public class OSSArtifact {
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
 
-  public static final String SERIALIZED_NAME_POD_NAME = "podName";
-  @SerializedName(SERIALIZED_NAME_POD_NAME)
-  private String podName;
+  public static final String SERIALIZED_NAME_O_S_S_BUCKET = "oSSBucket";
+  @SerializedName(SERIALIZED_NAME_O_S_S_BUCKET)
+  private OSSBucket oSSBucket;
 
 
-  public LogEntry content(String content) {
+  public OSSArtifact key(String key) {
     
-    this.content = content;
+    this.key = key;
     return this;
   }
 
    /**
-   * Get content
-   * @return content
+   * Get key
+   * @return key
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getContent() {
-    return content;
+  public String getKey() {
+    return key;
   }
 
 
-  public void setContent(String content) {
-    this.content = content;
+  public void setKey(String key) {
+    this.key = key;
   }
 
 
-  public LogEntry podName(String podName) {
+  public OSSArtifact oSSBucket(OSSBucket oSSBucket) {
     
-    this.podName = podName;
+    this.oSSBucket = oSSBucket;
     return this;
   }
 
    /**
-   * Get podName
-   * @return podName
+   * Get oSSBucket
+   * @return oSSBucket
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getPodName() {
-    return podName;
+  public OSSBucket getoSSBucket() {
+    return oSSBucket;
   }
 
 
-  public void setPodName(String podName) {
-    this.podName = podName;
+  public void setoSSBucket(OSSBucket oSSBucket) {
+    this.oSSBucket = oSSBucket;
   }
 
 
@@ -92,23 +93,23 @@ public class LogEntry {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogEntry logEntry = (LogEntry) o;
-    return Objects.equals(this.content, logEntry.content) &&
-        Objects.equals(this.podName, logEntry.podName);
+    OSSArtifact osSArtifact = (OSSArtifact) o;
+    return Objects.equals(this.key, osSArtifact.key) &&
+        Objects.equals(this.oSSBucket, osSArtifact.oSSBucket);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, podName);
+    return Objects.hash(key, oSSBucket);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogEntry {\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    podName: ").append(toIndentedString(podName)).append("\n");
+    sb.append("class OSSArtifact {\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    oSSBucket: ").append(toIndentedString(oSSBucket)).append("\n");
     sb.append("}");
     return sb.toString();
   }

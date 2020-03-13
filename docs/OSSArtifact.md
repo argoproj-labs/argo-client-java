@@ -1,13 +1,13 @@
 
 
-# LogEntry
+# OSSArtifact
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**content** | **String** |  |  [optional]
-**podName** | **String** |  |  [optional]
+**key** | **String** |  |  [optional]
+**oSSBucket** | [**OSSBucket**](OSSBucket.md) |  |  [optional]
 
 
 
