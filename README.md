@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.argoproj.workflow</groupId>
   <artifactId>argo-client-java</artifactId>
-  <version>1-SNAPSHOT</version>
+  <version>2.6.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.argoproj.workflow:argo-client-java:1-SNAPSHOT"
+compile "io.argoproj.workflow:argo-client-java:2.6.3"
 ```
 
 ### Others
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/argo-client-java-1-SNAPSHOT.jar`
+* `target/argo-client-java-2.6.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
