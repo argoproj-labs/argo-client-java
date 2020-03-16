@@ -1,12 +1,13 @@
 
 
-# ParallelSteps
+# OSSArtifact
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**steps** | [**List&lt;WorkflowStep&gt;**](WorkflowStep.md) |  |  [optional]
+**key** | **String** |  |  [optional]
+**oSSBucket** | [**OSSBucket**](OSSBucket.md) |  |  [optional]
 
 
 

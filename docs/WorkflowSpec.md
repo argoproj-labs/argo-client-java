@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **nodeSelector** | **Map&lt;String, String&gt;** | NodeSelector is a selector which will result in all pods of the workflow to be scheduled on the selected node(s). This is able to be overridden by a nodeSelector specified in the template. |  [optional]
 **onExit** | **String** | OnExit is a template reference which is invoked at the end of the workflow, irrespective of the success, failure, or error of the primary  |  [optional]
 **parallelism** | **String** |  |  [optional]
+**podDisruptionBudget** | [**K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec**](K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec.md) |  |  [optional]
 **podGC** | [**PodGC**](PodGC.md) |  |  [optional]
 **podPriority** | **Integer** | Priority to apply to workflow pods. |  [optional]
 **podPriorityClassName** | **String** | PriorityClassName to apply to workflow pods. |  [optional]

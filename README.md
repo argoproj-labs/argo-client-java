@@ -1,7 +1,7 @@
 # argo-client-java
 
-Argo
-- API version: latest
+pkg/apiclient/cronworkflow/cron-proto
+- API version: version not set
 
 Workflow Service API performs CRUD actions against application resources
 
@@ -200,6 +200,7 @@ Class | Method | HTTP request | Description
  - [IntOrString](docs/IntOrString.md)
  - [Item](docs/Item.md)
  - [ItemValue](docs/ItemValue.md)
+ - [K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec](docs/K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec.md)
  - [KeyToPath](docs/KeyToPath.md)
  - [LabelSelector](docs/LabelSelector.md)
  - [LabelSelectorRequirement](docs/LabelSelectorRequirement.md)
@@ -213,10 +214,11 @@ Class | Method | HTTP request | Description
  - [NodeSelectorRequirement](docs/NodeSelectorRequirement.md)
  - [NodeSelectorTerm](docs/NodeSelectorTerm.md)
  - [NodeStatus](docs/NodeStatus.md)
+ - [OSSArtifact](docs/OSSArtifact.md)
+ - [OSSBucket](docs/OSSBucket.md)
  - [ObjectFieldSelector](docs/ObjectFieldSelector.md)
  - [Outputs](docs/Outputs.md)
  - [OwnerReference](docs/OwnerReference.md)
- - [ParallelSteps](docs/ParallelSteps.md)
  - [Parameter](docs/Parameter.md)
  - [PersistentVolumeClaimCondition](docs/PersistentVolumeClaimCondition.md)
  - [PersistentVolumeClaimSpec](docs/PersistentVolumeClaimSpec.md)
