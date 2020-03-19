@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **git** | [**GitArtifact**](GitArtifact.md) |  |  [optional]
 **hdfs** | [**HDFSArtifact**](HDFSArtifact.md) |  |  [optional]
 **http** | [**HTTPArtifact**](HTTPArtifact.md) |  |  [optional]
+**oss** | [**OSSArtifact**](OSSArtifact.md) |  |  [optional]
 **raw** | [**RawArtifact**](RawArtifact.md) |  |  [optional]
 **s3** | [**S3Artifact**](S3Artifact.md) |  |  [optional]
 

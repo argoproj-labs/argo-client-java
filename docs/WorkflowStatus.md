@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **compressedNodes** | **String** |  |  [optional]
+**condition** | [**List&lt;Condition&gt;**](Condition.md) |  |  [optional]
 **finishedAt** | [**org.joda.time.DateTime**](org.joda.time.DateTime.md) |  |  [optional]
 **message** | **String** | A human readable message indicating details about why the workflow is in this condition. |  [optional]
 **nodes** | [**Map&lt;String, NodeStatus&gt;**](NodeStatus.md) | Nodes is a mapping between a node ID and the node&#39;s status. |  [optional]

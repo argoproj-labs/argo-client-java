@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **successfulJobsHistoryLimit** | **Integer** |  |  [optional]
 **suspend** | **Boolean** |  |  [optional]
 **timezone** | **String** | Timezone is the timezone against which the cron schedule will be calculated, e.g. \&quot;Asia/Tokyo\&quot;. Default is machine&#39;s local time. |  [optional]
+**workflowMeta** | [**io.kubernetes.client.models.V1ObjectMeta**](io.kubernetes.client.models.V1ObjectMeta.md) |  |  [optional]
 **workflowSpec** | [**WorkflowSpec**](WorkflowSpec.md) |  |  [optional]
 
 

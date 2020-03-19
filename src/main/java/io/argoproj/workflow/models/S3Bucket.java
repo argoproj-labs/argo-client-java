@@ -57,6 +57,10 @@ public class S3Bucket {
   @SerializedName(SERIALIZED_NAME_SECRET_KEY_SECRET)
   private io.kubernetes.client.models.V1SecretKeySelector secretKeySecret;
 
+  public static final String SERIALIZED_NAME_USE_S_D_K_CREDS = "useSDKCreds";
+  @SerializedName(SERIALIZED_NAME_USE_S_D_K_CREDS)
+  private Boolean useSDKCreds;
+
 
   public S3Bucket accessKeySecret(io.kubernetes.client.models.V1SecretKeySelector accessKeySecret) {
     
@@ -219,6 +223,29 @@ public class S3Bucket {
   }
 
 
+  public S3Bucket useSDKCreds(Boolean useSDKCreds) {
+    
+    this.useSDKCreds = useSDKCreds;
+    return this;
+  }
+
+   /**
+   * UseSDKCreds tells the driver to figure out credentials based on sdk defaults.
+   * @return useSDKCreds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UseSDKCreds tells the driver to figure out credentials based on sdk defaults.")
+
+  public Boolean getUseSDKCreds() {
+    return useSDKCreds;
+  }
+
+
+  public void setUseSDKCreds(Boolean useSDKCreds) {
+    this.useSDKCreds = useSDKCreds;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -234,12 +261,13 @@ public class S3Bucket {
         Objects.equals(this.insecure, s3Bucket.insecure) &&
         Objects.equals(this.region, s3Bucket.region) &&
         Objects.equals(this.roleARN, s3Bucket.roleARN) &&
-        Objects.equals(this.secretKeySecret, s3Bucket.secretKeySecret);
+        Objects.equals(this.secretKeySecret, s3Bucket.secretKeySecret) &&
+        Objects.equals(this.useSDKCreds, s3Bucket.useSDKCreds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeySecret, bucket, endpoint, insecure, region, roleARN, secretKeySecret);
+    return Objects.hash(accessKeySecret, bucket, endpoint, insecure, region, roleARN, secretKeySecret, useSDKCreds);
   }
 
 
@@ -254,6 +282,7 @@ public class S3Bucket {
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    roleARN: ").append(toIndentedString(roleARN)).append("\n");
     sb.append("    secretKeySecret: ").append(toIndentedString(secretKeySecret)).append("\n");
+    sb.append("    useSDKCreds: ").append(toIndentedString(useSDKCreds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

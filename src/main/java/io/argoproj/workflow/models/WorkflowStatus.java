@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.argoproj.workflow.models.Condition;
 import io.argoproj.workflow.models.NodeStatus;
 import io.argoproj.workflow.models.Outputs;
 import io.argoproj.workflow.models.Template;
@@ -39,6 +40,10 @@ public class WorkflowStatus {
   public static final String SERIALIZED_NAME_COMPRESSED_NODES = "compressedNodes";
   @SerializedName(SERIALIZED_NAME_COMPRESSED_NODES)
   private String compressedNodes;
+
+  public static final String SERIALIZED_NAME_CONDITION = "condition";
+  @SerializedName(SERIALIZED_NAME_CONDITION)
+  private List<Condition> condition = null;
 
   public static final String SERIALIZED_NAME_FINISHED_AT = "finishedAt";
   @SerializedName(SERIALIZED_NAME_FINISHED_AT)
@@ -97,6 +102,37 @@ public class WorkflowStatus {
 
   public void setCompressedNodes(String compressedNodes) {
     this.compressedNodes = compressedNodes;
+  }
+
+
+  public WorkflowStatus condition(List<Condition> condition) {
+    
+    this.condition = condition;
+    return this;
+  }
+
+  public WorkflowStatus addConditionItem(Condition conditionItem) {
+    if (this.condition == null) {
+      this.condition = new ArrayList<Condition>();
+    }
+    this.condition.add(conditionItem);
+    return this;
+  }
+
+   /**
+   * Get condition
+   * @return condition
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Condition> getCondition() {
+    return condition;
+  }
+
+
+  public void setCondition(List<Condition> condition) {
+    this.condition = condition;
   }
 
 
@@ -341,6 +377,7 @@ public class WorkflowStatus {
     }
     WorkflowStatus workflowStatus = (WorkflowStatus) o;
     return Objects.equals(this.compressedNodes, workflowStatus.compressedNodes) &&
+        Objects.equals(this.condition, workflowStatus.condition) &&
         Objects.equals(this.finishedAt, workflowStatus.finishedAt) &&
         Objects.equals(this.message, workflowStatus.message) &&
         Objects.equals(this.nodes, workflowStatus.nodes) &&
@@ -354,7 +391,7 @@ public class WorkflowStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compressedNodes, finishedAt, message, nodes, offloadNodeStatusVersion, outputs, persistentVolumeClaims, phase, startedAt, storedTemplates);
+    return Objects.hash(compressedNodes, condition, finishedAt, message, nodes, offloadNodeStatusVersion, outputs, persistentVolumeClaims, phase, startedAt, storedTemplates);
   }
 
 
@@ -363,6 +400,7 @@ public class WorkflowStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkflowStatus {\n");
     sb.append("    compressedNodes: ").append(toIndentedString(compressedNodes)).append("\n");
+    sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");

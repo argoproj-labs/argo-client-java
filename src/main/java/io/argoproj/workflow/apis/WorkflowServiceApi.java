@@ -34,6 +34,7 @@ import io.argoproj.workflow.models.WorkflowList;
 import io.argoproj.workflow.models.WorkflowResubmitRequest;
 import io.argoproj.workflow.models.WorkflowResumeRequest;
 import io.argoproj.workflow.models.WorkflowRetryRequest;
+import io.argoproj.workflow.models.WorkflowStopRequest;
 import io.argoproj.workflow.models.WorkflowSuspendRequest;
 import io.argoproj.workflow.models.WorkflowTerminateRequest;
 
@@ -356,6 +357,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param getOptionsResourceVersion When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param fields Fields to be included or excluded in the response. e.g. \&quot;spec,status.phase\&quot;, \&quot;-status.nodes\&quot;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -365,7 +367,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWorkflowCall(String namespace, String name, String getOptionsResourceVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWorkflowCall(String namespace, String name, String getOptionsResourceVersion, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -377,6 +379,10 @@ public class WorkflowServiceApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (getOptionsResourceVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("getOptions.resourceVersion", getOptionsResourceVersion));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -401,7 +407,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWorkflowValidateBeforeCall(String namespace, String name, String getOptionsResourceVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWorkflowValidateBeforeCall(String namespace, String name, String getOptionsResourceVersion, String fields, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -414,7 +420,7 @@ public class WorkflowServiceApi {
         }
         
 
-        okhttp3.Call localVarCall = getWorkflowCall(namespace, name, getOptionsResourceVersion, _callback);
+        okhttp3.Call localVarCall = getWorkflowCall(namespace, name, getOptionsResourceVersion, fields, _callback);
         return localVarCall;
 
     }
@@ -425,6 +431,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param getOptionsResourceVersion When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param fields Fields to be included or excluded in the response. e.g. \&quot;spec,status.phase\&quot;, \&quot;-status.nodes\&quot;. (optional)
      * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -433,8 +440,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public Workflow getWorkflow(String namespace, String name, String getOptionsResourceVersion) throws ApiException {
-        ApiResponse<Workflow> localVarResp = getWorkflowWithHttpInfo(namespace, name, getOptionsResourceVersion);
+    public Workflow getWorkflow(String namespace, String name, String getOptionsResourceVersion, String fields) throws ApiException {
+        ApiResponse<Workflow> localVarResp = getWorkflowWithHttpInfo(namespace, name, getOptionsResourceVersion, fields);
         return localVarResp.getData();
     }
 
@@ -444,6 +451,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param getOptionsResourceVersion When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param fields Fields to be included or excluded in the response. e.g. \&quot;spec,status.phase\&quot;, \&quot;-status.nodes\&quot;. (optional)
      * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -452,8 +460,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Workflow> getWorkflowWithHttpInfo(String namespace, String name, String getOptionsResourceVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWorkflowValidateBeforeCall(namespace, name, getOptionsResourceVersion, null);
+    public ApiResponse<Workflow> getWorkflowWithHttpInfo(String namespace, String name, String getOptionsResourceVersion, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getWorkflowValidateBeforeCall(namespace, name, getOptionsResourceVersion, fields, null);
         Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -464,6 +472,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param getOptionsResourceVersion When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param fields Fields to be included or excluded in the response. e.g. \&quot;spec,status.phase\&quot;, \&quot;-status.nodes\&quot;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -473,9 +482,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWorkflowAsync(String namespace, String name, String getOptionsResourceVersion, final ApiCallback<Workflow> _callback) throws ApiException {
+    public okhttp3.Call getWorkflowAsync(String namespace, String name, String getOptionsResourceVersion, String fields, final ApiCallback<Workflow> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWorkflowValidateBeforeCall(namespace, name, getOptionsResourceVersion, _callback);
+        okhttp3.Call localVarCall = getWorkflowValidateBeforeCall(namespace, name, getOptionsResourceVersion, fields, _callback);
         Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -611,6 +620,7 @@ public class WorkflowServiceApi {
      * @param listOptionsTimeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. (optional)
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+     * @param fields Fields to be included or excluded in the response. e.g. \&quot;items.spec,items.status.phase\&quot;, \&quot;-items.status.nodes\&quot;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -620,7 +630,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listWorkflowsCall(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listWorkflowsCall(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -661,6 +671,10 @@ public class WorkflowServiceApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("listOptions.continue", listOptionsContinue));
         }
 
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -683,7 +697,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listWorkflowsValidateBeforeCall(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listWorkflowsValidateBeforeCall(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -691,7 +705,7 @@ public class WorkflowServiceApi {
         }
         
 
-        okhttp3.Call localVarCall = listWorkflowsCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, _callback);
+        okhttp3.Call localVarCall = listWorkflowsCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields, _callback);
         return localVarCall;
 
     }
@@ -708,6 +722,7 @@ public class WorkflowServiceApi {
      * @param listOptionsTimeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. (optional)
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+     * @param fields Fields to be included or excluded in the response. e.g. \&quot;items.spec,items.status.phase\&quot;, \&quot;-items.status.nodes\&quot;. (optional)
      * @return WorkflowList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -716,8 +731,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public WorkflowList listWorkflows(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
-        ApiResponse<WorkflowList> localVarResp = listWorkflowsWithHttpInfo(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+    public WorkflowList listWorkflows(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields) throws ApiException {
+        ApiResponse<WorkflowList> localVarResp = listWorkflowsWithHttpInfo(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
         return localVarResp.getData();
     }
 
@@ -733,6 +748,7 @@ public class WorkflowServiceApi {
      * @param listOptionsTimeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. (optional)
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+     * @param fields Fields to be included or excluded in the response. e.g. \&quot;items.spec,items.status.phase\&quot;, \&quot;-items.status.nodes\&quot;. (optional)
      * @return ApiResponse&lt;WorkflowList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -741,8 +757,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WorkflowList> listWorkflowsWithHttpInfo(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
-        okhttp3.Call localVarCall = listWorkflowsValidateBeforeCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, null);
+    public ApiResponse<WorkflowList> listWorkflowsWithHttpInfo(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields) throws ApiException {
+        okhttp3.Call localVarCall = listWorkflowsValidateBeforeCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields, null);
         Type localVarReturnType = new TypeToken<WorkflowList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -759,6 +775,7 @@ public class WorkflowServiceApi {
      * @param listOptionsTimeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. (optional)
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
+     * @param fields Fields to be included or excluded in the response. e.g. \&quot;items.spec,items.status.phase\&quot;, \&quot;-items.status.nodes\&quot;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -768,9 +785,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listWorkflowsAsync(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, final ApiCallback<WorkflowList> _callback) throws ApiException {
+    public okhttp3.Call listWorkflowsAsync(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields, final ApiCallback<WorkflowList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listWorkflowsValidateBeforeCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, _callback);
+        okhttp3.Call localVarCall = listWorkflowsValidateBeforeCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields, _callback);
         Type localVarReturnType = new TypeToken<WorkflowList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1364,6 +1381,136 @@ public class WorkflowServiceApi {
     public okhttp3.Call retryWorkflowAsync(String namespace, String name, WorkflowRetryRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = retryWorkflowValidateBeforeCall(namespace, name, body, _callback);
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for stopWorkflow
+     * @param namespace  (required)
+     * @param name  (required)
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopWorkflowCall(String namespace, String name, WorkflowStopRequest body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/workflows/{namespace}/{name}/stop"
+            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()))
+            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stopWorkflowValidateBeforeCall(String namespace, String name, WorkflowStopRequest body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling stopWorkflow(Async)");
+        }
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling stopWorkflow(Async)");
+        }
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling stopWorkflow(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = stopWorkflowCall(namespace, name, body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param namespace  (required)
+     * @param name  (required)
+     * @param body  (required)
+     * @return Workflow
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Workflow stopWorkflow(String namespace, String name, WorkflowStopRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = stopWorkflowWithHttpInfo(namespace, name, body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param namespace  (required)
+     * @param name  (required)
+     * @param body  (required)
+     * @return ApiResponse&lt;Workflow&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Workflow> stopWorkflowWithHttpInfo(String namespace, String name, WorkflowStopRequest body) throws ApiException {
+        okhttp3.Call localVarCall = stopWorkflowValidateBeforeCall(namespace, name, body, null);
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param namespace  (required)
+     * @param name  (required)
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopWorkflowAsync(String namespace, String name, WorkflowStopRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = stopWorkflowValidateBeforeCall(namespace, name, body, _callback);
         Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

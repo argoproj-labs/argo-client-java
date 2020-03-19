@@ -20,19 +20,21 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.argoproj.workflow.models.Arguments;
 import io.argoproj.workflow.models.ArtifactLocation;
 import io.argoproj.workflow.models.DAGTemplate;
 import io.argoproj.workflow.models.ExecutorConfig;
 import io.argoproj.workflow.models.Inputs;
 import io.argoproj.workflow.models.Metadata;
+import io.argoproj.workflow.models.Metrics;
 import io.argoproj.workflow.models.Outputs;
-import io.argoproj.workflow.models.ParallelSteps;
 import io.argoproj.workflow.models.ResourceTemplate;
 import io.argoproj.workflow.models.RetryStrategy;
 import io.argoproj.workflow.models.ScriptTemplate;
 import io.argoproj.workflow.models.SuspendTemplate;
 import io.argoproj.workflow.models.TemplateRef;
 import io.argoproj.workflow.models.UserContainer;
+import io.argoproj.workflow.models.WorkflowStep;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -57,6 +59,10 @@ public class Template {
   public static final String SERIALIZED_NAME_ARCHIVE_LOCATION = "archiveLocation";
   @SerializedName(SERIALIZED_NAME_ARCHIVE_LOCATION)
   private ArtifactLocation archiveLocation;
+
+  public static final String SERIALIZED_NAME_ARGUMENTS = "arguments";
+  @SerializedName(SERIALIZED_NAME_ARGUMENTS)
+  private Arguments arguments;
 
   public static final String SERIALIZED_NAME_AUTOMOUNT_SERVICE_ACCOUNT_TOKEN = "automountServiceAccountToken";
   @SerializedName(SERIALIZED_NAME_AUTOMOUNT_SERVICE_ACCOUNT_TOKEN)
@@ -94,6 +100,10 @@ public class Template {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Metadata metadata;
 
+  public static final String SERIALIZED_NAME_METRICS = "metrics";
+  @SerializedName(SERIALIZED_NAME_METRICS)
+  private Metrics metrics;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -126,6 +136,10 @@ public class Template {
   @SerializedName(SERIALIZED_NAME_RESOURCE)
   private ResourceTemplate resource;
 
+  public static final String SERIALIZED_NAME_RESUBMIT_PENDING_PODS = "resubmitPendingPods";
+  @SerializedName(SERIALIZED_NAME_RESUBMIT_PENDING_PODS)
+  private Boolean resubmitPendingPods;
+
   public static final String SERIALIZED_NAME_RETRY_STRATEGY = "retryStrategy";
   @SerializedName(SERIALIZED_NAME_RETRY_STRATEGY)
   private RetryStrategy retryStrategy;
@@ -152,7 +166,7 @@ public class Template {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<ParallelSteps> steps = null;
+  private List<List<WorkflowStep>> steps = null;
 
   public static final String SERIALIZED_NAME_SUSPEND = "suspend";
   @SerializedName(SERIALIZED_NAME_SUSPEND)
@@ -241,6 +255,29 @@ public class Template {
 
   public void setArchiveLocation(ArtifactLocation archiveLocation) {
     this.archiveLocation = archiveLocation;
+  }
+
+
+  public Template arguments(Arguments arguments) {
+    
+    this.arguments = arguments;
+    return this;
+  }
+
+   /**
+   * Get arguments
+   * @return arguments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Arguments getArguments() {
+    return arguments;
+  }
+
+
+  public void setArguments(Arguments arguments) {
+    this.arguments = arguments;
   }
 
 
@@ -467,6 +504,29 @@ public class Template {
   }
 
 
+  public Template metrics(Metrics metrics) {
+    
+    this.metrics = metrics;
+    return this;
+  }
+
+   /**
+   * Get metrics
+   * @return metrics
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Metrics getMetrics() {
+    return metrics;
+  }
+
+
+  public void setMetrics(Metrics metrics) {
+    this.metrics = metrics;
+  }
+
+
   public Template name(String name) {
     
     this.name = name;
@@ -659,6 +719,29 @@ public class Template {
   }
 
 
+  public Template resubmitPendingPods(Boolean resubmitPendingPods) {
+    
+    this.resubmitPendingPods = resubmitPendingPods;
+    return this;
+  }
+
+   /**
+   * Get resubmitPendingPods
+   * @return resubmitPendingPods
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getResubmitPendingPods() {
+    return resubmitPendingPods;
+  }
+
+
+  public void setResubmitPendingPods(Boolean resubmitPendingPods) {
+    this.resubmitPendingPods = resubmitPendingPods;
+  }
+
+
   public Template retryStrategy(RetryStrategy retryStrategy) {
     
     this.retryStrategy = retryStrategy;
@@ -805,15 +888,15 @@ public class Template {
   }
 
 
-  public Template steps(List<ParallelSteps> steps) {
+  public Template steps(List<List<WorkflowStep>> steps) {
     
     this.steps = steps;
     return this;
   }
 
-  public Template addStepsItem(ParallelSteps stepsItem) {
+  public Template addStepsItem(List<WorkflowStep> stepsItem) {
     if (this.steps == null) {
-      this.steps = new ArrayList<ParallelSteps>();
+      this.steps = new ArrayList<List>();
     }
     this.steps.add(stepsItem);
     return this;
@@ -826,12 +909,12 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<ParallelSteps> getSteps() {
+  public List<List<WorkflowStep>> getSteps() {
     return steps;
   }
 
 
-  public void setSteps(List<ParallelSteps> steps) {
+  public void setSteps(List<List<WorkflowStep>> steps) {
     this.steps = steps;
   }
 
@@ -866,11 +949,11 @@ public class Template {
   }
 
    /**
-   * Template is the name of the template which is used as the base of this template.
+   * Template is the name of the template which is used as the base of this template. DEPRECATED: This field is not used.
    * @return template
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Template is the name of the template which is used as the base of this template.")
+  @ApiModelProperty(value = "Template is the name of the template which is used as the base of this template. DEPRECATED: This field is not used.")
 
   public String getTemplate() {
     return template;
@@ -979,6 +1062,7 @@ public class Template {
     return Objects.equals(this.activeDeadlineSeconds, template.activeDeadlineSeconds) &&
         Objects.equals(this.affinity, template.affinity) &&
         Objects.equals(this.archiveLocation, template.archiveLocation) &&
+        Objects.equals(this.arguments, template.arguments) &&
         Objects.equals(this.automountServiceAccountToken, template.automountServiceAccountToken) &&
         Objects.equals(this.container, template.container) &&
         Objects.equals(this.daemon, template.daemon) &&
@@ -988,6 +1072,7 @@ public class Template {
         Objects.equals(this.initContainers, template.initContainers) &&
         Objects.equals(this.inputs, template.inputs) &&
         Objects.equals(this.metadata, template.metadata) &&
+        Objects.equals(this.metrics, template.metrics) &&
         Objects.equals(this.name, template.name) &&
         Objects.equals(this.nodeSelector, template.nodeSelector) &&
         Objects.equals(this.outputs, template.outputs) &&
@@ -996,6 +1081,7 @@ public class Template {
         Objects.equals(this.priority, template.priority) &&
         Objects.equals(this.priorityClassName, template.priorityClassName) &&
         Objects.equals(this.resource, template.resource) &&
+        Objects.equals(this.resubmitPendingPods, template.resubmitPendingPods) &&
         Objects.equals(this.retryStrategy, template.retryStrategy) &&
         Objects.equals(this.schedulerName, template.schedulerName) &&
         Objects.equals(this.script, template.script) &&
@@ -1012,7 +1098,7 @@ public class Template {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, affinity, archiveLocation, automountServiceAccountToken, container, daemon, dag, executor, hostAliases, initContainers, inputs, metadata, name, nodeSelector, outputs, parallelism, podSpecPatch, priority, priorityClassName, resource, retryStrategy, schedulerName, script, securityContext, serviceAccountName, sidecars, steps, suspend, template, templateRef, tolerations, volumes);
+    return Objects.hash(activeDeadlineSeconds, affinity, archiveLocation, arguments, automountServiceAccountToken, container, daemon, dag, executor, hostAliases, initContainers, inputs, metadata, metrics, name, nodeSelector, outputs, parallelism, podSpecPatch, priority, priorityClassName, resource, resubmitPendingPods, retryStrategy, schedulerName, script, securityContext, serviceAccountName, sidecars, steps, suspend, template, templateRef, tolerations, volumes);
   }
 
 
@@ -1023,6 +1109,7 @@ public class Template {
     sb.append("    activeDeadlineSeconds: ").append(toIndentedString(activeDeadlineSeconds)).append("\n");
     sb.append("    affinity: ").append(toIndentedString(affinity)).append("\n");
     sb.append("    archiveLocation: ").append(toIndentedString(archiveLocation)).append("\n");
+    sb.append("    arguments: ").append(toIndentedString(arguments)).append("\n");
     sb.append("    automountServiceAccountToken: ").append(toIndentedString(automountServiceAccountToken)).append("\n");
     sb.append("    container: ").append(toIndentedString(container)).append("\n");
     sb.append("    daemon: ").append(toIndentedString(daemon)).append("\n");
@@ -1032,6 +1119,7 @@ public class Template {
     sb.append("    initContainers: ").append(toIndentedString(initContainers)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
     sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
@@ -1040,6 +1128,7 @@ public class Template {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    priorityClassName: ").append(toIndentedString(priorityClassName)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
+    sb.append("    resubmitPendingPods: ").append(toIndentedString(resubmitPendingPods)).append("\n");
     sb.append("    retryStrategy: ").append(toIndentedString(retryStrategy)).append("\n");
     sb.append("    schedulerName: ").append(toIndentedString(schedulerName)).append("\n");
     sb.append("    script: ").append(toIndentedString(script)).append("\n");

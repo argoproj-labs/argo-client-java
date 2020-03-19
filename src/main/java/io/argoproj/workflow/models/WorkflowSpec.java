@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.argoproj.workflow.models.Arguments;
 import io.argoproj.workflow.models.ArtifactRepositoryRef;
 import io.argoproj.workflow.models.ExecutorConfig;
+import io.argoproj.workflow.models.K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec;
+import io.argoproj.workflow.models.Metrics;
 import io.argoproj.workflow.models.PodGC;
 import io.argoproj.workflow.models.TTLStrategy;
 import io.argoproj.workflow.models.Template;
@@ -88,6 +90,10 @@ public class WorkflowSpec {
   @SerializedName(SERIALIZED_NAME_IMAGE_PULL_SECRETS)
   private List<io.kubernetes.client.models.V1LocalObjectReference> imagePullSecrets = null;
 
+  public static final String SERIALIZED_NAME_METRICS = "metrics";
+  @SerializedName(SERIALIZED_NAME_METRICS)
+  private Metrics metrics;
+
   public static final String SERIALIZED_NAME_NODE_SELECTOR = "nodeSelector";
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR)
   private Map<String, String> nodeSelector = null;
@@ -99,6 +105,10 @@ public class WorkflowSpec {
   public static final String SERIALIZED_NAME_PARALLELISM = "parallelism";
   @SerializedName(SERIALIZED_NAME_PARALLELISM)
   private String parallelism;
+
+  public static final String SERIALIZED_NAME_POD_DISRUPTION_BUDGET = "podDisruptionBudget";
+  @SerializedName(SERIALIZED_NAME_POD_DISRUPTION_BUDGET)
+  private K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec podDisruptionBudget;
 
   public static final String SERIALIZED_NAME_POD_G_C = "podGC";
   @SerializedName(SERIALIZED_NAME_POD_G_C)
@@ -131,6 +141,10 @@ public class WorkflowSpec {
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_NAME = "serviceAccountName";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_NAME)
   private String serviceAccountName;
+
+  public static final String SERIALIZED_NAME_SHUTDOWN = "shutdown";
+  @SerializedName(SERIALIZED_NAME_SHUTDOWN)
+  private String shutdown;
 
   public static final String SERIALIZED_NAME_SUSPEND = "suspend";
   @SerializedName(SERIALIZED_NAME_SUSPEND)
@@ -329,11 +343,11 @@ public class WorkflowSpec {
   }
 
    /**
-   * Get entrypoint
+   * Entrypoint is a template reference to the starting point of the 
    * @return entrypoint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Entrypoint is a template reference to the starting point of the ")
 
   public String getEntrypoint() {
     return entrypoint;
@@ -453,6 +467,29 @@ public class WorkflowSpec {
   }
 
 
+  public WorkflowSpec metrics(Metrics metrics) {
+    
+    this.metrics = metrics;
+    return this;
+  }
+
+   /**
+   * Get metrics
+   * @return metrics
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Metrics getMetrics() {
+    return metrics;
+  }
+
+
+  public void setMetrics(Metrics metrics) {
+    this.metrics = metrics;
+  }
+
+
   public WorkflowSpec nodeSelector(Map<String, String> nodeSelector) {
     
     this.nodeSelector = nodeSelector;
@@ -527,6 +564,29 @@ public class WorkflowSpec {
 
   public void setParallelism(String parallelism) {
     this.parallelism = parallelism;
+  }
+
+
+  public WorkflowSpec podDisruptionBudget(K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec podDisruptionBudget) {
+    
+    this.podDisruptionBudget = podDisruptionBudget;
+    return this;
+  }
+
+   /**
+   * Get podDisruptionBudget
+   * @return podDisruptionBudget
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec getPodDisruptionBudget() {
+    return podDisruptionBudget;
+  }
+
+
+  public void setPodDisruptionBudget(K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec podDisruptionBudget) {
+    this.podDisruptionBudget = podDisruptionBudget;
   }
 
 
@@ -711,6 +771,29 @@ public class WorkflowSpec {
 
   public void setServiceAccountName(String serviceAccountName) {
     this.serviceAccountName = serviceAccountName;
+  }
+
+
+  public WorkflowSpec shutdown(String shutdown) {
+    
+    this.shutdown = shutdown;
+    return this;
+  }
+
+   /**
+   * Get shutdown
+   * @return shutdown
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getShutdown() {
+    return shutdown;
+  }
+
+
+  public void setShutdown(String shutdown) {
+    this.shutdown = shutdown;
   }
 
 
@@ -928,9 +1011,11 @@ public class WorkflowSpec {
         Objects.equals(this.hostAliases, workflowSpec.hostAliases) &&
         Objects.equals(this.hostNetwork, workflowSpec.hostNetwork) &&
         Objects.equals(this.imagePullSecrets, workflowSpec.imagePullSecrets) &&
+        Objects.equals(this.metrics, workflowSpec.metrics) &&
         Objects.equals(this.nodeSelector, workflowSpec.nodeSelector) &&
         Objects.equals(this.onExit, workflowSpec.onExit) &&
         Objects.equals(this.parallelism, workflowSpec.parallelism) &&
+        Objects.equals(this.podDisruptionBudget, workflowSpec.podDisruptionBudget) &&
         Objects.equals(this.podGC, workflowSpec.podGC) &&
         Objects.equals(this.podPriority, workflowSpec.podPriority) &&
         Objects.equals(this.podPriorityClassName, workflowSpec.podPriorityClassName) &&
@@ -939,6 +1024,7 @@ public class WorkflowSpec {
         Objects.equals(this.schedulerName, workflowSpec.schedulerName) &&
         Objects.equals(this.securityContext, workflowSpec.securityContext) &&
         Objects.equals(this.serviceAccountName, workflowSpec.serviceAccountName) &&
+        Objects.equals(this.shutdown, workflowSpec.shutdown) &&
         Objects.equals(this.suspend, workflowSpec.suspend) &&
         Objects.equals(this.templates, workflowSpec.templates) &&
         Objects.equals(this.tolerations, workflowSpec.tolerations) &&
@@ -950,7 +1036,7 @@ public class WorkflowSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, affinity, arguments, artifactRepositoryRef, automountServiceAccountToken, dnsConfig, dnsPolicy, entrypoint, executor, hostAliases, hostNetwork, imagePullSecrets, nodeSelector, onExit, parallelism, podGC, podPriority, podPriorityClassName, podSpecPatch, priority, schedulerName, securityContext, serviceAccountName, suspend, templates, tolerations, ttlSecondsAfterFinished, ttlStrategy, volumeClaimTemplates, volumes);
+    return Objects.hash(activeDeadlineSeconds, affinity, arguments, artifactRepositoryRef, automountServiceAccountToken, dnsConfig, dnsPolicy, entrypoint, executor, hostAliases, hostNetwork, imagePullSecrets, metrics, nodeSelector, onExit, parallelism, podDisruptionBudget, podGC, podPriority, podPriorityClassName, podSpecPatch, priority, schedulerName, securityContext, serviceAccountName, shutdown, suspend, templates, tolerations, ttlSecondsAfterFinished, ttlStrategy, volumeClaimTemplates, volumes);
   }
 
 
@@ -970,9 +1056,11 @@ public class WorkflowSpec {
     sb.append("    hostAliases: ").append(toIndentedString(hostAliases)).append("\n");
     sb.append("    hostNetwork: ").append(toIndentedString(hostNetwork)).append("\n");
     sb.append("    imagePullSecrets: ").append(toIndentedString(imagePullSecrets)).append("\n");
+    sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
     sb.append("    onExit: ").append(toIndentedString(onExit)).append("\n");
     sb.append("    parallelism: ").append(toIndentedString(parallelism)).append("\n");
+    sb.append("    podDisruptionBudget: ").append(toIndentedString(podDisruptionBudget)).append("\n");
     sb.append("    podGC: ").append(toIndentedString(podGC)).append("\n");
     sb.append("    podPriority: ").append(toIndentedString(podPriority)).append("\n");
     sb.append("    podPriorityClassName: ").append(toIndentedString(podPriorityClassName)).append("\n");
@@ -981,6 +1069,7 @@ public class WorkflowSpec {
     sb.append("    schedulerName: ").append(toIndentedString(schedulerName)).append("\n");
     sb.append("    securityContext: ").append(toIndentedString(securityContext)).append("\n");
     sb.append("    serviceAccountName: ").append(toIndentedString(serviceAccountName)).append("\n");
+    sb.append("    shutdown: ").append(toIndentedString(shutdown)).append("\n");
     sb.append("    suspend: ").append(toIndentedString(suspend)).append("\n");
     sb.append("    templates: ").append(toIndentedString(templates)).append("\n");
     sb.append("    tolerations: ").append(toIndentedString(tolerations)).append("\n");

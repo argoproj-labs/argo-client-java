@@ -24,6 +24,7 @@ import io.argoproj.workflow.models.ArtifactoryArtifact;
 import io.argoproj.workflow.models.GitArtifact;
 import io.argoproj.workflow.models.HDFSArtifact;
 import io.argoproj.workflow.models.HTTPArtifact;
+import io.argoproj.workflow.models.OSSArtifact;
 import io.argoproj.workflow.models.RawArtifact;
 import io.argoproj.workflow.models.S3Artifact;
 import io.swagger.annotations.ApiModel;
@@ -55,6 +56,10 @@ public class ArtifactLocation {
   public static final String SERIALIZED_NAME_HTTP = "http";
   @SerializedName(SERIALIZED_NAME_HTTP)
   private HTTPArtifact http;
+
+  public static final String SERIALIZED_NAME_OSS = "oss";
+  @SerializedName(SERIALIZED_NAME_OSS)
+  private OSSArtifact oss;
 
   public static final String SERIALIZED_NAME_RAW = "raw";
   @SerializedName(SERIALIZED_NAME_RAW)
@@ -180,6 +185,29 @@ public class ArtifactLocation {
   }
 
 
+  public ArtifactLocation oss(OSSArtifact oss) {
+    
+    this.oss = oss;
+    return this;
+  }
+
+   /**
+   * Get oss
+   * @return oss
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OSSArtifact getOss() {
+    return oss;
+  }
+
+
+  public void setOss(OSSArtifact oss) {
+    this.oss = oss;
+  }
+
+
   public ArtifactLocation raw(RawArtifact raw) {
     
     this.raw = raw;
@@ -240,13 +268,14 @@ public class ArtifactLocation {
         Objects.equals(this.git, artifactLocation.git) &&
         Objects.equals(this.hdfs, artifactLocation.hdfs) &&
         Objects.equals(this.http, artifactLocation.http) &&
+        Objects.equals(this.oss, artifactLocation.oss) &&
         Objects.equals(this.raw, artifactLocation.raw) &&
         Objects.equals(this.s3, artifactLocation.s3);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(archiveLogs, artifactory, git, hdfs, http, raw, s3);
+    return Objects.hash(archiveLogs, artifactory, git, hdfs, http, oss, raw, s3);
   }
 
 
@@ -259,6 +288,7 @@ public class ArtifactLocation {
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    hdfs: ").append(toIndentedString(hdfs)).append("\n");
     sb.append("    http: ").append(toIndentedString(http)).append("\n");
+    sb.append("    oss: ").append(toIndentedString(oss)).append("\n");
     sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
     sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
     sb.append("}");

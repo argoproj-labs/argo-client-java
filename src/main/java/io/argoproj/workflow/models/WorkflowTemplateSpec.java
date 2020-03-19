@@ -20,13 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.argoproj.workflow.models.Arguments;
-import io.argoproj.workflow.models.Template;
+import io.argoproj.workflow.models.WorkflowSpec;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * WorkflowTemplateSpec is a spec of WorkflowTemplate.
@@ -34,66 +31,31 @@ import java.util.List;
 @ApiModel(description = "WorkflowTemplateSpec is a spec of WorkflowTemplate.")
 
 public class WorkflowTemplateSpec {
-  public static final String SERIALIZED_NAME_ARGUMENTS = "arguments";
-  @SerializedName(SERIALIZED_NAME_ARGUMENTS)
-  private Arguments arguments;
-
-  public static final String SERIALIZED_NAME_TEMPLATES = "templates";
-  @SerializedName(SERIALIZED_NAME_TEMPLATES)
-  private List<Template> templates = null;
+  public static final String SERIALIZED_NAME_WORKFLOW_SPEC = "workflowSpec";
+  @SerializedName(SERIALIZED_NAME_WORKFLOW_SPEC)
+  private WorkflowSpec workflowSpec;
 
 
-  public WorkflowTemplateSpec arguments(Arguments arguments) {
+  public WorkflowTemplateSpec workflowSpec(WorkflowSpec workflowSpec) {
     
-    this.arguments = arguments;
+    this.workflowSpec = workflowSpec;
     return this;
   }
 
    /**
-   * Get arguments
-   * @return arguments
+   * Get workflowSpec
+   * @return workflowSpec
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Arguments getArguments() {
-    return arguments;
+  public WorkflowSpec getWorkflowSpec() {
+    return workflowSpec;
   }
 
 
-  public void setArguments(Arguments arguments) {
-    this.arguments = arguments;
-  }
-
-
-  public WorkflowTemplateSpec templates(List<Template> templates) {
-    
-    this.templates = templates;
-    return this;
-  }
-
-  public WorkflowTemplateSpec addTemplatesItem(Template templatesItem) {
-    if (this.templates == null) {
-      this.templates = new ArrayList<Template>();
-    }
-    this.templates.add(templatesItem);
-    return this;
-  }
-
-   /**
-   * Templates is a list of workflow templates.
-   * @return templates
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Templates is a list of workflow templates.")
-
-  public List<Template> getTemplates() {
-    return templates;
-  }
-
-
-  public void setTemplates(List<Template> templates) {
-    this.templates = templates;
+  public void setWorkflowSpec(WorkflowSpec workflowSpec) {
+    this.workflowSpec = workflowSpec;
   }
 
 
@@ -106,13 +68,12 @@ public class WorkflowTemplateSpec {
       return false;
     }
     WorkflowTemplateSpec workflowTemplateSpec = (WorkflowTemplateSpec) o;
-    return Objects.equals(this.arguments, workflowTemplateSpec.arguments) &&
-        Objects.equals(this.templates, workflowTemplateSpec.templates);
+    return Objects.equals(this.workflowSpec, workflowTemplateSpec.workflowSpec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arguments, templates);
+    return Objects.hash(workflowSpec);
   }
 
 
@@ -120,8 +81,7 @@ public class WorkflowTemplateSpec {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkflowTemplateSpec {\n");
-    sb.append("    arguments: ").append(toIndentedString(arguments)).append("\n");
-    sb.append("    templates: ").append(toIndentedString(templates)).append("\n");
+    sb.append("    workflowSpec: ").append(toIndentedString(workflowSpec)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -58,6 +58,10 @@ public class CronWorkflowSpec {
   @SerializedName(SERIALIZED_NAME_TIMEZONE)
   private String timezone;
 
+  public static final String SERIALIZED_NAME_WORKFLOW_META = "workflowMeta";
+  @SerializedName(SERIALIZED_NAME_WORKFLOW_META)
+  private io.kubernetes.client.models.V1ObjectMeta workflowMeta;
+
   public static final String SERIALIZED_NAME_WORKFLOW_SPEC = "workflowSpec";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_SPEC)
   private WorkflowSpec workflowSpec;
@@ -224,6 +228,29 @@ public class CronWorkflowSpec {
   }
 
 
+  public CronWorkflowSpec workflowMeta(io.kubernetes.client.models.V1ObjectMeta workflowMeta) {
+    
+    this.workflowMeta = workflowMeta;
+    return this;
+  }
+
+   /**
+   * Get workflowMeta
+   * @return workflowMeta
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public io.kubernetes.client.models.V1ObjectMeta getWorkflowMeta() {
+    return workflowMeta;
+  }
+
+
+  public void setWorkflowMeta(io.kubernetes.client.models.V1ObjectMeta workflowMeta) {
+    this.workflowMeta = workflowMeta;
+  }
+
+
   public CronWorkflowSpec workflowSpec(WorkflowSpec workflowSpec) {
     
     this.workflowSpec = workflowSpec;
@@ -263,12 +290,13 @@ public class CronWorkflowSpec {
         Objects.equals(this.successfulJobsHistoryLimit, cronWorkflowSpec.successfulJobsHistoryLimit) &&
         Objects.equals(this.suspend, cronWorkflowSpec.suspend) &&
         Objects.equals(this.timezone, cronWorkflowSpec.timezone) &&
+        Objects.equals(this.workflowMeta, cronWorkflowSpec.workflowMeta) &&
         Objects.equals(this.workflowSpec, cronWorkflowSpec.workflowSpec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(concurrencyPolicy, failedJobsHistoryLimit, schedule, startingDeadlineSeconds, successfulJobsHistoryLimit, suspend, timezone, workflowSpec);
+    return Objects.hash(concurrencyPolicy, failedJobsHistoryLimit, schedule, startingDeadlineSeconds, successfulJobsHistoryLimit, suspend, timezone, workflowMeta, workflowSpec);
   }
 
 
@@ -283,6 +311,7 @@ public class CronWorkflowSpec {
     sb.append("    successfulJobsHistoryLimit: ").append(toIndentedString(successfulJobsHistoryLimit)).append("\n");
     sb.append("    suspend: ").append(toIndentedString(suspend)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
+    sb.append("    workflowMeta: ").append(toIndentedString(workflowMeta)).append("\n");
     sb.append("    workflowSpec: ").append(toIndentedString(workflowSpec)).append("\n");
     sb.append("}");
     return sb.toString();
