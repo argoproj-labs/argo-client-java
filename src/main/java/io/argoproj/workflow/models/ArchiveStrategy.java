@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.argoproj.workflow.models.TarStrategy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class ArchiveStrategy {
 
   public static final String SERIALIZED_NAME_TAR = "tar";
   @SerializedName(SERIALIZED_NAME_TAR)
-  private Object tar;
+  private TarStrategy tar;
 
 
   public ArchiveStrategy none(Object none) {
@@ -61,7 +62,7 @@ public class ArchiveStrategy {
   }
 
 
-  public ArchiveStrategy tar(Object tar) {
+  public ArchiveStrategy tar(TarStrategy tar) {
     
     this.tar = tar;
     return this;
@@ -74,12 +75,12 @@ public class ArchiveStrategy {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getTar() {
+  public TarStrategy getTar() {
     return tar;
   }
 
 
-  public void setTar(Object tar) {
+  public void setTar(TarStrategy tar) {
     this.tar = tar;
   }
 

@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "TemplateRef is a reference of template resource.")
 
 public class TemplateRef {
+  public static final String SERIALIZED_NAME_CLUSTERSCOPE = "clusterscope";
+  @SerializedName(SERIALIZED_NAME_CLUSTERSCOPE)
+  private Boolean clusterscope;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -41,6 +45,29 @@ public class TemplateRef {
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
   private String template;
+
+
+  public TemplateRef clusterscope(Boolean clusterscope) {
+    
+    this.clusterscope = clusterscope;
+    return this;
+  }
+
+   /**
+   * ClusterScope indicates the referred template is cluster scoped (i.e., a ClusterWorkflowTemplate).
+   * @return clusterscope
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ClusterScope indicates the referred template is cluster scoped (i.e., a ClusterWorkflowTemplate).")
+
+  public Boolean getClusterscope() {
+    return clusterscope;
+  }
+
+
+  public void setClusterscope(Boolean clusterscope) {
+    this.clusterscope = clusterscope;
+  }
 
 
   public TemplateRef name(String name) {
@@ -121,14 +148,15 @@ public class TemplateRef {
       return false;
     }
     TemplateRef templateRef = (TemplateRef) o;
-    return Objects.equals(this.name, templateRef.name) &&
+    return Objects.equals(this.clusterscope, templateRef.clusterscope) &&
+        Objects.equals(this.name, templateRef.name) &&
         Objects.equals(this.runtimeResolution, templateRef.runtimeResolution) &&
         Objects.equals(this.template, templateRef.template);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, runtimeResolution, template);
+    return Objects.hash(clusterscope, name, runtimeResolution, template);
   }
 
 
@@ -136,6 +164,7 @@ public class TemplateRef {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateRef {\n");
+    sb.append("    clusterscope: ").append(toIndentedString(clusterscope)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    runtimeResolution: ").append(toIndentedString(runtimeResolution)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");

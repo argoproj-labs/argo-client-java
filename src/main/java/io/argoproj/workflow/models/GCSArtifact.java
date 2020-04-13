@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -20,67 +20,68 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.argoproj.workflow.models.GCSBucket;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Condition
+ * GCSArtifact
  */
 
-public class Condition {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
+public class GCSArtifact {
+  public static final String SERIALIZED_NAME_G_C_S_BUCKET = "gCSBucket";
+  @SerializedName(SERIALIZED_NAME_G_C_S_BUCKET)
+  private GCSBucket gCSBucket;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
 
 
-  public Condition status(String status) {
+  public GCSArtifact gCSBucket(GCSBucket gCSBucket) {
     
-    this.status = status;
+    this.gCSBucket = gCSBucket;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get gCSBucket
+   * @return gCSBucket
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getStatus() {
-    return status;
+  public GCSBucket getgCSBucket() {
+    return gCSBucket;
   }
 
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setgCSBucket(GCSBucket gCSBucket) {
+    this.gCSBucket = gCSBucket;
   }
 
 
-  public Condition type(String type) {
+  public GCSArtifact key(String key) {
     
-    this.type = type;
+    this.key = key;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get key
+   * @return key
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getType() {
-    return type;
+  public String getKey() {
+    return key;
   }
 
 
-  public void setType(String type) {
-    this.type = type;
+  public void setKey(String key) {
+    this.key = key;
   }
 
 
@@ -92,23 +93,23 @@ public class Condition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Condition condition = (Condition) o;
-    return Objects.equals(this.status, condition.status) &&
-        Objects.equals(this.type, condition.type);
+    GCSArtifact gcSArtifact = (GCSArtifact) o;
+    return Objects.equals(this.gCSBucket, gcSArtifact.gCSBucket) &&
+        Objects.equals(this.key, gcSArtifact.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, type);
+    return Objects.hash(gCSBucket, key);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Condition {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class GCSArtifact {\n");
+    sb.append("    gCSBucket: ").append(toIndentedString(gCSBucket)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.argoproj.workflow.models.Arguments;
 import io.argoproj.workflow.models.ArtifactRepositoryRef;
 import io.argoproj.workflow.models.ExecutorConfig;
-import io.argoproj.workflow.models.K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec;
 import io.argoproj.workflow.models.Metrics;
 import io.argoproj.workflow.models.PodGC;
 import io.argoproj.workflow.models.TTLStrategy;
@@ -108,7 +107,7 @@ public class WorkflowSpec {
 
   public static final String SERIALIZED_NAME_POD_DISRUPTION_BUDGET = "podDisruptionBudget";
   @SerializedName(SERIALIZED_NAME_POD_DISRUPTION_BUDGET)
-  private K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec podDisruptionBudget;
+  private io.kubernetes.client.models.V1beta1PodDisruptionBudgetSpec podDisruptionBudget;
 
   public static final String SERIALIZED_NAME_POD_G_C = "podGC";
   @SerializedName(SERIALIZED_NAME_POD_G_C)
@@ -567,7 +566,7 @@ public class WorkflowSpec {
   }
 
 
-  public WorkflowSpec podDisruptionBudget(K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec podDisruptionBudget) {
+  public WorkflowSpec podDisruptionBudget(io.kubernetes.client.models.V1beta1PodDisruptionBudgetSpec podDisruptionBudget) {
     
     this.podDisruptionBudget = podDisruptionBudget;
     return this;
@@ -580,12 +579,12 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec getPodDisruptionBudget() {
+  public io.kubernetes.client.models.V1beta1PodDisruptionBudgetSpec getPodDisruptionBudget() {
     return podDisruptionBudget;
   }
 
 
-  public void setPodDisruptionBudget(K8sIoApiPolicyV1beta1PodDisruptionBudgetSpec podDisruptionBudget) {
+  public void setPodDisruptionBudget(io.kubernetes.client.models.V1beta1PodDisruptionBudgetSpec podDisruptionBudget) {
     this.podDisruptionBudget = podDisruptionBudget;
   }
 

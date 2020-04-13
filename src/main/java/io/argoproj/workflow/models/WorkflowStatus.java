@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -20,10 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.argoproj.workflow.models.Condition;
 import io.argoproj.workflow.models.NodeStatus;
 import io.argoproj.workflow.models.Outputs;
 import io.argoproj.workflow.models.Template;
+import io.argoproj.workflow.models.WorkflowCondition;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -41,9 +41,9 @@ public class WorkflowStatus {
   @SerializedName(SERIALIZED_NAME_COMPRESSED_NODES)
   private String compressedNodes;
 
-  public static final String SERIALIZED_NAME_CONDITION = "condition";
-  @SerializedName(SERIALIZED_NAME_CONDITION)
-  private List<Condition> condition = null;
+  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+  @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  private List<WorkflowCondition> conditions = null;
 
   public static final String SERIALIZED_NAME_FINISHED_AT = "finishedAt";
   @SerializedName(SERIALIZED_NAME_FINISHED_AT)
@@ -72,6 +72,10 @@ public class WorkflowStatus {
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
   private String phase;
+
+  public static final String SERIALIZED_NAME_RESOURCES_DURATION = "resourcesDuration";
+  @SerializedName(SERIALIZED_NAME_RESOURCES_DURATION)
+  private Map<String, String> resourcesDuration = null;
 
   public static final String SERIALIZED_NAME_STARTED_AT = "startedAt";
   @SerializedName(SERIALIZED_NAME_STARTED_AT)
@@ -105,34 +109,34 @@ public class WorkflowStatus {
   }
 
 
-  public WorkflowStatus condition(List<Condition> condition) {
+  public WorkflowStatus conditions(List<WorkflowCondition> conditions) {
     
-    this.condition = condition;
+    this.conditions = conditions;
     return this;
   }
 
-  public WorkflowStatus addConditionItem(Condition conditionItem) {
-    if (this.condition == null) {
-      this.condition = new ArrayList<Condition>();
+  public WorkflowStatus addConditionsItem(WorkflowCondition conditionsItem) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList<WorkflowCondition>();
     }
-    this.condition.add(conditionItem);
+    this.conditions.add(conditionsItem);
     return this;
   }
 
    /**
-   * Get condition
-   * @return condition
+   * Get conditions
+   * @return conditions
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Condition> getCondition() {
-    return condition;
+  public List<WorkflowCondition> getConditions() {
+    return conditions;
   }
 
 
-  public void setCondition(List<Condition> condition) {
-    this.condition = condition;
+  public void setConditions(List<WorkflowCondition> conditions) {
+    this.conditions = conditions;
   }
 
 
@@ -313,6 +317,37 @@ public class WorkflowStatus {
   }
 
 
+  public WorkflowStatus resourcesDuration(Map<String, String> resourcesDuration) {
+    
+    this.resourcesDuration = resourcesDuration;
+    return this;
+  }
+
+  public WorkflowStatus putResourcesDurationItem(String key, String resourcesDurationItem) {
+    if (this.resourcesDuration == null) {
+      this.resourcesDuration = new HashMap<String, String>();
+    }
+    this.resourcesDuration.put(key, resourcesDurationItem);
+    return this;
+  }
+
+   /**
+   * Get resourcesDuration
+   * @return resourcesDuration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, String> getResourcesDuration() {
+    return resourcesDuration;
+  }
+
+
+  public void setResourcesDuration(Map<String, String> resourcesDuration) {
+    this.resourcesDuration = resourcesDuration;
+  }
+
+
   public WorkflowStatus startedAt(org.joda.time.DateTime startedAt) {
     
     this.startedAt = startedAt;
@@ -377,7 +412,7 @@ public class WorkflowStatus {
     }
     WorkflowStatus workflowStatus = (WorkflowStatus) o;
     return Objects.equals(this.compressedNodes, workflowStatus.compressedNodes) &&
-        Objects.equals(this.condition, workflowStatus.condition) &&
+        Objects.equals(this.conditions, workflowStatus.conditions) &&
         Objects.equals(this.finishedAt, workflowStatus.finishedAt) &&
         Objects.equals(this.message, workflowStatus.message) &&
         Objects.equals(this.nodes, workflowStatus.nodes) &&
@@ -385,13 +420,14 @@ public class WorkflowStatus {
         Objects.equals(this.outputs, workflowStatus.outputs) &&
         Objects.equals(this.persistentVolumeClaims, workflowStatus.persistentVolumeClaims) &&
         Objects.equals(this.phase, workflowStatus.phase) &&
+        Objects.equals(this.resourcesDuration, workflowStatus.resourcesDuration) &&
         Objects.equals(this.startedAt, workflowStatus.startedAt) &&
         Objects.equals(this.storedTemplates, workflowStatus.storedTemplates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compressedNodes, condition, finishedAt, message, nodes, offloadNodeStatusVersion, outputs, persistentVolumeClaims, phase, startedAt, storedTemplates);
+    return Objects.hash(compressedNodes, conditions, finishedAt, message, nodes, offloadNodeStatusVersion, outputs, persistentVolumeClaims, phase, resourcesDuration, startedAt, storedTemplates);
   }
 
 
@@ -400,7 +436,7 @@ public class WorkflowStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkflowStatus {\n");
     sb.append("    compressedNodes: ").append(toIndentedString(compressedNodes)).append("\n");
-    sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
@@ -408,6 +444,7 @@ public class WorkflowStatus {
     sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
     sb.append("    persistentVolumeClaims: ").append(toIndentedString(persistentVolumeClaims)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
+    sb.append("    resourcesDuration: ").append(toIndentedString(resourcesDuration)).append("\n");
     sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    storedTemplates: ").append(toIndentedString(storedTemplates)).append("\n");
     sb.append("}");

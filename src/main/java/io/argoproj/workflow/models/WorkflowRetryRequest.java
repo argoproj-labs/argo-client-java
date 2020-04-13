@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -36,6 +36,14 @@ public class WorkflowRetryRequest {
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
   private String namespace;
+
+  public static final String SERIALIZED_NAME_NODE_FIELD_SELECTOR = "nodeFieldSelector";
+  @SerializedName(SERIALIZED_NAME_NODE_FIELD_SELECTOR)
+  private String nodeFieldSelector;
+
+  public static final String SERIALIZED_NAME_RESTART_SUCCESFUL = "restartSuccesful";
+  @SerializedName(SERIALIZED_NAME_RESTART_SUCCESFUL)
+  private Boolean restartSuccesful;
 
 
   public WorkflowRetryRequest name(String name) {
@@ -84,6 +92,52 @@ public class WorkflowRetryRequest {
   }
 
 
+  public WorkflowRetryRequest nodeFieldSelector(String nodeFieldSelector) {
+    
+    this.nodeFieldSelector = nodeFieldSelector;
+    return this;
+  }
+
+   /**
+   * Get nodeFieldSelector
+   * @return nodeFieldSelector
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getNodeFieldSelector() {
+    return nodeFieldSelector;
+  }
+
+
+  public void setNodeFieldSelector(String nodeFieldSelector) {
+    this.nodeFieldSelector = nodeFieldSelector;
+  }
+
+
+  public WorkflowRetryRequest restartSuccesful(Boolean restartSuccesful) {
+    
+    this.restartSuccesful = restartSuccesful;
+    return this;
+  }
+
+   /**
+   * Get restartSuccesful
+   * @return restartSuccesful
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getRestartSuccesful() {
+    return restartSuccesful;
+  }
+
+
+  public void setRestartSuccesful(Boolean restartSuccesful) {
+    this.restartSuccesful = restartSuccesful;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -94,12 +148,14 @@ public class WorkflowRetryRequest {
     }
     WorkflowRetryRequest workflowRetryRequest = (WorkflowRetryRequest) o;
     return Objects.equals(this.name, workflowRetryRequest.name) &&
-        Objects.equals(this.namespace, workflowRetryRequest.namespace);
+        Objects.equals(this.namespace, workflowRetryRequest.namespace) &&
+        Objects.equals(this.nodeFieldSelector, workflowRetryRequest.nodeFieldSelector) &&
+        Objects.equals(this.restartSuccesful, workflowRetryRequest.restartSuccesful);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, namespace);
+    return Objects.hash(name, namespace, nodeFieldSelector, restartSuccesful);
   }
 
 
@@ -109,6 +165,8 @@ public class WorkflowRetryRequest {
     sb.append("class WorkflowRetryRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    nodeFieldSelector: ").append(toIndentedString(nodeFieldSelector)).append("\n");
+    sb.append("    restartSuccesful: ").append(toIndentedString(restartSuccesful)).append("\n");
     sb.append("}");
     return sb.toString();
   }

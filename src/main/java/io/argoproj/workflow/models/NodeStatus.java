@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -27,7 +27,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * NodeStatus
@@ -85,6 +87,10 @@ public class NodeStatus {
   public static final String SERIALIZED_NAME_POD_I_P = "podIP";
   @SerializedName(SERIALIZED_NAME_POD_I_P)
   private String podIP;
+
+  public static final String SERIALIZED_NAME_RESOURCES_DURATION = "resourcesDuration";
+  @SerializedName(SERIALIZED_NAME_RESOURCES_DURATION)
+  private Map<String, String> resourcesDuration = null;
 
   public static final String SERIALIZED_NAME_STARTED_AT = "startedAt";
   @SerializedName(SERIALIZED_NAME_STARTED_AT)
@@ -430,6 +436,37 @@ public class NodeStatus {
   }
 
 
+  public NodeStatus resourcesDuration(Map<String, String> resourcesDuration) {
+    
+    this.resourcesDuration = resourcesDuration;
+    return this;
+  }
+
+  public NodeStatus putResourcesDurationItem(String key, String resourcesDurationItem) {
+    if (this.resourcesDuration == null) {
+      this.resourcesDuration = new HashMap<String, String>();
+    }
+    this.resourcesDuration.put(key, resourcesDurationItem);
+    return this;
+  }
+
+   /**
+   * ResourcesDuration is indicative, but not accurate, resource duration. This is populated when the nodes completes.
+   * @return resourcesDuration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ResourcesDuration is indicative, but not accurate, resource duration. This is populated when the nodes completes.")
+
+  public Map<String, String> getResourcesDuration() {
+    return resourcesDuration;
+  }
+
+
+  public void setResourcesDuration(Map<String, String> resourcesDuration) {
+    this.resourcesDuration = resourcesDuration;
+  }
+
+
   public NodeStatus startedAt(org.joda.time.DateTime startedAt) {
     
     this.startedAt = startedAt;
@@ -613,6 +650,7 @@ public class NodeStatus {
         Objects.equals(this.outputs, nodeStatus.outputs) &&
         Objects.equals(this.phase, nodeStatus.phase) &&
         Objects.equals(this.podIP, nodeStatus.podIP) &&
+        Objects.equals(this.resourcesDuration, nodeStatus.resourcesDuration) &&
         Objects.equals(this.startedAt, nodeStatus.startedAt) &&
         Objects.equals(this.storedTemplateID, nodeStatus.storedTemplateID) &&
         Objects.equals(this.templateName, nodeStatus.templateName) &&
@@ -624,7 +662,7 @@ public class NodeStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(boundaryID, children, daemoned, displayName, finishedAt, id, inputs, message, name, outboundNodes, outputs, phase, podIP, startedAt, storedTemplateID, templateName, templateRef, templateScope, type, workflowTemplateName);
+    return Objects.hash(boundaryID, children, daemoned, displayName, finishedAt, id, inputs, message, name, outboundNodes, outputs, phase, podIP, resourcesDuration, startedAt, storedTemplateID, templateName, templateRef, templateScope, type, workflowTemplateName);
   }
 
 
@@ -645,6 +683,7 @@ public class NodeStatus {
     sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
     sb.append("    podIP: ").append(toIndentedString(podIP)).append("\n");
+    sb.append("    resourcesDuration: ").append(toIndentedString(resourcesDuration)).append("\n");
     sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    storedTemplateID: ").append(toIndentedString(storedTemplateID)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");

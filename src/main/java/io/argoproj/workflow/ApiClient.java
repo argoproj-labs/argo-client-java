@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -99,7 +99,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/1-SNAPSHOT/java");
+        setUserAgent("OpenAPI-Generator/v2.7.2/java");
 
         authentications = new HashMap<String, Authentication>();
     }

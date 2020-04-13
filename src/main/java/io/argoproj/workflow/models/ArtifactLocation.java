@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.argoproj.workflow.models.ArtifactoryArtifact;
+import io.argoproj.workflow.models.GCSArtifact;
 import io.argoproj.workflow.models.GitArtifact;
 import io.argoproj.workflow.models.HDFSArtifact;
 import io.argoproj.workflow.models.HTTPArtifact;
@@ -44,6 +45,10 @@ public class ArtifactLocation {
   public static final String SERIALIZED_NAME_ARTIFACTORY = "artifactory";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY)
   private ArtifactoryArtifact artifactory;
+
+  public static final String SERIALIZED_NAME_GCS = "gcs";
+  @SerializedName(SERIALIZED_NAME_GCS)
+  private GCSArtifact gcs;
 
   public static final String SERIALIZED_NAME_GIT = "git";
   @SerializedName(SERIALIZED_NAME_GIT)
@@ -113,6 +118,29 @@ public class ArtifactLocation {
 
   public void setArtifactory(ArtifactoryArtifact artifactory) {
     this.artifactory = artifactory;
+  }
+
+
+  public ArtifactLocation gcs(GCSArtifact gcs) {
+    
+    this.gcs = gcs;
+    return this;
+  }
+
+   /**
+   * Get gcs
+   * @return gcs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public GCSArtifact getGcs() {
+    return gcs;
+  }
+
+
+  public void setGcs(GCSArtifact gcs) {
+    this.gcs = gcs;
   }
 
 
@@ -265,6 +293,7 @@ public class ArtifactLocation {
     ArtifactLocation artifactLocation = (ArtifactLocation) o;
     return Objects.equals(this.archiveLogs, artifactLocation.archiveLogs) &&
         Objects.equals(this.artifactory, artifactLocation.artifactory) &&
+        Objects.equals(this.gcs, artifactLocation.gcs) &&
         Objects.equals(this.git, artifactLocation.git) &&
         Objects.equals(this.hdfs, artifactLocation.hdfs) &&
         Objects.equals(this.http, artifactLocation.http) &&
@@ -275,7 +304,7 @@ public class ArtifactLocation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(archiveLogs, artifactory, git, hdfs, http, oss, raw, s3);
+    return Objects.hash(archiveLogs, artifactory, gcs, git, hdfs, http, oss, raw, s3);
   }
 
 
@@ -285,6 +314,7 @@ public class ArtifactLocation {
     sb.append("class ArtifactLocation {\n");
     sb.append("    archiveLogs: ").append(toIndentedString(archiveLogs)).append("\n");
     sb.append("    artifactory: ").append(toIndentedString(artifactory)).append("\n");
+    sb.append("    gcs: ").append(toIndentedString(gcs)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    hdfs: ").append(toIndentedString(hdfs)).append("\n");
     sb.append("    http: ").append(toIndentedString(http)).append("\n");

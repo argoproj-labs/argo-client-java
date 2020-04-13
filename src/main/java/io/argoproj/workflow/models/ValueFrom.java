@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 
 public class ValueFrom {
+  public static final String SERIALIZED_NAME_DEFAULT = "default";
+  @SerializedName(SERIALIZED_NAME_DEFAULT)
+  private String _default;
+
   public static final String SERIALIZED_NAME_JQ_FILTER = "jqFilter";
   @SerializedName(SERIALIZED_NAME_JQ_FILTER)
   private String jqFilter;
@@ -44,6 +48,29 @@ public class ValueFrom {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+
+  public ValueFrom _default(String _default) {
+    
+    this._default = _default;
+    return this;
+  }
+
+   /**
+   * Get _default
+   * @return _default
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getDefault() {
+    return _default;
+  }
+
+
+  public void setDefault(String _default) {
+    this._default = _default;
+  }
 
 
   public ValueFrom jqFilter(String jqFilter) {
@@ -147,7 +174,8 @@ public class ValueFrom {
       return false;
     }
     ValueFrom valueFrom = (ValueFrom) o;
-    return Objects.equals(this.jqFilter, valueFrom.jqFilter) &&
+    return Objects.equals(this._default, valueFrom._default) &&
+        Objects.equals(this.jqFilter, valueFrom.jqFilter) &&
         Objects.equals(this.jsonPath, valueFrom.jsonPath) &&
         Objects.equals(this.parameter, valueFrom.parameter) &&
         Objects.equals(this.path, valueFrom.path);
@@ -155,7 +183,7 @@ public class ValueFrom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jqFilter, jsonPath, parameter, path);
+    return Objects.hash(_default, jqFilter, jsonPath, parameter, path);
   }
 
 
@@ -163,6 +191,7 @@ public class ValueFrom {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValueFrom {\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    jqFilter: ").append(toIndentedString(jqFilter)).append("\n");
     sb.append("    jsonPath: ").append(toIndentedString(jsonPath)).append("\n");
     sb.append("    parameter: ").append(toIndentedString(parameter)).append("\n");

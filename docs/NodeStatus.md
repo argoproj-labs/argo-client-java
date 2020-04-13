@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **outputs** | [**Outputs**](Outputs.md) |  |  [optional]
 **phase** | **String** | Phase a simple, high-level summary of where the node is in its lifecycle. Can be used as a state machine. |  [optional]
 **podIP** | **String** |  |  [optional]
+**resourcesDuration** | **Map&lt;String, String&gt;** | ResourcesDuration is indicative, but not accurate, resource duration. This is populated when the nodes completes. |  [optional]
 **startedAt** | [**org.joda.time.DateTime**](org.joda.time.DateTime.md) |  |  [optional]
 **storedTemplateID** | **String** | StoredTemplateID is the ID of stored template. DEPRECATED: This value is not used anymore. |  [optional]
 **templateName** | **String** |  |  [optional]

@@ -1,6 +1,6 @@
 /*
  * Argo
- * Workflow Service API performs CRUD actions against application resources
+ * Argo
  *
  * The version of the OpenAPI document: latest
  * 
@@ -36,6 +36,10 @@ public class WorkflowResumeRequest {
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
   private String namespace;
+
+  public static final String SERIALIZED_NAME_NODE_FIELD_SELECTOR = "nodeFieldSelector";
+  @SerializedName(SERIALIZED_NAME_NODE_FIELD_SELECTOR)
+  private String nodeFieldSelector;
 
 
   public WorkflowResumeRequest name(String name) {
@@ -84,6 +88,29 @@ public class WorkflowResumeRequest {
   }
 
 
+  public WorkflowResumeRequest nodeFieldSelector(String nodeFieldSelector) {
+    
+    this.nodeFieldSelector = nodeFieldSelector;
+    return this;
+  }
+
+   /**
+   * Get nodeFieldSelector
+   * @return nodeFieldSelector
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getNodeFieldSelector() {
+    return nodeFieldSelector;
+  }
+
+
+  public void setNodeFieldSelector(String nodeFieldSelector) {
+    this.nodeFieldSelector = nodeFieldSelector;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -94,12 +121,13 @@ public class WorkflowResumeRequest {
     }
     WorkflowResumeRequest workflowResumeRequest = (WorkflowResumeRequest) o;
     return Objects.equals(this.name, workflowResumeRequest.name) &&
-        Objects.equals(this.namespace, workflowResumeRequest.namespace);
+        Objects.equals(this.namespace, workflowResumeRequest.namespace) &&
+        Objects.equals(this.nodeFieldSelector, workflowResumeRequest.nodeFieldSelector);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, namespace);
+    return Objects.hash(name, namespace, nodeFieldSelector);
   }
 
 
@@ -109,6 +137,7 @@ public class WorkflowResumeRequest {
     sb.append("class WorkflowResumeRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    nodeFieldSelector: ").append(toIndentedString(nodeFieldSelector)).append("\n");
     sb.append("}");
     return sb.toString();
   }
