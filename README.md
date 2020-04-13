@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
  - [ObjectFieldSelector](docs/ObjectFieldSelector.md)
  - [Outputs](docs/Outputs.md)
  - [OwnerReference](docs/OwnerReference.md)
+ - [ParallelSteps](docs/ParallelSteps.md)
  - [Parameter](docs/Parameter.md)
  - [PersistentVolumeClaimCondition](docs/PersistentVolumeClaimCondition.md)
  - [PersistentVolumeClaimSpec](docs/PersistentVolumeClaimSpec.md)

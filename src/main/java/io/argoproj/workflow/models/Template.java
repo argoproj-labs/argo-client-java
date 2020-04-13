@@ -28,13 +28,13 @@ import io.argoproj.workflow.models.Inputs;
 import io.argoproj.workflow.models.Metadata;
 import io.argoproj.workflow.models.Metrics;
 import io.argoproj.workflow.models.Outputs;
+import io.argoproj.workflow.models.ParallelSteps;
 import io.argoproj.workflow.models.ResourceTemplate;
 import io.argoproj.workflow.models.RetryStrategy;
 import io.argoproj.workflow.models.ScriptTemplate;
 import io.argoproj.workflow.models.SuspendTemplate;
 import io.argoproj.workflow.models.TemplateRef;
 import io.argoproj.workflow.models.UserContainer;
-import io.argoproj.workflow.models.WorkflowStep;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -166,7 +166,7 @@ public class Template {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private List<List<WorkflowStep>> steps = null;
+  private List<ParallelSteps> steps = null;
 
   public static final String SERIALIZED_NAME_SUSPEND = "suspend";
   @SerializedName(SERIALIZED_NAME_SUSPEND)
@@ -888,15 +888,15 @@ public class Template {
   }
 
 
-  public Template steps(List<List<WorkflowStep>> steps) {
+  public Template steps(List<ParallelSteps> steps) {
     
     this.steps = steps;
     return this;
   }
 
-  public Template addStepsItem(List<WorkflowStep> stepsItem) {
+  public Template addStepsItem(ParallelSteps stepsItem) {
     if (this.steps == null) {
-      this.steps = new ArrayList<List>();
+      this.steps = new ArrayList<ParallelSteps>();
     }
     this.steps.add(stepsItem);
     return this;
@@ -909,12 +909,12 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<List<WorkflowStep>> getSteps() {
+  public List<ParallelSteps> getSteps() {
     return steps;
   }
 
 
-  public void setSteps(List<List<WorkflowStep>> steps) {
+  public void setSteps(List<ParallelSteps> steps) {
     this.steps = steps;
   }
 

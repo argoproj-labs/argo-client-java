@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **securityContext** | [**io.kubernetes.client.models.V1PodSecurityContext**](io.kubernetes.client.models.V1PodSecurityContext.md) |  |  [optional]
 **serviceAccountName** | **String** |  |  [optional]
 **sidecars** | [**List&lt;UserContainer&gt;**](UserContainer.md) |  |  [optional]
-**steps** | [**List&lt;List&lt;WorkflowStep&gt;&gt;**](List.md) |  |  [optional]
+**steps** | [**List&lt;ParallelSteps&gt;**](ParallelSteps.md) |  |  [optional]
 **suspend** | [**SuspendTemplate**](SuspendTemplate.md) |  |  [optional]
 **template** | **String** | Template is the name of the template which is used as the base of this template. DEPRECATED: This field is not used. |  [optional]
 **templateRef** | [**TemplateRef**](TemplateRef.md) |  |  [optional]
