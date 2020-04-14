@@ -118,7 +118,7 @@ public class Template {
 
   public static final String SERIALIZED_NAME_PARALLELISM = "parallelism";
   @SerializedName(SERIALIZED_NAME_PARALLELISM)
-  private String parallelism;
+  private Integer parallelism;
 
   public static final String SERIALIZED_NAME_POD_SPEC_PATCH = "podSpecPatch";
   @SerializedName(SERIALIZED_NAME_POD_SPEC_PATCH)
@@ -604,7 +604,7 @@ public class Template {
   }
 
 
-  public Template parallelism(String parallelism) {
+  public Template parallelism(Integer parallelism) {
     
     this.parallelism = parallelism;
     return this;
@@ -617,12 +617,12 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Parallelism limits the max total parallel pods that can execute at the same time within the boundaries of this template invocation. If additional steps/dag templates are invoked, the pods created by those templates will not be counted towards this total.")
 
-  public String getParallelism() {
+  public Integer getParallelism() {
     return parallelism;
   }
 
 
-  public void setParallelism(String parallelism) {
+  public void setParallelism(Integer parallelism) {
     this.parallelism = parallelism;
   }
 
