@@ -145,6 +145,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <source>${java.version}</source>
                     <tags>
                         <tag>
                             <name>http.response.details</name>
@@ -194,7 +195,12 @@
         </profile>
     </profiles>
 
-    <dependencies><dependency><groupId>io.kubernetes</groupId><artifactId>client-java</artifactId><version>5.0.0</version></dependency>
+    <dependencies>
+        <dependency>
+            <groupId>io.kubernetes</groupId>
+            <artifactId>client-java</artifactId>
+            <version>5.0.0</version>
+        </dependency>
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
