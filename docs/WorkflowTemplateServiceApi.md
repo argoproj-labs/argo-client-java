@@ -372,7 +372,7 @@ public class Example {
 
     WorkflowTemplateServiceApi apiInstance = new WorkflowTemplateServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    String name = "name_example"; // String | 
+    String name = "name_example"; // String | DEPRECATED: This field is ignored.
     WorkflowTemplateUpdateRequest body = new WorkflowTemplateUpdateRequest(); // WorkflowTemplateUpdateRequest | 
     try {
       WorkflowTemplate result = apiInstance.updateWorkflowTemplate(namespace, name, body);
@@ -393,7 +393,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **name** | **String**|  |
+ **name** | **String**| DEPRECATED: This field is ignored. |
  **body** | [**WorkflowTemplateUpdateRequest**](WorkflowTemplateUpdateRequest.md)|  |
 
 ### Return type

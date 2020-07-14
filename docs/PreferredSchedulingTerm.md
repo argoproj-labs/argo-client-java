@@ -7,8 +7,8 @@ An empty preferred scheduling term matches all objects with implicit weight 0 (i
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**preference** | [**NodeSelectorTerm**](NodeSelectorTerm.md) |  |  [optional]
-**weight** | **Integer** | Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100. |  [optional]
+**preference** | [**NodeSelectorTerm**](NodeSelectorTerm.md) |  | 
+**weight** | **Integer** | Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100. | 
 
 
 

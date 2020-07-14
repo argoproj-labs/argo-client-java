@@ -34,7 +34,7 @@ public class Example {
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    CronCreateCronWorkflowRequest body = new CronCreateCronWorkflowRequest(); // CronCreateCronWorkflowRequest | 
+    CreateCronWorkflowRequest body = new CreateCronWorkflowRequest(); // CreateCronWorkflowRequest | 
     try {
       CronWorkflow result = apiInstance.createCronWorkflow(namespace, body);
       System.out.println(result);
@@ -54,7 +54,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **body** | [**CronCreateCronWorkflowRequest**](CronCreateCronWorkflowRequest.md)|  |
+ **body** | [**CreateCronWorkflowRequest**](CreateCronWorkflowRequest.md)|  |
 
 ### Return type
 
@@ -234,7 +234,7 @@ public class Example {
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    CronLintCronWorkflowRequest body = new CronLintCronWorkflowRequest(); // CronLintCronWorkflowRequest | 
+    LintCronWorkflowRequest body = new LintCronWorkflowRequest(); // LintCronWorkflowRequest | 
     try {
       CronWorkflow result = apiInstance.lintCronWorkflow(namespace, body);
       System.out.println(result);
@@ -254,7 +254,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **body** | [**CronLintCronWorkflowRequest**](CronLintCronWorkflowRequest.md)|  |
+ **body** | [**LintCronWorkflowRequest**](LintCronWorkflowRequest.md)|  |
 
 ### Return type
 
@@ -372,8 +372,8 @@ public class Example {
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    String name = "name_example"; // String | 
-    CronUpdateCronWorkflowRequest body = new CronUpdateCronWorkflowRequest(); // CronUpdateCronWorkflowRequest | 
+    String name = "name_example"; // String | DEPRECATED: This field is ignored.
+    UpdateCronWorkflowRequest body = new UpdateCronWorkflowRequest(); // UpdateCronWorkflowRequest | 
     try {
       CronWorkflow result = apiInstance.updateCronWorkflow(namespace, name, body);
       System.out.println(result);
@@ -393,8 +393,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **name** | **String**|  |
- **body** | [**CronUpdateCronWorkflowRequest**](CronUpdateCronWorkflowRequest.md)|  |
+ **name** | **String**| DEPRECATED: This field is ignored. |
+ **body** | [**UpdateCronWorkflowRequest**](UpdateCronWorkflowRequest.md)|  |
 
 ### Return type
 

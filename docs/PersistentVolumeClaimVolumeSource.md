@@ -7,8 +7,8 @@ PersistentVolumeClaimVolumeSource references the user's PVC in the same namespac
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**claimName** | **String** |  |  [optional]
-**readOnly** | **Boolean** |  |  [optional]
+**claimName** | **String** | ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims | 
+**readOnly** | **Boolean** | Will force the ReadOnly setting in VolumeMounts. Default false. |  [optional]
 
 
 

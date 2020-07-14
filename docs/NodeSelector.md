@@ -7,7 +7,7 @@ A node selector represents the union of the results of one or more label queries
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nodeSelectorTerms** | [**List&lt;NodeSelectorTerm&gt;**](NodeSelectorTerm.md) | Required. A list of node selector terms. The terms are ORed. |  [optional]
+**nodeSelectorTerms** | [**List&lt;NodeSelectorTerm&gt;**](NodeSelectorTerm.md) | Required. A list of node selector terms. The terms are ORed. | 
 
 
 
