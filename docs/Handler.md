@@ -2,7 +2,7 @@
 
 # Handler
 
-Handler defines a specific action that should be taken TODO: pass structured data to these actions, and document that data here.
+Handler defines a specific action that should be taken
 ## Properties
 
 Name | Type | Description | Notes

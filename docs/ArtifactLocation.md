@@ -7,8 +7,9 @@ ArtifactLocation describes a location for a single or multiple artifacts. It is 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**archiveLogs** | **Boolean** |  |  [optional]
+**archiveLogs** | **Boolean** | ArchiveLogs indicates if the container logs should be archived |  [optional]
 **artifactory** | [**ArtifactoryArtifact**](ArtifactoryArtifact.md) |  |  [optional]
+**gcs** | [**GCSArtifact**](GCSArtifact.md) |  |  [optional]
 **git** | [**GitArtifact**](GitArtifact.md) |  |  [optional]
 **hdfs** | [**HDFSArtifact**](HDFSArtifact.md) |  |  [optional]
 **http** | [**HTTPArtifact**](HTTPArtifact.md) |  |  [optional]

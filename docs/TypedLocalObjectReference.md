@@ -7,9 +7,9 @@ TypedLocalObjectReference contains enough information to let you locate the type
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**apiGroup** | **String** |  |  [optional]
-**kind** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
+**apiGroup** | **String** | APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required. |  [optional]
+**kind** | **String** | Kind is the type of resource being referenced | 
+**name** | **String** | Name is the name of resource being referenced | 
 
 
 

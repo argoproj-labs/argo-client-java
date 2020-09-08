@@ -7,7 +7,7 @@ Represents downward API info for projecting into a projected volume. Note that t
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**List&lt;DownwardAPIVolumeFile&gt;**](DownwardAPIVolumeFile.md) |  |  [optional]
+**items** | [**List&lt;DownwardAPIVolumeFile&gt;**](DownwardAPIVolumeFile.md) | Items is a list of DownwardAPIVolume file |  [optional]
 
 
 

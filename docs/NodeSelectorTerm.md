@@ -7,8 +7,8 @@ A null or empty node selector term matches no objects. The requirements of them 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**matchExpressions** | [**List&lt;NodeSelectorRequirement&gt;**](NodeSelectorRequirement.md) |  |  [optional]
-**matchFields** | [**List&lt;NodeSelectorRequirement&gt;**](NodeSelectorRequirement.md) |  |  [optional]
+**matchExpressions** | [**List&lt;NodeSelectorRequirement&gt;**](NodeSelectorRequirement.md) | A list of node selector requirements by node&#39;s labels. |  [optional]
+**matchFields** | [**List&lt;NodeSelectorRequirement&gt;**](NodeSelectorRequirement.md) | A list of node selector requirements by node&#39;s fields. |  [optional]
 
 
 
