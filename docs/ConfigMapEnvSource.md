@@ -7,8 +7,8 @@ ConfigMapEnvSource selects a ConfigMap to populate the environment variables wit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**localObjectReference** | [**io.kubernetes.client.models.V1LocalObjectReference**](io.kubernetes.client.models.V1LocalObjectReference.md) |  |  [optional]
-**optional** | **Boolean** |  |  [optional]
+**name** | **String** | Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names |  [optional]
+**optional** | **Boolean** | Specify whether the ConfigMap must be defined |  [optional]
 
 
 

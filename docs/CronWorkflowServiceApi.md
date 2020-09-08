@@ -1,6 +1,6 @@
 # CronWorkflowServiceApi
 
-All URIs are relative to *http://localhost:2746*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,11 +30,11 @@ import io.argoproj.workflow.apis.CronWorkflowServiceApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:2746");
+    defaultClient.setBasePath("http://localhost");
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    CronCreateCronWorkflowRequest body = new CronCreateCronWorkflowRequest(); // CronCreateCronWorkflowRequest | 
+    CreateCronWorkflowRequest body = new CreateCronWorkflowRequest(); // CreateCronWorkflowRequest | 
     try {
       CronWorkflow result = apiInstance.createCronWorkflow(namespace, body);
       System.out.println(result);
@@ -54,7 +54,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **body** | [**CronCreateCronWorkflowRequest**](CronCreateCronWorkflowRequest.md)|  |
+ **body** | [**CreateCronWorkflowRequest**](CreateCronWorkflowRequest.md)|  |
 
 ### Return type
 
@@ -92,7 +92,7 @@ import io.argoproj.workflow.apis.CronWorkflowServiceApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:2746");
+    defaultClient.setBasePath("http://localhost");
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
@@ -166,7 +166,7 @@ import io.argoproj.workflow.apis.CronWorkflowServiceApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:2746");
+    defaultClient.setBasePath("http://localhost");
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
@@ -230,11 +230,11 @@ import io.argoproj.workflow.apis.CronWorkflowServiceApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:2746");
+    defaultClient.setBasePath("http://localhost");
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    CronLintCronWorkflowRequest body = new CronLintCronWorkflowRequest(); // CronLintCronWorkflowRequest | 
+    LintCronWorkflowRequest body = new LintCronWorkflowRequest(); // LintCronWorkflowRequest | 
     try {
       CronWorkflow result = apiInstance.lintCronWorkflow(namespace, body);
       System.out.println(result);
@@ -254,7 +254,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **body** | [**CronLintCronWorkflowRequest**](CronLintCronWorkflowRequest.md)|  |
+ **body** | [**LintCronWorkflowRequest**](LintCronWorkflowRequest.md)|  |
 
 ### Return type
 
@@ -292,14 +292,14 @@ import io.argoproj.workflow.apis.CronWorkflowServiceApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:2746");
+    defaultClient.setBasePath("http://localhost");
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
     String listOptionsLabelSelector = "listOptionsLabelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything. +optional.
     String listOptionsFieldSelector = "listOptionsFieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything. +optional.
     Boolean listOptionsWatch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. +optional.
-    Boolean listOptionsAllowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.  This field is beta.  +optional
+    Boolean listOptionsAllowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. +optional.
     String listOptionsResourceVersion = "listOptionsResourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. +optional.
     String listOptionsTimeoutSeconds = "listOptionsTimeoutSeconds_example"; // String | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional.
     String listOptionsLimit = "listOptionsLimit_example"; // String | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
  **listOptionsLabelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. +optional. | [optional]
  **listOptionsFieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. +optional. | [optional]
  **listOptionsWatch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. +optional. | [optional]
- **listOptionsAllowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.  This field is beta.  +optional | [optional]
+ **listOptionsAllowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. +optional. | [optional]
  **listOptionsResourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. +optional. | [optional]
  **listOptionsTimeoutSeconds** | **String**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. | [optional]
  **listOptionsLimit** | **String**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
@@ -368,12 +368,12 @@ import io.argoproj.workflow.apis.CronWorkflowServiceApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:2746");
+    defaultClient.setBasePath("http://localhost");
 
     CronWorkflowServiceApi apiInstance = new CronWorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    String name = "name_example"; // String | 
-    CronUpdateCronWorkflowRequest body = new CronUpdateCronWorkflowRequest(); // CronUpdateCronWorkflowRequest | 
+    String name = "name_example"; // String | DEPRECATED: This field is ignored.
+    UpdateCronWorkflowRequest body = new UpdateCronWorkflowRequest(); // UpdateCronWorkflowRequest | 
     try {
       CronWorkflow result = apiInstance.updateCronWorkflow(namespace, name, body);
       System.out.println(result);
@@ -393,8 +393,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **name** | **String**|  |
- **body** | [**CronUpdateCronWorkflowRequest**](CronUpdateCronWorkflowRequest.md)|  |
+ **name** | **String**| DEPRECATED: This field is ignored. |
+ **body** | [**UpdateCronWorkflowRequest**](UpdateCronWorkflowRequest.md)|  |
 
 ### Return type
 
