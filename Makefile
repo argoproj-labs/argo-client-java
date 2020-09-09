@@ -1,8 +1,9 @@
-VERSION := v2.10.1
+VERSION := $(shell cat VERSION)
 
 .PHONY: build
 build:
 	find . -mindepth 1 -maxdepth 1 -not -name Makefile -not -name .git -not -name .gitignore -exec rm -Rf {} ';'
+	echo $(VERSION) > VERSION
 	curl https://raw.githubusercontent.com/argoproj/argo/$(VERSION)/api/openapi-spec/swagger.json | sed 's/io.argoproj.workflow.v1alpha1.//' | sed 's/io.k8s.api.core.v1.//' | sed 's/io.k8s.apimachinery.pkg.apis.meta.v1.//' > swagger.json
 	docker run --rm -v `pwd`:/wd openapitools/openapi-generator-cli:v4.3.1 \
 		generate \
