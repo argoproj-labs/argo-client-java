@@ -45,7 +45,8 @@ build:
 		--generate-alias-as-model
 	# add the io.kubernetes:java-client to the deps
 	sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>5.0.0<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
-	mvn install -DskipTests -Dmaven.javadoc.skip
+	docker run -v ~/.m2:/root/.m2 -v `pwd`:/wd -w /wd maven:3-openjdk-8 \
+		mvn install -DskipTests -Dmaven.javadoc.skip
 	git add .
 	git commit -m 'Updated to $(VERSION)' || git diff --exit-code
 	git tag -f $(VERSION)
@@ -53,5 +54,6 @@ build:
 .PHONY: publish
 publish: build
 	# https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
-	mvn deploy -DskipTests -Dmaven.javadoc.skip -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/argoproj-labs/argo-client-java
+	docker run -v ~/.m2:/root/.m2 -v `pwd`:/wd -w /wd maven:3-openjdk-8 \
+		mvn -DskipTests -Dmaven.javadoc.skip -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/argoproj-labs/argo-client-java
 	git push --tags
