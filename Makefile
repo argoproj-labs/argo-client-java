@@ -16,7 +16,8 @@ build:
 		--group-id io.argoproj.workflow \
 		--artifact-id argo-client-java \
 		--artifact-version $(VERSION) \
-		--generate-alias-as-model
+		--generate-alias-as-model \
+		--model-name-prefix=''
 
 	# add the io.kubernetes:java-client to the deps
 	# sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>5.0.0<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
