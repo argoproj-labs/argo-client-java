@@ -54,7 +54,4 @@ build:
 publish: build
 	# https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
 	mvn deploy -DskipTests -Dmaven.javadoc.skip -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/argoproj-labs/argo-client-java
-ifneq ($(VERSION),HEAD)
-	git tag $(VERSION)
-endif
 	git push --tags
