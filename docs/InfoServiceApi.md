@@ -11,18 +11,18 @@ Method | HTTP request | Description
 
 <a name="getInfo"></a>
 # **getInfo**
-> InfoResponse getInfo()
+> IoArgoprojWorkflowV1alpha1InfoResponse getInfo()
 
 
 
 ### Example
 ```java
 // Import classes:
-import io.argoproj.workflow.ApiClient;
-import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.Configuration;
-import io.argoproj.workflow.models.*;
-import io.argoproj.workflow.apis.InfoServiceApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InfoServiceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      InfoResponse result = apiInstance.getInfo();
+      IoArgoprojWorkflowV1alpha1InfoResponse result = apiInstance.getInfo();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InfoServiceApi#getInfo");
@@ -49,7 +49,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InfoResponse**](InfoResponse.md)
+[**IoArgoprojWorkflowV1alpha1InfoResponse**](IoArgoprojWorkflowV1alpha1InfoResponse.md)
 
 ### Authorization
 
@@ -67,18 +67,18 @@ No authorization required
 
 <a name="getUserInfo"></a>
 # **getUserInfo**
-> GetUserInfoResponse getUserInfo()
+> IoArgoprojWorkflowV1alpha1GetUserInfoResponse getUserInfo()
 
 
 
 ### Example
 ```java
 // Import classes:
-import io.argoproj.workflow.ApiClient;
-import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.Configuration;
-import io.argoproj.workflow.models.*;
-import io.argoproj.workflow.apis.InfoServiceApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InfoServiceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -87,7 +87,7 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      GetUserInfoResponse result = apiInstance.getUserInfo();
+      IoArgoprojWorkflowV1alpha1GetUserInfoResponse result = apiInstance.getUserInfo();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InfoServiceApi#getUserInfo");
@@ -105,7 +105,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetUserInfoResponse**](GetUserInfoResponse.md)
+[**IoArgoprojWorkflowV1alpha1GetUserInfoResponse**](IoArgoprojWorkflowV1alpha1GetUserInfoResponse.md)
 
 ### Authorization
 
@@ -123,18 +123,18 @@ No authorization required
 
 <a name="getVersion"></a>
 # **getVersion**
-> Version getVersion()
+> IoArgoprojWorkflowV1alpha1Version getVersion()
 
 
 
 ### Example
 ```java
 // Import classes:
-import io.argoproj.workflow.ApiClient;
-import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.Configuration;
-import io.argoproj.workflow.models.*;
-import io.argoproj.workflow.apis.InfoServiceApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InfoServiceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -143,7 +143,7 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      Version result = apiInstance.getVersion();
+      IoArgoprojWorkflowV1alpha1Version result = apiInstance.getVersion();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InfoServiceApi#getVersion");
@@ -161,7 +161,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Version**](Version.md)
+[**IoArgoprojWorkflowV1alpha1Version**](IoArgoprojWorkflowV1alpha1Version.md)
 
 ### Authorization
 

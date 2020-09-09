@@ -1,1 +1,0 @@
-This repository contains only automatically generated code from https://github.com/argoproj-labs/argo-client-gen. Please raise issues and pull requests there.
