@@ -27,11 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateCreateRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateLintRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateUpdateRequest;
+import io.argoproj.workflow.models.ClusterWorkflowTemplate;
+import io.argoproj.workflow.models.ClusterWorkflowTemplateCreateRequest;
+import io.argoproj.workflow.models.ClusterWorkflowTemplateLintRequest;
+import io.argoproj.workflow.models.ClusterWorkflowTemplateList;
+import io.argoproj.workflow.models.ClusterWorkflowTemplateUpdateRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createClusterWorkflowTemplateCall(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateCreateRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createClusterWorkflowTemplateCall(ClusterWorkflowTemplateCreateRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -100,7 +100,7 @@ public class ClusterWorkflowTemplateServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createClusterWorkflowTemplateValidateBeforeCall(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateCreateRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createClusterWorkflowTemplateValidateBeforeCall(ClusterWorkflowTemplateCreateRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -117,7 +117,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * 
      * 
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate
+     * @return ClusterWorkflowTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -125,8 +125,8 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate createClusterWorkflowTemplate(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateCreateRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> localVarResp = createClusterWorkflowTemplateWithHttpInfo(body);
+    public ClusterWorkflowTemplate createClusterWorkflowTemplate(ClusterWorkflowTemplateCreateRequest body) throws ApiException {
+        ApiResponse<ClusterWorkflowTemplate> localVarResp = createClusterWorkflowTemplateWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -134,7 +134,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate&gt;
+     * @return ApiResponse&lt;ClusterWorkflowTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -142,9 +142,9 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> createClusterWorkflowTemplateWithHttpInfo(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateCreateRequest body) throws ApiException {
+    public ApiResponse<ClusterWorkflowTemplate> createClusterWorkflowTemplateWithHttpInfo(ClusterWorkflowTemplateCreateRequest body) throws ApiException {
         okhttp3.Call localVarCall = createClusterWorkflowTemplateValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplate>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -161,10 +161,10 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createClusterWorkflowTemplateAsync(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateCreateRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> _callback) throws ApiException {
+    public okhttp3.Call createClusterWorkflowTemplateAsync(ClusterWorkflowTemplateCreateRequest body, final ApiCallback<ClusterWorkflowTemplate> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createClusterWorkflowTemplateValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplate>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -393,7 +393,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * 
      * @param name  (required)
      * @param getOptionsResourceVersion When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @return IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate
+     * @return ClusterWorkflowTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -401,8 +401,8 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate getClusterWorkflowTemplate(String name, String getOptionsResourceVersion) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> localVarResp = getClusterWorkflowTemplateWithHttpInfo(name, getOptionsResourceVersion);
+    public ClusterWorkflowTemplate getClusterWorkflowTemplate(String name, String getOptionsResourceVersion) throws ApiException {
+        ApiResponse<ClusterWorkflowTemplate> localVarResp = getClusterWorkflowTemplateWithHttpInfo(name, getOptionsResourceVersion);
         return localVarResp.getData();
     }
 
@@ -411,7 +411,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * 
      * @param name  (required)
      * @param getOptionsResourceVersion When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate&gt;
+     * @return ApiResponse&lt;ClusterWorkflowTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -419,9 +419,9 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> getClusterWorkflowTemplateWithHttpInfo(String name, String getOptionsResourceVersion) throws ApiException {
+    public ApiResponse<ClusterWorkflowTemplate> getClusterWorkflowTemplateWithHttpInfo(String name, String getOptionsResourceVersion) throws ApiException {
         okhttp3.Call localVarCall = getClusterWorkflowTemplateValidateBeforeCall(name, getOptionsResourceVersion, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplate>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -439,10 +439,10 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getClusterWorkflowTemplateAsync(String name, String getOptionsResourceVersion, final ApiCallback<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> _callback) throws ApiException {
+    public okhttp3.Call getClusterWorkflowTemplateAsync(String name, String getOptionsResourceVersion, final ApiCallback<ClusterWorkflowTemplate> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getClusterWorkflowTemplateValidateBeforeCall(name, getOptionsResourceVersion, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplate>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -458,7 +458,7 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call lintClusterWorkflowTemplateCall(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateLintRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call lintClusterWorkflowTemplateCall(ClusterWorkflowTemplateLintRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -488,7 +488,7 @@ public class ClusterWorkflowTemplateServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call lintClusterWorkflowTemplateValidateBeforeCall(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateLintRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call lintClusterWorkflowTemplateValidateBeforeCall(ClusterWorkflowTemplateLintRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -505,7 +505,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * 
      * 
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate
+     * @return ClusterWorkflowTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -513,8 +513,8 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate lintClusterWorkflowTemplate(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateLintRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> localVarResp = lintClusterWorkflowTemplateWithHttpInfo(body);
+    public ClusterWorkflowTemplate lintClusterWorkflowTemplate(ClusterWorkflowTemplateLintRequest body) throws ApiException {
+        ApiResponse<ClusterWorkflowTemplate> localVarResp = lintClusterWorkflowTemplateWithHttpInfo(body);
         return localVarResp.getData();
     }
 
@@ -522,7 +522,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate&gt;
+     * @return ApiResponse&lt;ClusterWorkflowTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -530,9 +530,9 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> lintClusterWorkflowTemplateWithHttpInfo(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateLintRequest body) throws ApiException {
+    public ApiResponse<ClusterWorkflowTemplate> lintClusterWorkflowTemplateWithHttpInfo(ClusterWorkflowTemplateLintRequest body) throws ApiException {
         okhttp3.Call localVarCall = lintClusterWorkflowTemplateValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplate>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -549,10 +549,10 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call lintClusterWorkflowTemplateAsync(IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateLintRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> _callback) throws ApiException {
+    public okhttp3.Call lintClusterWorkflowTemplateAsync(ClusterWorkflowTemplateLintRequest body, final ApiCallback<ClusterWorkflowTemplate> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = lintClusterWorkflowTemplateValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplate>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -656,7 +656,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * @param listOptionsTimeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. (optional)
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
-     * @return IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList
+     * @return ClusterWorkflowTemplateList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -664,8 +664,8 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList listClusterWorkflowTemplates(String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList> localVarResp = listClusterWorkflowTemplatesWithHttpInfo(listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+    public ClusterWorkflowTemplateList listClusterWorkflowTemplates(String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
+        ApiResponse<ClusterWorkflowTemplateList> localVarResp = listClusterWorkflowTemplatesWithHttpInfo(listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
         return localVarResp.getData();
     }
 
@@ -680,7 +680,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * @param listOptionsTimeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. (optional)
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList&gt;
+     * @return ApiResponse&lt;ClusterWorkflowTemplateList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -688,9 +688,9 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList> listClusterWorkflowTemplatesWithHttpInfo(String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
+    public ApiResponse<ClusterWorkflowTemplateList> listClusterWorkflowTemplatesWithHttpInfo(String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
         okhttp3.Call localVarCall = listClusterWorkflowTemplatesValidateBeforeCall(listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplateList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -714,10 +714,10 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listClusterWorkflowTemplatesAsync(String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, final ApiCallback<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList> _callback) throws ApiException {
+    public okhttp3.Call listClusterWorkflowTemplatesAsync(String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, final ApiCallback<ClusterWorkflowTemplateList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listClusterWorkflowTemplatesValidateBeforeCall(listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplateList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -734,7 +734,7 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateClusterWorkflowTemplateCall(String name, IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateUpdateRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateClusterWorkflowTemplateCall(String name, ClusterWorkflowTemplateUpdateRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -765,7 +765,7 @@ public class ClusterWorkflowTemplateServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateClusterWorkflowTemplateValidateBeforeCall(String name, IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateUpdateRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateClusterWorkflowTemplateValidateBeforeCall(String name, ClusterWorkflowTemplateUpdateRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -788,7 +788,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * 
      * @param name DEPRECATED: This field is ignored. (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate
+     * @return ClusterWorkflowTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -796,8 +796,8 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate updateClusterWorkflowTemplate(String name, IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateUpdateRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> localVarResp = updateClusterWorkflowTemplateWithHttpInfo(name, body);
+    public ClusterWorkflowTemplate updateClusterWorkflowTemplate(String name, ClusterWorkflowTemplateUpdateRequest body) throws ApiException {
+        ApiResponse<ClusterWorkflowTemplate> localVarResp = updateClusterWorkflowTemplateWithHttpInfo(name, body);
         return localVarResp.getData();
     }
 
@@ -806,7 +806,7 @@ public class ClusterWorkflowTemplateServiceApi {
      * 
      * @param name DEPRECATED: This field is ignored. (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate&gt;
+     * @return ApiResponse&lt;ClusterWorkflowTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -814,9 +814,9 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> updateClusterWorkflowTemplateWithHttpInfo(String name, IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateUpdateRequest body) throws ApiException {
+    public ApiResponse<ClusterWorkflowTemplate> updateClusterWorkflowTemplateWithHttpInfo(String name, ClusterWorkflowTemplateUpdateRequest body) throws ApiException {
         okhttp3.Call localVarCall = updateClusterWorkflowTemplateValidateBeforeCall(name, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplate>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -834,10 +834,10 @@ public class ClusterWorkflowTemplateServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateClusterWorkflowTemplateAsync(String name, IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateUpdateRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate> _callback) throws ApiException {
+    public okhttp3.Call updateClusterWorkflowTemplateAsync(String name, ClusterWorkflowTemplateUpdateRequest body, final ApiCallback<ClusterWorkflowTemplate> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateClusterWorkflowTemplateValidateBeforeCall(name, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterWorkflowTemplate>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -27,9 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1GetUserInfoResponse;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1InfoResponse;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1Version;
+import io.argoproj.workflow.models.GetUserInfoResponse;
+import io.argoproj.workflow.models.InfoResponse;
+import io.argoproj.workflow.models.Version;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -108,7 +108,7 @@ public class InfoServiceApi {
     /**
      * 
      * 
-     * @return IoArgoprojWorkflowV1alpha1InfoResponse
+     * @return InfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -116,15 +116,15 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1InfoResponse getInfo() throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1InfoResponse> localVarResp = getInfoWithHttpInfo();
+    public InfoResponse getInfo() throws ApiException {
+        ApiResponse<InfoResponse> localVarResp = getInfoWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1InfoResponse&gt;
+     * @return ApiResponse&lt;InfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -132,9 +132,9 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1InfoResponse> getInfoWithHttpInfo() throws ApiException {
+    public ApiResponse<InfoResponse> getInfoWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getInfoValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1InfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<InfoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -150,10 +150,10 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInfoAsync(final ApiCallback<IoArgoprojWorkflowV1alpha1InfoResponse> _callback) throws ApiException {
+    public okhttp3.Call getInfoAsync(final ApiCallback<InfoResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getInfoValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1InfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<InfoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -209,7 +209,7 @@ public class InfoServiceApi {
     /**
      * 
      * 
-     * @return IoArgoprojWorkflowV1alpha1GetUserInfoResponse
+     * @return GetUserInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -217,15 +217,15 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1GetUserInfoResponse getUserInfo() throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1GetUserInfoResponse> localVarResp = getUserInfoWithHttpInfo();
+    public GetUserInfoResponse getUserInfo() throws ApiException {
+        ApiResponse<GetUserInfoResponse> localVarResp = getUserInfoWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1GetUserInfoResponse&gt;
+     * @return ApiResponse&lt;GetUserInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -233,9 +233,9 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1GetUserInfoResponse> getUserInfoWithHttpInfo() throws ApiException {
+    public ApiResponse<GetUserInfoResponse> getUserInfoWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getUserInfoValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1GetUserInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetUserInfoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -251,10 +251,10 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserInfoAsync(final ApiCallback<IoArgoprojWorkflowV1alpha1GetUserInfoResponse> _callback) throws ApiException {
+    public okhttp3.Call getUserInfoAsync(final ApiCallback<GetUserInfoResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserInfoValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1GetUserInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetUserInfoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -310,7 +310,7 @@ public class InfoServiceApi {
     /**
      * 
      * 
-     * @return IoArgoprojWorkflowV1alpha1Version
+     * @return Version
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -318,15 +318,15 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Version getVersion() throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Version> localVarResp = getVersionWithHttpInfo();
+    public Version getVersion() throws ApiException {
+        ApiResponse<Version> localVarResp = getVersionWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Version&gt;
+     * @return ApiResponse&lt;Version&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -334,9 +334,9 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Version> getVersionWithHttpInfo() throws ApiException {
+    public ApiResponse<Version> getVersionWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getVersionValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Version>(){}.getType();
+        Type localVarReturnType = new TypeToken<Version>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -352,10 +352,10 @@ public class InfoServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVersionAsync(final ApiCallback<IoArgoprojWorkflowV1alpha1Version> _callback) throws ApiException {
+    public okhttp3.Call getVersionAsync(final ApiCallback<Version> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVersionValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Version>(){}.getType();
+        Type localVarReturnType = new TypeToken<Version>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

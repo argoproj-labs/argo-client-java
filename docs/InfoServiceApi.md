@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getInfo"></a>
 # **getInfo**
-> IoArgoprojWorkflowV1alpha1InfoResponse getInfo()
+> InfoResponse getInfo()
 
 
 
@@ -31,7 +31,7 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      IoArgoprojWorkflowV1alpha1InfoResponse result = apiInstance.getInfo();
+      InfoResponse result = apiInstance.getInfo();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InfoServiceApi#getInfo");
@@ -49,7 +49,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1InfoResponse**](IoArgoprojWorkflowV1alpha1InfoResponse.md)
+[**InfoResponse**](InfoResponse.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ No authorization required
 
 <a name="getUserInfo"></a>
 # **getUserInfo**
-> IoArgoprojWorkflowV1alpha1GetUserInfoResponse getUserInfo()
+> GetUserInfoResponse getUserInfo()
 
 
 
@@ -87,7 +87,7 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      IoArgoprojWorkflowV1alpha1GetUserInfoResponse result = apiInstance.getUserInfo();
+      GetUserInfoResponse result = apiInstance.getUserInfo();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InfoServiceApi#getUserInfo");
@@ -105,7 +105,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1GetUserInfoResponse**](IoArgoprojWorkflowV1alpha1GetUserInfoResponse.md)
+[**GetUserInfoResponse**](GetUserInfoResponse.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ No authorization required
 
 <a name="getVersion"></a>
 # **getVersion**
-> IoArgoprojWorkflowV1alpha1Version getVersion()
+> Version getVersion()
 
 
 
@@ -143,7 +143,7 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      IoArgoprojWorkflowV1alpha1Version result = apiInstance.getVersion();
+      Version result = apiInstance.getVersion();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InfoServiceApi#getVersion");
@@ -161,7 +161,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Version**](IoArgoprojWorkflowV1alpha1Version.md)
+[**Version**](Version.md)
 
 ### Authorization
 

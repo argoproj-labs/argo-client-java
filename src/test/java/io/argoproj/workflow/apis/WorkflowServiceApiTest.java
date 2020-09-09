@@ -14,19 +14,19 @@
 package io.argoproj.workflow.apis;
 
 import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1Workflow;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowCreateRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowLintRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowList;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowResumeRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowRetryRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowStopRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest;
-import io.argoproj.workflow.models.StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry;
-import io.argoproj.workflow.models.StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent;
+import io.argoproj.workflow.models.StreamResultOfLogEntry;
+import io.argoproj.workflow.models.StreamResultOfWorkflowWatchEvent;
+import io.argoproj.workflow.models.Workflow;
+import io.argoproj.workflow.models.WorkflowCreateRequest;
+import io.argoproj.workflow.models.WorkflowLintRequest;
+import io.argoproj.workflow.models.WorkflowList;
+import io.argoproj.workflow.models.WorkflowResubmitRequest;
+import io.argoproj.workflow.models.WorkflowResumeRequest;
+import io.argoproj.workflow.models.WorkflowRetryRequest;
+import io.argoproj.workflow.models.WorkflowStopRequest;
+import io.argoproj.workflow.models.WorkflowSubmitRequest;
+import io.argoproj.workflow.models.WorkflowSuspendRequest;
+import io.argoproj.workflow.models.WorkflowTerminateRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -55,8 +55,8 @@ public class WorkflowServiceApiTest {
     @Test
     public void createWorkflowTest() throws ApiException {
         String namespace = null;
-        IoArgoprojWorkflowV1alpha1WorkflowCreateRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.createWorkflow(namespace, body);
+        WorkflowCreateRequest body = null;
+        Workflow response = api.createWorkflow(namespace, body);
 
         // TODO: test validations
     }
@@ -98,7 +98,7 @@ public class WorkflowServiceApiTest {
         String name = null;
         String getOptionsResourceVersion = null;
         String fields = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.getWorkflow(namespace, name, getOptionsResourceVersion, fields);
+        Workflow response = api.getWorkflow(namespace, name, getOptionsResourceVersion, fields);
 
         // TODO: test validations
     }
@@ -114,8 +114,8 @@ public class WorkflowServiceApiTest {
     @Test
     public void lintWorkflowTest() throws ApiException {
         String namespace = null;
-        IoArgoprojWorkflowV1alpha1WorkflowLintRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.lintWorkflow(namespace, body);
+        WorkflowLintRequest body = null;
+        Workflow response = api.lintWorkflow(namespace, body);
 
         // TODO: test validations
     }
@@ -140,7 +140,7 @@ public class WorkflowServiceApiTest {
         String listOptionsLimit = null;
         String listOptionsContinue = null;
         String fields = null;
-        IoArgoprojWorkflowV1alpha1WorkflowList response = api.listWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
+        WorkflowList response = api.listWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
 
         // TODO: test validations
     }
@@ -168,7 +168,7 @@ public class WorkflowServiceApiTest {
         String logOptionsTailLines = null;
         String logOptionsLimitBytes = null;
         Boolean logOptionsInsecureSkipTLSVerifyBackend = null;
-        StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry response = api.podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
+        StreamResultOfLogEntry response = api.podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
 
         // TODO: test validations
     }
@@ -185,8 +185,8 @@ public class WorkflowServiceApiTest {
     public void resubmitWorkflowTest() throws ApiException {
         String namespace = null;
         String name = null;
-        IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.resubmitWorkflow(namespace, name, body);
+        WorkflowResubmitRequest body = null;
+        Workflow response = api.resubmitWorkflow(namespace, name, body);
 
         // TODO: test validations
     }
@@ -203,8 +203,8 @@ public class WorkflowServiceApiTest {
     public void resumeWorkflowTest() throws ApiException {
         String namespace = null;
         String name = null;
-        IoArgoprojWorkflowV1alpha1WorkflowResumeRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.resumeWorkflow(namespace, name, body);
+        WorkflowResumeRequest body = null;
+        Workflow response = api.resumeWorkflow(namespace, name, body);
 
         // TODO: test validations
     }
@@ -221,8 +221,8 @@ public class WorkflowServiceApiTest {
     public void retryWorkflowTest() throws ApiException {
         String namespace = null;
         String name = null;
-        IoArgoprojWorkflowV1alpha1WorkflowRetryRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.retryWorkflow(namespace, name, body);
+        WorkflowRetryRequest body = null;
+        Workflow response = api.retryWorkflow(namespace, name, body);
 
         // TODO: test validations
     }
@@ -239,8 +239,8 @@ public class WorkflowServiceApiTest {
     public void stopWorkflowTest() throws ApiException {
         String namespace = null;
         String name = null;
-        IoArgoprojWorkflowV1alpha1WorkflowStopRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.stopWorkflow(namespace, name, body);
+        WorkflowStopRequest body = null;
+        Workflow response = api.stopWorkflow(namespace, name, body);
 
         // TODO: test validations
     }
@@ -256,8 +256,8 @@ public class WorkflowServiceApiTest {
     @Test
     public void submitWorkflowTest() throws ApiException {
         String namespace = null;
-        IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.submitWorkflow(namespace, body);
+        WorkflowSubmitRequest body = null;
+        Workflow response = api.submitWorkflow(namespace, body);
 
         // TODO: test validations
     }
@@ -274,8 +274,8 @@ public class WorkflowServiceApiTest {
     public void suspendWorkflowTest() throws ApiException {
         String namespace = null;
         String name = null;
-        IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.suspendWorkflow(namespace, name, body);
+        WorkflowSuspendRequest body = null;
+        Workflow response = api.suspendWorkflow(namespace, name, body);
 
         // TODO: test validations
     }
@@ -292,8 +292,8 @@ public class WorkflowServiceApiTest {
     public void terminateWorkflowTest() throws ApiException {
         String namespace = null;
         String name = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest body = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.terminateWorkflow(namespace, name, body);
+        WorkflowTerminateRequest body = null;
+        Workflow response = api.terminateWorkflow(namespace, name, body);
 
         // TODO: test validations
     }
@@ -317,7 +317,7 @@ public class WorkflowServiceApiTest {
         String listOptionsTimeoutSeconds = null;
         String listOptionsLimit = null;
         String listOptionsContinue = null;
-        StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent response = api.watchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+        StreamResultOfWorkflowWatchEvent response = api.watchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
 
         // TODO: test validations
     }

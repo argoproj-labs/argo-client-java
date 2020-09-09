@@ -14,11 +14,11 @@
 package io.argoproj.workflow.apis;
 
 import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1CreateCronWorkflowRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1CronWorkflow;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1CronWorkflowList;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1LintCronWorkflowRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1UpdateCronWorkflowRequest;
+import io.argoproj.workflow.models.CreateCronWorkflowRequest;
+import io.argoproj.workflow.models.CronWorkflow;
+import io.argoproj.workflow.models.CronWorkflowList;
+import io.argoproj.workflow.models.LintCronWorkflowRequest;
+import io.argoproj.workflow.models.UpdateCronWorkflowRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,8 +47,8 @@ public class CronWorkflowServiceApiTest {
     @Test
     public void createCronWorkflowTest() throws ApiException {
         String namespace = null;
-        IoArgoprojWorkflowV1alpha1CreateCronWorkflowRequest body = null;
-        IoArgoprojWorkflowV1alpha1CronWorkflow response = api.createCronWorkflow(namespace, body);
+        CreateCronWorkflowRequest body = null;
+        CronWorkflow response = api.createCronWorkflow(namespace, body);
 
         // TODO: test validations
     }
@@ -89,7 +89,7 @@ public class CronWorkflowServiceApiTest {
         String namespace = null;
         String name = null;
         String getOptionsResourceVersion = null;
-        IoArgoprojWorkflowV1alpha1CronWorkflow response = api.getCronWorkflow(namespace, name, getOptionsResourceVersion);
+        CronWorkflow response = api.getCronWorkflow(namespace, name, getOptionsResourceVersion);
 
         // TODO: test validations
     }
@@ -105,8 +105,8 @@ public class CronWorkflowServiceApiTest {
     @Test
     public void lintCronWorkflowTest() throws ApiException {
         String namespace = null;
-        IoArgoprojWorkflowV1alpha1LintCronWorkflowRequest body = null;
-        IoArgoprojWorkflowV1alpha1CronWorkflow response = api.lintCronWorkflow(namespace, body);
+        LintCronWorkflowRequest body = null;
+        CronWorkflow response = api.lintCronWorkflow(namespace, body);
 
         // TODO: test validations
     }
@@ -130,7 +130,7 @@ public class CronWorkflowServiceApiTest {
         String listOptionsTimeoutSeconds = null;
         String listOptionsLimit = null;
         String listOptionsContinue = null;
-        IoArgoprojWorkflowV1alpha1CronWorkflowList response = api.listCronWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+        CronWorkflowList response = api.listCronWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
 
         // TODO: test validations
     }
@@ -147,8 +147,8 @@ public class CronWorkflowServiceApiTest {
     public void updateCronWorkflowTest() throws ApiException {
         String namespace = null;
         String name = null;
-        IoArgoprojWorkflowV1alpha1UpdateCronWorkflowRequest body = null;
-        IoArgoprojWorkflowV1alpha1CronWorkflow response = api.updateCronWorkflow(namespace, name, body);
+        UpdateCronWorkflowRequest body = null;
+        CronWorkflow response = api.updateCronWorkflow(namespace, name, body);
 
         // TODO: test validations
     }

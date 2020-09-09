@@ -27,19 +27,19 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1Workflow;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowCreateRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowLintRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowList;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowResumeRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowRetryRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowStopRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest;
-import io.argoproj.workflow.models.StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry;
-import io.argoproj.workflow.models.StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent;
+import io.argoproj.workflow.models.StreamResultOfLogEntry;
+import io.argoproj.workflow.models.StreamResultOfWorkflowWatchEvent;
+import io.argoproj.workflow.models.Workflow;
+import io.argoproj.workflow.models.WorkflowCreateRequest;
+import io.argoproj.workflow.models.WorkflowLintRequest;
+import io.argoproj.workflow.models.WorkflowList;
+import io.argoproj.workflow.models.WorkflowResubmitRequest;
+import io.argoproj.workflow.models.WorkflowResumeRequest;
+import io.argoproj.workflow.models.WorkflowRetryRequest;
+import io.argoproj.workflow.models.WorkflowStopRequest;
+import io.argoproj.workflow.models.WorkflowSubmitRequest;
+import io.argoproj.workflow.models.WorkflowSuspendRequest;
+import io.argoproj.workflow.models.WorkflowTerminateRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWorkflowCall(String namespace, IoArgoprojWorkflowV1alpha1WorkflowCreateRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createWorkflowCall(String namespace, WorkflowCreateRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -110,7 +110,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createWorkflowValidateBeforeCall(String namespace, IoArgoprojWorkflowV1alpha1WorkflowCreateRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createWorkflowValidateBeforeCall(String namespace, WorkflowCreateRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -133,7 +133,7 @@ public class WorkflowServiceApi {
      * 
      * @param namespace  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -141,8 +141,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow createWorkflow(String namespace, IoArgoprojWorkflowV1alpha1WorkflowCreateRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = createWorkflowWithHttpInfo(namespace, body);
+    public Workflow createWorkflow(String namespace, WorkflowCreateRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = createWorkflowWithHttpInfo(namespace, body);
         return localVarResp.getData();
     }
 
@@ -151,7 +151,7 @@ public class WorkflowServiceApi {
      * 
      * @param namespace  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -159,9 +159,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> createWorkflowWithHttpInfo(String namespace, IoArgoprojWorkflowV1alpha1WorkflowCreateRequest body) throws ApiException {
+    public ApiResponse<Workflow> createWorkflowWithHttpInfo(String namespace, WorkflowCreateRequest body) throws ApiException {
         okhttp3.Call localVarCall = createWorkflowValidateBeforeCall(namespace, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -179,10 +179,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWorkflowAsync(String namespace, IoArgoprojWorkflowV1alpha1WorkflowCreateRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call createWorkflowAsync(String namespace, WorkflowCreateRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createWorkflowValidateBeforeCall(namespace, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -435,7 +435,7 @@ public class WorkflowServiceApi {
      * @param name  (required)
      * @param getOptionsResourceVersion When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
      * @param fields Fields to be included or excluded in the response. e.g. \&quot;spec,status.phase\&quot;, \&quot;-status.nodes\&quot;. (optional)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -443,8 +443,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow getWorkflow(String namespace, String name, String getOptionsResourceVersion, String fields) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = getWorkflowWithHttpInfo(namespace, name, getOptionsResourceVersion, fields);
+    public Workflow getWorkflow(String namespace, String name, String getOptionsResourceVersion, String fields) throws ApiException {
+        ApiResponse<Workflow> localVarResp = getWorkflowWithHttpInfo(namespace, name, getOptionsResourceVersion, fields);
         return localVarResp.getData();
     }
 
@@ -455,7 +455,7 @@ public class WorkflowServiceApi {
      * @param name  (required)
      * @param getOptionsResourceVersion When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
      * @param fields Fields to be included or excluded in the response. e.g. \&quot;spec,status.phase\&quot;, \&quot;-status.nodes\&quot;. (optional)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -463,9 +463,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> getWorkflowWithHttpInfo(String namespace, String name, String getOptionsResourceVersion, String fields) throws ApiException {
+    public ApiResponse<Workflow> getWorkflowWithHttpInfo(String namespace, String name, String getOptionsResourceVersion, String fields) throws ApiException {
         okhttp3.Call localVarCall = getWorkflowValidateBeforeCall(namespace, name, getOptionsResourceVersion, fields, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -485,10 +485,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWorkflowAsync(String namespace, String name, String getOptionsResourceVersion, String fields, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call getWorkflowAsync(String namespace, String name, String getOptionsResourceVersion, String fields, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWorkflowValidateBeforeCall(namespace, name, getOptionsResourceVersion, fields, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -505,7 +505,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call lintWorkflowCall(String namespace, IoArgoprojWorkflowV1alpha1WorkflowLintRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call lintWorkflowCall(String namespace, WorkflowLintRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -536,7 +536,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call lintWorkflowValidateBeforeCall(String namespace, IoArgoprojWorkflowV1alpha1WorkflowLintRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call lintWorkflowValidateBeforeCall(String namespace, WorkflowLintRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -559,7 +559,7 @@ public class WorkflowServiceApi {
      * 
      * @param namespace  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -567,8 +567,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow lintWorkflow(String namespace, IoArgoprojWorkflowV1alpha1WorkflowLintRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = lintWorkflowWithHttpInfo(namespace, body);
+    public Workflow lintWorkflow(String namespace, WorkflowLintRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = lintWorkflowWithHttpInfo(namespace, body);
         return localVarResp.getData();
     }
 
@@ -577,7 +577,7 @@ public class WorkflowServiceApi {
      * 
      * @param namespace  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -585,9 +585,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> lintWorkflowWithHttpInfo(String namespace, IoArgoprojWorkflowV1alpha1WorkflowLintRequest body) throws ApiException {
+    public ApiResponse<Workflow> lintWorkflowWithHttpInfo(String namespace, WorkflowLintRequest body) throws ApiException {
         okhttp3.Call localVarCall = lintWorkflowValidateBeforeCall(namespace, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -605,10 +605,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call lintWorkflowAsync(String namespace, IoArgoprojWorkflowV1alpha1WorkflowLintRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call lintWorkflowAsync(String namespace, WorkflowLintRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = lintWorkflowValidateBeforeCall(namespace, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -726,7 +726,7 @@ public class WorkflowServiceApi {
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
      * @param fields Fields to be included or excluded in the response. e.g. \&quot;items.spec,items.status.phase\&quot;, \&quot;-items.status.nodes\&quot;. (optional)
-     * @return IoArgoprojWorkflowV1alpha1WorkflowList
+     * @return WorkflowList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -734,8 +734,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1WorkflowList listWorkflows(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1WorkflowList> localVarResp = listWorkflowsWithHttpInfo(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
+    public WorkflowList listWorkflows(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields) throws ApiException {
+        ApiResponse<WorkflowList> localVarResp = listWorkflowsWithHttpInfo(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
         return localVarResp.getData();
     }
 
@@ -752,7 +752,7 @@ public class WorkflowServiceApi {
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
      * @param fields Fields to be included or excluded in the response. e.g. \&quot;items.spec,items.status.phase\&quot;, \&quot;-items.status.nodes\&quot;. (optional)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1WorkflowList&gt;
+     * @return ApiResponse&lt;WorkflowList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -760,9 +760,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1WorkflowList> listWorkflowsWithHttpInfo(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields) throws ApiException {
+    public ApiResponse<WorkflowList> listWorkflowsWithHttpInfo(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields) throws ApiException {
         okhttp3.Call localVarCall = listWorkflowsValidateBeforeCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1WorkflowList>(){}.getType();
+        Type localVarReturnType = new TypeToken<WorkflowList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -788,10 +788,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listWorkflowsAsync(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields, final ApiCallback<IoArgoprojWorkflowV1alpha1WorkflowList> _callback) throws ApiException {
+    public okhttp3.Call listWorkflowsAsync(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, String fields, final ApiCallback<WorkflowList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listWorkflowsValidateBeforeCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1WorkflowList>(){}.getType();
+        Type localVarReturnType = new TypeToken<WorkflowList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -931,7 +931,7 @@ public class WorkflowServiceApi {
      * @param logOptionsTailLines If set, the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime +optional. (optional)
      * @param logOptionsLimitBytes If set, the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. +optional. (optional)
      * @param logOptionsInsecureSkipTLSVerifyBackend insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the serving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver and the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real kubelet.  If the kubelet is configured to verify the apiserver&#39;s TLS credentials, it does not mean the connection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept the actual log data coming from the real kubelet). +optional. (optional)
-     * @return StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry
+     * @return StreamResultOfLogEntry
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -939,8 +939,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response.(streaming responses) </td><td>  -  </td></tr>
      </table>
      */
-    public StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry podLogs(String namespace, String name, String podName, String logOptionsContainer, Boolean logOptionsFollow, Boolean logOptionsPrevious, String logOptionsSinceSeconds, String logOptionsSinceTimeSeconds, Integer logOptionsSinceTimeNanos, Boolean logOptionsTimestamps, String logOptionsTailLines, String logOptionsLimitBytes, Boolean logOptionsInsecureSkipTLSVerifyBackend) throws ApiException {
-        ApiResponse<StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry> localVarResp = podLogsWithHttpInfo(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
+    public StreamResultOfLogEntry podLogs(String namespace, String name, String podName, String logOptionsContainer, Boolean logOptionsFollow, Boolean logOptionsPrevious, String logOptionsSinceSeconds, String logOptionsSinceTimeSeconds, Integer logOptionsSinceTimeNanos, Boolean logOptionsTimestamps, String logOptionsTailLines, String logOptionsLimitBytes, Boolean logOptionsInsecureSkipTLSVerifyBackend) throws ApiException {
+        ApiResponse<StreamResultOfLogEntry> localVarResp = podLogsWithHttpInfo(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
         return localVarResp.getData();
     }
 
@@ -960,7 +960,7 @@ public class WorkflowServiceApi {
      * @param logOptionsTailLines If set, the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime +optional. (optional)
      * @param logOptionsLimitBytes If set, the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. +optional. (optional)
      * @param logOptionsInsecureSkipTLSVerifyBackend insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the serving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver and the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real kubelet.  If the kubelet is configured to verify the apiserver&#39;s TLS credentials, it does not mean the connection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept the actual log data coming from the real kubelet). +optional. (optional)
-     * @return ApiResponse&lt;StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry&gt;
+     * @return ApiResponse&lt;StreamResultOfLogEntry&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -968,9 +968,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response.(streaming responses) </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry> podLogsWithHttpInfo(String namespace, String name, String podName, String logOptionsContainer, Boolean logOptionsFollow, Boolean logOptionsPrevious, String logOptionsSinceSeconds, String logOptionsSinceTimeSeconds, Integer logOptionsSinceTimeNanos, Boolean logOptionsTimestamps, String logOptionsTailLines, String logOptionsLimitBytes, Boolean logOptionsInsecureSkipTLSVerifyBackend) throws ApiException {
+    public ApiResponse<StreamResultOfLogEntry> podLogsWithHttpInfo(String namespace, String name, String podName, String logOptionsContainer, Boolean logOptionsFollow, Boolean logOptionsPrevious, String logOptionsSinceSeconds, String logOptionsSinceTimeSeconds, Integer logOptionsSinceTimeNanos, Boolean logOptionsTimestamps, String logOptionsTailLines, String logOptionsLimitBytes, Boolean logOptionsInsecureSkipTLSVerifyBackend) throws ApiException {
         okhttp3.Call localVarCall = podLogsValidateBeforeCall(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend, null);
-        Type localVarReturnType = new TypeToken<StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamResultOfLogEntry>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -999,10 +999,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response.(streaming responses) </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call podLogsAsync(String namespace, String name, String podName, String logOptionsContainer, Boolean logOptionsFollow, Boolean logOptionsPrevious, String logOptionsSinceSeconds, String logOptionsSinceTimeSeconds, Integer logOptionsSinceTimeNanos, Boolean logOptionsTimestamps, String logOptionsTailLines, String logOptionsLimitBytes, Boolean logOptionsInsecureSkipTLSVerifyBackend, final ApiCallback<StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry> _callback) throws ApiException {
+    public okhttp3.Call podLogsAsync(String namespace, String name, String podName, String logOptionsContainer, Boolean logOptionsFollow, Boolean logOptionsPrevious, String logOptionsSinceSeconds, String logOptionsSinceTimeSeconds, Integer logOptionsSinceTimeNanos, Boolean logOptionsTimestamps, String logOptionsTailLines, String logOptionsLimitBytes, Boolean logOptionsInsecureSkipTLSVerifyBackend, final ApiCallback<StreamResultOfLogEntry> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = podLogsValidateBeforeCall(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend, _callback);
-        Type localVarReturnType = new TypeToken<StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamResultOfLogEntry>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1020,7 +1020,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resubmitWorkflowCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call resubmitWorkflowCall(String namespace, String name, WorkflowResubmitRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1052,7 +1052,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call resubmitWorkflowValidateBeforeCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resubmitWorkflowValidateBeforeCall(String namespace, String name, WorkflowResubmitRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -1081,7 +1081,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1089,8 +1089,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow resubmitWorkflow(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = resubmitWorkflowWithHttpInfo(namespace, name, body);
+    public Workflow resubmitWorkflow(String namespace, String name, WorkflowResubmitRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = resubmitWorkflowWithHttpInfo(namespace, name, body);
         return localVarResp.getData();
     }
 
@@ -1100,7 +1100,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1108,9 +1108,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> resubmitWorkflowWithHttpInfo(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest body) throws ApiException {
+    public ApiResponse<Workflow> resubmitWorkflowWithHttpInfo(String namespace, String name, WorkflowResubmitRequest body) throws ApiException {
         okhttp3.Call localVarCall = resubmitWorkflowValidateBeforeCall(namespace, name, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1129,10 +1129,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resubmitWorkflowAsync(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call resubmitWorkflowAsync(String namespace, String name, WorkflowResubmitRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resubmitWorkflowValidateBeforeCall(namespace, name, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1150,7 +1150,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resumeWorkflowCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResumeRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call resumeWorkflowCall(String namespace, String name, WorkflowResumeRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1182,7 +1182,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call resumeWorkflowValidateBeforeCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResumeRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resumeWorkflowValidateBeforeCall(String namespace, String name, WorkflowResumeRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -1211,7 +1211,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1219,8 +1219,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow resumeWorkflow(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResumeRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = resumeWorkflowWithHttpInfo(namespace, name, body);
+    public Workflow resumeWorkflow(String namespace, String name, WorkflowResumeRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = resumeWorkflowWithHttpInfo(namespace, name, body);
         return localVarResp.getData();
     }
 
@@ -1230,7 +1230,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1238,9 +1238,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> resumeWorkflowWithHttpInfo(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResumeRequest body) throws ApiException {
+    public ApiResponse<Workflow> resumeWorkflowWithHttpInfo(String namespace, String name, WorkflowResumeRequest body) throws ApiException {
         okhttp3.Call localVarCall = resumeWorkflowValidateBeforeCall(namespace, name, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1259,10 +1259,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resumeWorkflowAsync(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowResumeRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call resumeWorkflowAsync(String namespace, String name, WorkflowResumeRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resumeWorkflowValidateBeforeCall(namespace, name, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1280,7 +1280,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retryWorkflowCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowRetryRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call retryWorkflowCall(String namespace, String name, WorkflowRetryRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1312,7 +1312,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call retryWorkflowValidateBeforeCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowRetryRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call retryWorkflowValidateBeforeCall(String namespace, String name, WorkflowRetryRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -1341,7 +1341,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1349,8 +1349,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow retryWorkflow(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowRetryRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = retryWorkflowWithHttpInfo(namespace, name, body);
+    public Workflow retryWorkflow(String namespace, String name, WorkflowRetryRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = retryWorkflowWithHttpInfo(namespace, name, body);
         return localVarResp.getData();
     }
 
@@ -1360,7 +1360,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1368,9 +1368,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> retryWorkflowWithHttpInfo(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowRetryRequest body) throws ApiException {
+    public ApiResponse<Workflow> retryWorkflowWithHttpInfo(String namespace, String name, WorkflowRetryRequest body) throws ApiException {
         okhttp3.Call localVarCall = retryWorkflowValidateBeforeCall(namespace, name, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1389,10 +1389,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retryWorkflowAsync(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowRetryRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call retryWorkflowAsync(String namespace, String name, WorkflowRetryRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = retryWorkflowValidateBeforeCall(namespace, name, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1410,7 +1410,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopWorkflowCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowStopRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call stopWorkflowCall(String namespace, String name, WorkflowStopRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1442,7 +1442,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call stopWorkflowValidateBeforeCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowStopRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call stopWorkflowValidateBeforeCall(String namespace, String name, WorkflowStopRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -1471,7 +1471,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1479,8 +1479,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow stopWorkflow(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowStopRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = stopWorkflowWithHttpInfo(namespace, name, body);
+    public Workflow stopWorkflow(String namespace, String name, WorkflowStopRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = stopWorkflowWithHttpInfo(namespace, name, body);
         return localVarResp.getData();
     }
 
@@ -1490,7 +1490,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1498,9 +1498,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> stopWorkflowWithHttpInfo(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowStopRequest body) throws ApiException {
+    public ApiResponse<Workflow> stopWorkflowWithHttpInfo(String namespace, String name, WorkflowStopRequest body) throws ApiException {
         okhttp3.Call localVarCall = stopWorkflowValidateBeforeCall(namespace, name, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1519,10 +1519,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopWorkflowAsync(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowStopRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call stopWorkflowAsync(String namespace, String name, WorkflowStopRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = stopWorkflowValidateBeforeCall(namespace, name, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1539,7 +1539,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitWorkflowCall(String namespace, IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call submitWorkflowCall(String namespace, WorkflowSubmitRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1570,7 +1570,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call submitWorkflowValidateBeforeCall(String namespace, IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call submitWorkflowValidateBeforeCall(String namespace, WorkflowSubmitRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -1593,7 +1593,7 @@ public class WorkflowServiceApi {
      * 
      * @param namespace  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1601,8 +1601,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow submitWorkflow(String namespace, IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = submitWorkflowWithHttpInfo(namespace, body);
+    public Workflow submitWorkflow(String namespace, WorkflowSubmitRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = submitWorkflowWithHttpInfo(namespace, body);
         return localVarResp.getData();
     }
 
@@ -1611,7 +1611,7 @@ public class WorkflowServiceApi {
      * 
      * @param namespace  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1619,9 +1619,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> submitWorkflowWithHttpInfo(String namespace, IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest body) throws ApiException {
+    public ApiResponse<Workflow> submitWorkflowWithHttpInfo(String namespace, WorkflowSubmitRequest body) throws ApiException {
         okhttp3.Call localVarCall = submitWorkflowValidateBeforeCall(namespace, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1639,10 +1639,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitWorkflowAsync(String namespace, IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call submitWorkflowAsync(String namespace, WorkflowSubmitRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = submitWorkflowValidateBeforeCall(namespace, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1660,7 +1660,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call suspendWorkflowCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call suspendWorkflowCall(String namespace, String name, WorkflowSuspendRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1692,7 +1692,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call suspendWorkflowValidateBeforeCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call suspendWorkflowValidateBeforeCall(String namespace, String name, WorkflowSuspendRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -1721,7 +1721,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1729,8 +1729,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow suspendWorkflow(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = suspendWorkflowWithHttpInfo(namespace, name, body);
+    public Workflow suspendWorkflow(String namespace, String name, WorkflowSuspendRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = suspendWorkflowWithHttpInfo(namespace, name, body);
         return localVarResp.getData();
     }
 
@@ -1740,7 +1740,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1748,9 +1748,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> suspendWorkflowWithHttpInfo(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest body) throws ApiException {
+    public ApiResponse<Workflow> suspendWorkflowWithHttpInfo(String namespace, String name, WorkflowSuspendRequest body) throws ApiException {
         okhttp3.Call localVarCall = suspendWorkflowValidateBeforeCall(namespace, name, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1769,10 +1769,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call suspendWorkflowAsync(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call suspendWorkflowAsync(String namespace, String name, WorkflowSuspendRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = suspendWorkflowValidateBeforeCall(namespace, name, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1790,7 +1790,7 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call terminateWorkflowCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call terminateWorkflowCall(String namespace, String name, WorkflowTerminateRequest body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1822,7 +1822,7 @@ public class WorkflowServiceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call terminateWorkflowValidateBeforeCall(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call terminateWorkflowValidateBeforeCall(String namespace, String name, WorkflowTerminateRequest body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -1851,7 +1851,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return IoArgoprojWorkflowV1alpha1Workflow
+     * @return Workflow
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1859,8 +1859,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public IoArgoprojWorkflowV1alpha1Workflow terminateWorkflow(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest body) throws ApiException {
-        ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> localVarResp = terminateWorkflowWithHttpInfo(namespace, name, body);
+    public Workflow terminateWorkflow(String namespace, String name, WorkflowTerminateRequest body) throws ApiException {
+        ApiResponse<Workflow> localVarResp = terminateWorkflowWithHttpInfo(namespace, name, body);
         return localVarResp.getData();
     }
 
@@ -1870,7 +1870,7 @@ public class WorkflowServiceApi {
      * @param namespace  (required)
      * @param name  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;IoArgoprojWorkflowV1alpha1Workflow&gt;
+     * @return ApiResponse&lt;Workflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1878,9 +1878,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IoArgoprojWorkflowV1alpha1Workflow> terminateWorkflowWithHttpInfo(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest body) throws ApiException {
+    public ApiResponse<Workflow> terminateWorkflowWithHttpInfo(String namespace, String name, WorkflowTerminateRequest body) throws ApiException {
         okhttp3.Call localVarCall = terminateWorkflowValidateBeforeCall(namespace, name, body, null);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1899,10 +1899,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call terminateWorkflowAsync(String namespace, String name, IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest body, final ApiCallback<IoArgoprojWorkflowV1alpha1Workflow> _callback) throws ApiException {
+    public okhttp3.Call terminateWorkflowAsync(String namespace, String name, WorkflowTerminateRequest body, final ApiCallback<Workflow> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = terminateWorkflowValidateBeforeCall(namespace, name, body, _callback);
-        Type localVarReturnType = new TypeToken<IoArgoprojWorkflowV1alpha1Workflow>(){}.getType();
+        Type localVarReturnType = new TypeToken<Workflow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2014,7 +2014,7 @@ public class WorkflowServiceApi {
      * @param listOptionsTimeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. (optional)
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
-     * @return StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent
+     * @return StreamResultOfWorkflowWatchEvent
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2022,8 +2022,8 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response.(streaming responses) </td><td>  -  </td></tr>
      </table>
      */
-    public StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent watchWorkflows(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
-        ApiResponse<StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent> localVarResp = watchWorkflowsWithHttpInfo(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+    public StreamResultOfWorkflowWatchEvent watchWorkflows(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
+        ApiResponse<StreamResultOfWorkflowWatchEvent> localVarResp = watchWorkflowsWithHttpInfo(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
         return localVarResp.getData();
     }
 
@@ -2039,7 +2039,7 @@ public class WorkflowServiceApi {
      * @param listOptionsTimeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. (optional)
      * @param listOptionsLimit limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. (optional)
      * @param listOptionsContinue The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. (optional)
-     * @return ApiResponse&lt;StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent&gt;
+     * @return ApiResponse&lt;StreamResultOfWorkflowWatchEvent&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2047,9 +2047,9 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response.(streaming responses) </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent> watchWorkflowsWithHttpInfo(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
+    public ApiResponse<StreamResultOfWorkflowWatchEvent> watchWorkflowsWithHttpInfo(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue) throws ApiException {
         okhttp3.Call localVarCall = watchWorkflowsValidateBeforeCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, null);
-        Type localVarReturnType = new TypeToken<StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamResultOfWorkflowWatchEvent>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2074,10 +2074,10 @@ public class WorkflowServiceApi {
         <tr><td> 200 </td><td> A successful response.(streaming responses) </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call watchWorkflowsAsync(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, final ApiCallback<StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent> _callback) throws ApiException {
+    public okhttp3.Call watchWorkflowsAsync(String namespace, String listOptionsLabelSelector, String listOptionsFieldSelector, Boolean listOptionsWatch, Boolean listOptionsAllowWatchBookmarks, String listOptionsResourceVersion, String listOptionsTimeoutSeconds, String listOptionsLimit, String listOptionsContinue, final ApiCallback<StreamResultOfWorkflowWatchEvent> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = watchWorkflowsValidateBeforeCall(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, _callback);
-        Type localVarReturnType = new TypeToken<StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamResultOfWorkflowWatchEvent>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

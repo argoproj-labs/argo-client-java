@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.argoproj.workflow.models.IoK8sApimachineryPkgApisMetaV1LabelSelector;
+import io.argoproj.workflow.models.LabelSelector;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -41,7 +41,7 @@ public class IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec {
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
-  private IoK8sApimachineryPkgApisMetaV1LabelSelector selector;
+  private LabelSelector selector;
 
 
   public IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec maxUnavailable(String maxUnavailable) {
@@ -90,7 +90,7 @@ public class IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec {
   }
 
 
-  public IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec selector(IoK8sApimachineryPkgApisMetaV1LabelSelector selector) {
+  public IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec selector(LabelSelector selector) {
     
     this.selector = selector;
     return this;
@@ -103,12 +103,12 @@ public class IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IoK8sApimachineryPkgApisMetaV1LabelSelector getSelector() {
+  public LabelSelector getSelector() {
     return selector;
   }
 
 
-  public void setSelector(IoK8sApimachineryPkgApisMetaV1LabelSelector selector) {
+  public void setSelector(LabelSelector selector) {
     this.selector = selector;
   }
 

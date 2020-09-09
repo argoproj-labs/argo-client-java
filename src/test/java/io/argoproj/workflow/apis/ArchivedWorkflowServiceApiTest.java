@@ -14,8 +14,8 @@
 package io.argoproj.workflow.apis;
 
 import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1Workflow;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowList;
+import io.argoproj.workflow.models.Workflow;
+import io.argoproj.workflow.models.WorkflowList;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -60,7 +60,7 @@ public class ArchivedWorkflowServiceApiTest {
     @Test
     public void getArchivedWorkflowTest() throws ApiException {
         String uid = null;
-        IoArgoprojWorkflowV1alpha1Workflow response = api.getArchivedWorkflow(uid);
+        Workflow response = api.getArchivedWorkflow(uid);
 
         // TODO: test validations
     }
@@ -83,7 +83,7 @@ public class ArchivedWorkflowServiceApiTest {
         String listOptionsTimeoutSeconds = null;
         String listOptionsLimit = null;
         String listOptionsContinue = null;
-        IoArgoprojWorkflowV1alpha1WorkflowList response = api.listArchivedWorkflows(listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+        WorkflowList response = api.listArchivedWorkflows(listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
 
         // TODO: test validations
     }

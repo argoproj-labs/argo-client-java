@@ -14,11 +14,11 @@
 package io.argoproj.workflow.apis;
 
 import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowTemplate;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowTemplateCreateRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowTemplateLintRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowTemplateList;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1WorkflowTemplateUpdateRequest;
+import io.argoproj.workflow.models.WorkflowTemplate;
+import io.argoproj.workflow.models.WorkflowTemplateCreateRequest;
+import io.argoproj.workflow.models.WorkflowTemplateLintRequest;
+import io.argoproj.workflow.models.WorkflowTemplateList;
+import io.argoproj.workflow.models.WorkflowTemplateUpdateRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,8 +47,8 @@ public class WorkflowTemplateServiceApiTest {
     @Test
     public void createWorkflowTemplateTest() throws ApiException {
         String namespace = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTemplateCreateRequest body = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTemplate response = api.createWorkflowTemplate(namespace, body);
+        WorkflowTemplateCreateRequest body = null;
+        WorkflowTemplate response = api.createWorkflowTemplate(namespace, body);
 
         // TODO: test validations
     }
@@ -89,7 +89,7 @@ public class WorkflowTemplateServiceApiTest {
         String namespace = null;
         String name = null;
         String getOptionsResourceVersion = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTemplate response = api.getWorkflowTemplate(namespace, name, getOptionsResourceVersion);
+        WorkflowTemplate response = api.getWorkflowTemplate(namespace, name, getOptionsResourceVersion);
 
         // TODO: test validations
     }
@@ -105,8 +105,8 @@ public class WorkflowTemplateServiceApiTest {
     @Test
     public void lintWorkflowTemplateTest() throws ApiException {
         String namespace = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTemplateLintRequest body = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTemplate response = api.lintWorkflowTemplate(namespace, body);
+        WorkflowTemplateLintRequest body = null;
+        WorkflowTemplate response = api.lintWorkflowTemplate(namespace, body);
 
         // TODO: test validations
     }
@@ -130,7 +130,7 @@ public class WorkflowTemplateServiceApiTest {
         String listOptionsTimeoutSeconds = null;
         String listOptionsLimit = null;
         String listOptionsContinue = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTemplateList response = api.listWorkflowTemplates(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+        WorkflowTemplateList response = api.listWorkflowTemplates(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
 
         // TODO: test validations
     }
@@ -147,8 +147,8 @@ public class WorkflowTemplateServiceApiTest {
     public void updateWorkflowTemplateTest() throws ApiException {
         String namespace = null;
         String name = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTemplateUpdateRequest body = null;
-        IoArgoprojWorkflowV1alpha1WorkflowTemplate response = api.updateWorkflowTemplate(namespace, name, body);
+        WorkflowTemplateUpdateRequest body = null;
+        WorkflowTemplate response = api.updateWorkflowTemplate(namespace, name, body);
 
         // TODO: test validations
     }

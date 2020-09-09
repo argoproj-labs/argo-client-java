@@ -14,9 +14,9 @@
 package io.argoproj.workflow.apis;
 
 import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1GetUserInfoResponse;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1InfoResponse;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1Version;
+import io.argoproj.workflow.models.GetUserInfoResponse;
+import io.argoproj.workflow.models.InfoResponse;
+import io.argoproj.workflow.models.Version;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +44,7 @@ public class InfoServiceApiTest {
      */
     @Test
     public void getInfoTest() throws ApiException {
-        IoArgoprojWorkflowV1alpha1InfoResponse response = api.getInfo();
+        InfoResponse response = api.getInfo();
 
         // TODO: test validations
     }
@@ -59,7 +59,7 @@ public class InfoServiceApiTest {
      */
     @Test
     public void getUserInfoTest() throws ApiException {
-        IoArgoprojWorkflowV1alpha1GetUserInfoResponse response = api.getUserInfo();
+        GetUserInfoResponse response = api.getUserInfo();
 
         // TODO: test validations
     }
@@ -74,7 +74,7 @@ public class InfoServiceApiTest {
      */
     @Test
     public void getVersionTest() throws ApiException {
-        IoArgoprojWorkflowV1alpha1Version response = api.getVersion();
+        Version response = api.getVersion();
 
         // TODO: test validations
     }

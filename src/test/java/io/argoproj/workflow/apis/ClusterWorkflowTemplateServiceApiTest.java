@@ -14,11 +14,11 @@
 package io.argoproj.workflow.apis;
 
 import io.argoproj.workflow.ApiException;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateCreateRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateLintRequest;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList;
-import io.argoproj.workflow.models.IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateUpdateRequest;
+import io.argoproj.workflow.models.ClusterWorkflowTemplate;
+import io.argoproj.workflow.models.ClusterWorkflowTemplateCreateRequest;
+import io.argoproj.workflow.models.ClusterWorkflowTemplateLintRequest;
+import io.argoproj.workflow.models.ClusterWorkflowTemplateList;
+import io.argoproj.workflow.models.ClusterWorkflowTemplateUpdateRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -46,8 +46,8 @@ public class ClusterWorkflowTemplateServiceApiTest {
      */
     @Test
     public void createClusterWorkflowTemplateTest() throws ApiException {
-        IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateCreateRequest body = null;
-        IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate response = api.createClusterWorkflowTemplate(body);
+        ClusterWorkflowTemplateCreateRequest body = null;
+        ClusterWorkflowTemplate response = api.createClusterWorkflowTemplate(body);
 
         // TODO: test validations
     }
@@ -86,7 +86,7 @@ public class ClusterWorkflowTemplateServiceApiTest {
     public void getClusterWorkflowTemplateTest() throws ApiException {
         String name = null;
         String getOptionsResourceVersion = null;
-        IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate response = api.getClusterWorkflowTemplate(name, getOptionsResourceVersion);
+        ClusterWorkflowTemplate response = api.getClusterWorkflowTemplate(name, getOptionsResourceVersion);
 
         // TODO: test validations
     }
@@ -101,8 +101,8 @@ public class ClusterWorkflowTemplateServiceApiTest {
      */
     @Test
     public void lintClusterWorkflowTemplateTest() throws ApiException {
-        IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateLintRequest body = null;
-        IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate response = api.lintClusterWorkflowTemplate(body);
+        ClusterWorkflowTemplateLintRequest body = null;
+        ClusterWorkflowTemplate response = api.lintClusterWorkflowTemplate(body);
 
         // TODO: test validations
     }
@@ -125,7 +125,7 @@ public class ClusterWorkflowTemplateServiceApiTest {
         String listOptionsTimeoutSeconds = null;
         String listOptionsLimit = null;
         String listOptionsContinue = null;
-        IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateList response = api.listClusterWorkflowTemplates(listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+        ClusterWorkflowTemplateList response = api.listClusterWorkflowTemplates(listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
 
         // TODO: test validations
     }
@@ -141,8 +141,8 @@ public class ClusterWorkflowTemplateServiceApiTest {
     @Test
     public void updateClusterWorkflowTemplateTest() throws ApiException {
         String name = null;
-        IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplateUpdateRequest body = null;
-        IoArgoprojWorkflowV1alpha1ClusterWorkflowTemplate response = api.updateClusterWorkflowTemplate(name, body);
+        ClusterWorkflowTemplateUpdateRequest body = null;
+        ClusterWorkflowTemplate response = api.updateClusterWorkflowTemplate(name, body);
 
         // TODO: test validations
     }

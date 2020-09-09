@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="createWorkflow"></a>
 # **createWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow createWorkflow(namespace, body)
+> Workflow createWorkflow(namespace, body)
 
 
 
@@ -42,9 +42,9 @@ public class Example {
 
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowCreateRequest body = new IoArgoprojWorkflowV1alpha1WorkflowCreateRequest(); // IoArgoprojWorkflowV1alpha1WorkflowCreateRequest | 
+    WorkflowCreateRequest body = new WorkflowCreateRequest(); // WorkflowCreateRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.createWorkflow(namespace, body);
+      Workflow result = apiInstance.createWorkflow(namespace, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#createWorkflow");
@@ -62,11 +62,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowCreateRequest**](IoArgoprojWorkflowV1alpha1WorkflowCreateRequest.md)|  |
+ **body** | [**WorkflowCreateRequest**](WorkflowCreateRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ No authorization required
 
 <a name="getWorkflow"></a>
 # **getWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow getWorkflow(namespace, name, getOptionsResourceVersion, fields)
+> Workflow getWorkflow(namespace, name, getOptionsResourceVersion, fields)
 
 
 
@@ -182,7 +182,7 @@ public class Example {
     String getOptionsResourceVersion = "getOptionsResourceVersion_example"; // String | When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
     String fields = "fields_example"; // String | Fields to be included or excluded in the response. e.g. \"spec,status.phase\", \"-status.nodes\".
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.getWorkflow(namespace, name, getOptionsResourceVersion, fields);
+      Workflow result = apiInstance.getWorkflow(namespace, name, getOptionsResourceVersion, fields);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#getWorkflow");
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ No authorization required
 
 <a name="lintWorkflow"></a>
 # **lintWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow lintWorkflow(namespace, body)
+> Workflow lintWorkflow(namespace, body)
 
 
 
@@ -244,9 +244,9 @@ public class Example {
 
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowLintRequest body = new IoArgoprojWorkflowV1alpha1WorkflowLintRequest(); // IoArgoprojWorkflowV1alpha1WorkflowLintRequest | 
+    WorkflowLintRequest body = new WorkflowLintRequest(); // WorkflowLintRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.lintWorkflow(namespace, body);
+      Workflow result = apiInstance.lintWorkflow(namespace, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#lintWorkflow");
@@ -264,11 +264,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowLintRequest**](IoArgoprojWorkflowV1alpha1WorkflowLintRequest.md)|  |
+ **body** | [**WorkflowLintRequest**](WorkflowLintRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -286,7 +286,7 @@ No authorization required
 
 <a name="listWorkflows"></a>
 # **listWorkflows**
-> IoArgoprojWorkflowV1alpha1WorkflowList listWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields)
+> WorkflowList listWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields)
 
 
 
@@ -316,7 +316,7 @@ public class Example {
     String listOptionsContinue = "listOptionsContinue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
     String fields = "fields_example"; // String | Fields to be included or excluded in the response. e.g. \"items.spec,items.status.phase\", \"-items.status.nodes\".
     try {
-      IoArgoprojWorkflowV1alpha1WorkflowList result = apiInstance.listWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
+      WorkflowList result = apiInstance.listWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#listWorkflows");
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1WorkflowList**](IoArgoprojWorkflowV1alpha1WorkflowList.md)
+[**WorkflowList**](WorkflowList.md)
 
 ### Authorization
 
@@ -364,7 +364,7 @@ No authorization required
 
 <a name="podLogs"></a>
 # **podLogs**
-> StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend)
+> StreamResultOfLogEntry podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend)
 
 
 
@@ -397,7 +397,7 @@ public class Example {
     String logOptionsLimitBytes = "logOptionsLimitBytes_example"; // String | If set, the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. +optional.
     Boolean logOptionsInsecureSkipTLSVerifyBackend = true; // Boolean | insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the serving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver and the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real kubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the connection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept the actual log data coming from the real kubelet). +optional.
     try {
-      StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry result = apiInstance.podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
+      StreamResultOfLogEntry result = apiInstance.podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#podLogs");
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry**](StreamResultOfIoArgoprojWorkflowV1alpha1LogEntry.md)
+[**StreamResultOfLogEntry**](StreamResultOfLogEntry.md)
 
 ### Authorization
 
@@ -448,7 +448,7 @@ No authorization required
 
 <a name="resubmitWorkflow"></a>
 # **resubmitWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow resubmitWorkflow(namespace, name, body)
+> Workflow resubmitWorkflow(namespace, name, body)
 
 
 
@@ -469,9 +469,9 @@ public class Example {
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
     String name = "name_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest body = new IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest(); // IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest | 
+    WorkflowResubmitRequest body = new WorkflowResubmitRequest(); // WorkflowResubmitRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.resubmitWorkflow(namespace, name, body);
+      Workflow result = apiInstance.resubmitWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#resubmitWorkflow");
@@ -490,11 +490,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
  **name** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest**](IoArgoprojWorkflowV1alpha1WorkflowResubmitRequest.md)|  |
+ **body** | [**WorkflowResubmitRequest**](WorkflowResubmitRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -512,7 +512,7 @@ No authorization required
 
 <a name="resumeWorkflow"></a>
 # **resumeWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow resumeWorkflow(namespace, name, body)
+> Workflow resumeWorkflow(namespace, name, body)
 
 
 
@@ -533,9 +533,9 @@ public class Example {
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
     String name = "name_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowResumeRequest body = new IoArgoprojWorkflowV1alpha1WorkflowResumeRequest(); // IoArgoprojWorkflowV1alpha1WorkflowResumeRequest | 
+    WorkflowResumeRequest body = new WorkflowResumeRequest(); // WorkflowResumeRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.resumeWorkflow(namespace, name, body);
+      Workflow result = apiInstance.resumeWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#resumeWorkflow");
@@ -554,11 +554,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
  **name** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowResumeRequest**](IoArgoprojWorkflowV1alpha1WorkflowResumeRequest.md)|  |
+ **body** | [**WorkflowResumeRequest**](WorkflowResumeRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -576,7 +576,7 @@ No authorization required
 
 <a name="retryWorkflow"></a>
 # **retryWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow retryWorkflow(namespace, name, body)
+> Workflow retryWorkflow(namespace, name, body)
 
 
 
@@ -597,9 +597,9 @@ public class Example {
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
     String name = "name_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowRetryRequest body = new IoArgoprojWorkflowV1alpha1WorkflowRetryRequest(); // IoArgoprojWorkflowV1alpha1WorkflowRetryRequest | 
+    WorkflowRetryRequest body = new WorkflowRetryRequest(); // WorkflowRetryRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.retryWorkflow(namespace, name, body);
+      Workflow result = apiInstance.retryWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#retryWorkflow");
@@ -618,11 +618,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
  **name** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowRetryRequest**](IoArgoprojWorkflowV1alpha1WorkflowRetryRequest.md)|  |
+ **body** | [**WorkflowRetryRequest**](WorkflowRetryRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -640,7 +640,7 @@ No authorization required
 
 <a name="stopWorkflow"></a>
 # **stopWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow stopWorkflow(namespace, name, body)
+> Workflow stopWorkflow(namespace, name, body)
 
 
 
@@ -661,9 +661,9 @@ public class Example {
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
     String name = "name_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowStopRequest body = new IoArgoprojWorkflowV1alpha1WorkflowStopRequest(); // IoArgoprojWorkflowV1alpha1WorkflowStopRequest | 
+    WorkflowStopRequest body = new WorkflowStopRequest(); // WorkflowStopRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.stopWorkflow(namespace, name, body);
+      Workflow result = apiInstance.stopWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#stopWorkflow");
@@ -682,11 +682,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
  **name** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowStopRequest**](IoArgoprojWorkflowV1alpha1WorkflowStopRequest.md)|  |
+ **body** | [**WorkflowStopRequest**](WorkflowStopRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -704,7 +704,7 @@ No authorization required
 
 <a name="submitWorkflow"></a>
 # **submitWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow submitWorkflow(namespace, body)
+> Workflow submitWorkflow(namespace, body)
 
 
 
@@ -724,9 +724,9 @@ public class Example {
 
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest body = new IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest(); // IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest | 
+    WorkflowSubmitRequest body = new WorkflowSubmitRequest(); // WorkflowSubmitRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.submitWorkflow(namespace, body);
+      Workflow result = apiInstance.submitWorkflow(namespace, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#submitWorkflow");
@@ -744,11 +744,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest**](IoArgoprojWorkflowV1alpha1WorkflowSubmitRequest.md)|  |
+ **body** | [**WorkflowSubmitRequest**](WorkflowSubmitRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -766,7 +766,7 @@ No authorization required
 
 <a name="suspendWorkflow"></a>
 # **suspendWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow suspendWorkflow(namespace, name, body)
+> Workflow suspendWorkflow(namespace, name, body)
 
 
 
@@ -787,9 +787,9 @@ public class Example {
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
     String name = "name_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest body = new IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest(); // IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest | 
+    WorkflowSuspendRequest body = new WorkflowSuspendRequest(); // WorkflowSuspendRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.suspendWorkflow(namespace, name, body);
+      Workflow result = apiInstance.suspendWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#suspendWorkflow");
@@ -808,11 +808,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
  **name** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest**](IoArgoprojWorkflowV1alpha1WorkflowSuspendRequest.md)|  |
+ **body** | [**WorkflowSuspendRequest**](WorkflowSuspendRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -830,7 +830,7 @@ No authorization required
 
 <a name="terminateWorkflow"></a>
 # **terminateWorkflow**
-> IoArgoprojWorkflowV1alpha1Workflow terminateWorkflow(namespace, name, body)
+> Workflow terminateWorkflow(namespace, name, body)
 
 
 
@@ -851,9 +851,9 @@ public class Example {
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
     String name = "name_example"; // String | 
-    IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest body = new IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest(); // IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest | 
+    WorkflowTerminateRequest body = new WorkflowTerminateRequest(); // WorkflowTerminateRequest | 
     try {
-      IoArgoprojWorkflowV1alpha1Workflow result = apiInstance.terminateWorkflow(namespace, name, body);
+      Workflow result = apiInstance.terminateWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#terminateWorkflow");
@@ -872,11 +872,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
  **name** | **String**|  |
- **body** | [**IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest**](IoArgoprojWorkflowV1alpha1WorkflowTerminateRequest.md)|  |
+ **body** | [**WorkflowTerminateRequest**](WorkflowTerminateRequest.md)|  |
 
 ### Return type
 
-[**IoArgoprojWorkflowV1alpha1Workflow**](IoArgoprojWorkflowV1alpha1Workflow.md)
+[**Workflow**](Workflow.md)
 
 ### Authorization
 
@@ -894,7 +894,7 @@ No authorization required
 
 <a name="watchWorkflows"></a>
 # **watchWorkflows**
-> StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent watchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue)
+> StreamResultOfWorkflowWatchEvent watchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue)
 
 
 
@@ -923,7 +923,7 @@ public class Example {
     String listOptionsLimit = "listOptionsLimit_example"; // String | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
     String listOptionsContinue = "listOptionsContinue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
     try {
-      StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent result = apiInstance.watchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+      StreamResultOfWorkflowWatchEvent result = apiInstance.watchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowServiceApi#watchWorkflows");
@@ -952,7 +952,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent**](StreamResultOfIoArgoprojWorkflowV1alpha1WorkflowWatchEvent.md)
+[**StreamResultOfWorkflowWatchEvent**](StreamResultOfWorkflowWatchEvent.md)
 
 ### Authorization
 
