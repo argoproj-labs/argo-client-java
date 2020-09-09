@@ -21,11 +21,11 @@ Method | HTTP request | Description
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ClusterWorkflowTemplateServiceApi;
+import io.argoproj.workflow.ApiClient;
+import io.argoproj.workflow.ApiException;
+import io.argoproj.workflow.Configuration;
+import io.argoproj.workflow.models.*;
+import io.argoproj.workflow.apis.ClusterWorkflowTemplateServiceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -81,11 +81,11 @@ No authorization required
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ClusterWorkflowTemplateServiceApi;
+import io.argoproj.workflow.ApiClient;
+import io.argoproj.workflow.ApiException;
+import io.argoproj.workflow.Configuration;
+import io.argoproj.workflow.models.*;
+import io.argoproj.workflow.apis.ClusterWorkflowTemplateServiceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -153,11 +153,11 @@ No authorization required
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ClusterWorkflowTemplateServiceApi;
+import io.argoproj.workflow.ApiClient;
+import io.argoproj.workflow.ApiException;
+import io.argoproj.workflow.Configuration;
+import io.argoproj.workflow.models.*;
+import io.argoproj.workflow.apis.ClusterWorkflowTemplateServiceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -215,11 +215,11 @@ No authorization required
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ClusterWorkflowTemplateServiceApi;
+import io.argoproj.workflow.ApiClient;
+import io.argoproj.workflow.ApiException;
+import io.argoproj.workflow.Configuration;
+import io.argoproj.workflow.models.*;
+import io.argoproj.workflow.apis.ClusterWorkflowTemplateServiceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -275,11 +275,11 @@ No authorization required
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ClusterWorkflowTemplateServiceApi;
+import io.argoproj.workflow.ApiClient;
+import io.argoproj.workflow.ApiException;
+import io.argoproj.workflow.Configuration;
+import io.argoproj.workflow.models.*;
+import io.argoproj.workflow.apis.ClusterWorkflowTemplateServiceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -349,11 +349,11 @@ No authorization required
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ClusterWorkflowTemplateServiceApi;
+import io.argoproj.workflow.ApiClient;
+import io.argoproj.workflow.ApiException;
+import io.argoproj.workflow.Configuration;
+import io.argoproj.workflow.models.*;
+import io.argoproj.workflow.apis.ClusterWorkflowTemplateServiceApi;
 
 public class Example {
   public static void main(String[] args) {

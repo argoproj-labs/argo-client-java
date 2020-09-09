@@ -10,11 +10,13 @@ build:
 		-o /wd \
 		-p hideGenerationTimestamp=true \
 		-p dateLibrary=joda \
+		--api-package io.argoproj.workflow.apis \
+		--invoker-package io.argoproj.workflow \
+		--model-package io.argoproj.workflow.models \
 		--group-id io.argoproj.workflow \
 		--artifact-id argo-client-java \
 		--artifact-version $(VERSION) \
-		--generate-alias-as-model \
-		--package-name=io.argoproj.workflow
+		--generate-alias-as-model
 
 	# add the io.kubernetes:java-client to the deps
 	# sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>5.0.0<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
