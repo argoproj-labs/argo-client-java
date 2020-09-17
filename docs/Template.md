@@ -7,7 +7,7 @@ Template is a reusable and composable unit of execution in a workflow
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**activeDeadlineSeconds** | **Long** | Optional duration in seconds relative to the StartTime that the pod may be active on a node before the system actively tries to terminate the pod; value must be positive integer This field is only applicable to container and script templates. |  [optional]
+**activeDeadlineSeconds** | **String** | IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number. |  [optional]
 **affinity** | [**io.kubernetes.client.models.V1Affinity**](io.kubernetes.client.models.V1Affinity.md) |  |  [optional]
 **archiveLocation** | [**ArtifactLocation**](ArtifactLocation.md) |  |  [optional]
 **arguments** | [**Arguments**](Arguments.md) |  |  [optional]
@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **hostAliases** | [**List&lt;io.kubernetes.client.models.V1HostAlias&gt;**](io.kubernetes.client.models.V1HostAlias.md) | HostAliases is an optional list of hosts and IPs that will be injected into the pod spec |  [optional]
 **initContainers** | [**List&lt;UserContainer&gt;**](UserContainer.md) | InitContainers is a list of containers which run before the main container. |  [optional]
 **inputs** | [**Inputs**](Inputs.md) |  |  [optional]
+**memoize** | [**Memoize**](Memoize.md) |  |  [optional]
 **metadata** | [**Metadata**](Metadata.md) |  |  [optional]
 **metrics** | [**Metrics**](Metrics.md) |  |  [optional]
 **name** | **String** | Name is the name of the template | 
@@ -41,6 +42,7 @@ Name | Type | Description | Notes
 **synchronization** | [**Synchronization**](Synchronization.md) |  |  [optional]
 **template** | **String** | Template is the name of the template which is used as the base of this template. DEPRECATED: This field is not used. |  [optional]
 **templateRef** | [**TemplateRef**](TemplateRef.md) |  |  [optional]
+**timeout** | **String** | Timout allows to set the total node execution timeout duration counting from the node&#39;s start time. This duration also includes time in which the node spends in Pending state. This duration may not be applied to Step or DAG templates. |  [optional]
 **tolerations** | [**List&lt;io.kubernetes.client.models.V1Toleration&gt;**](io.kubernetes.client.models.V1Toleration.md) | Tolerations to apply to workflow pods. |  [optional]
 **volumes** | [**List&lt;io.kubernetes.client.models.V1Volume&gt;**](io.kubernetes.client.models.V1Volume.md) | Volumes is a list of volumes that can be mounted by containers in a template. |  [optional]
 

@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **path** | **String** | Path is the container path to the artifact |  [optional]
 **raw** | [**RawArtifact**](RawArtifact.md) |  |  [optional]
 **s3** | [**S3Artifact**](S3Artifact.md) |  |  [optional]
+**subPath** | **String** | SubPath allows an artifact to be sourced from a subpath within the specified source |  [optional]
 
 
 

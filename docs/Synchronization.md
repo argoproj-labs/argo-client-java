@@ -7,6 +7,7 @@ Synchronization holds synchronization lock configuration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**mutex** | [**Mutex**](Mutex.md) |  |  [optional]
 **semaphore** | [**SemaphoreRef**](SemaphoreRef.md) |  |  [optional]
 
 
