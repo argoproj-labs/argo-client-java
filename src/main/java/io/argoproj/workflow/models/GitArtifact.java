@@ -46,7 +46,7 @@ public class GitArtifact {
 
   public static final String SERIALIZED_NAME_PASSWORD_SECRET = "passwordSecret";
   @SerializedName(SERIALIZED_NAME_PASSWORD_SECRET)
-  private io.kubernetes.client.models.V1SecretKeySelector passwordSecret;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector passwordSecret;
 
   public static final String SERIALIZED_NAME_REPO = "repo";
   @SerializedName(SERIALIZED_NAME_REPO)
@@ -58,11 +58,11 @@ public class GitArtifact {
 
   public static final String SERIALIZED_NAME_SSH_PRIVATE_KEY_SECRET = "sshPrivateKeySecret";
   @SerializedName(SERIALIZED_NAME_SSH_PRIVATE_KEY_SECRET)
-  private io.kubernetes.client.models.V1SecretKeySelector sshPrivateKeySecret;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector sshPrivateKeySecret;
 
   public static final String SERIALIZED_NAME_USERNAME_SECRET = "usernameSecret";
   @SerializedName(SERIALIZED_NAME_USERNAME_SECRET)
-  private io.kubernetes.client.models.V1SecretKeySelector usernameSecret;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector usernameSecret;
 
 
   public GitArtifact depth(Long depth) {
@@ -142,7 +142,7 @@ public class GitArtifact {
   }
 
 
-  public GitArtifact passwordSecret(io.kubernetes.client.models.V1SecretKeySelector passwordSecret) {
+  public GitArtifact passwordSecret(io.kubernetes.client.openapi.models.V1SecretKeySelector passwordSecret) {
     
     this.passwordSecret = passwordSecret;
     return this;
@@ -155,12 +155,12 @@ public class GitArtifact {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getPasswordSecret() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getPasswordSecret() {
     return passwordSecret;
   }
 
 
-  public void setPasswordSecret(io.kubernetes.client.models.V1SecretKeySelector passwordSecret) {
+  public void setPasswordSecret(io.kubernetes.client.openapi.models.V1SecretKeySelector passwordSecret) {
     this.passwordSecret = passwordSecret;
   }
 
@@ -210,7 +210,7 @@ public class GitArtifact {
   }
 
 
-  public GitArtifact sshPrivateKeySecret(io.kubernetes.client.models.V1SecretKeySelector sshPrivateKeySecret) {
+  public GitArtifact sshPrivateKeySecret(io.kubernetes.client.openapi.models.V1SecretKeySelector sshPrivateKeySecret) {
     
     this.sshPrivateKeySecret = sshPrivateKeySecret;
     return this;
@@ -223,17 +223,17 @@ public class GitArtifact {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getSshPrivateKeySecret() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getSshPrivateKeySecret() {
     return sshPrivateKeySecret;
   }
 
 
-  public void setSshPrivateKeySecret(io.kubernetes.client.models.V1SecretKeySelector sshPrivateKeySecret) {
+  public void setSshPrivateKeySecret(io.kubernetes.client.openapi.models.V1SecretKeySelector sshPrivateKeySecret) {
     this.sshPrivateKeySecret = sshPrivateKeySecret;
   }
 
 
-  public GitArtifact usernameSecret(io.kubernetes.client.models.V1SecretKeySelector usernameSecret) {
+  public GitArtifact usernameSecret(io.kubernetes.client.openapi.models.V1SecretKeySelector usernameSecret) {
     
     this.usernameSecret = usernameSecret;
     return this;
@@ -246,12 +246,12 @@ public class GitArtifact {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getUsernameSecret() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getUsernameSecret() {
     return usernameSecret;
   }
 
 
-  public void setUsernameSecret(io.kubernetes.client.models.V1SecretKeySelector usernameSecret) {
+  public void setUsernameSecret(io.kubernetes.client.openapi.models.V1SecretKeySelector usernameSecret) {
     this.usernameSecret = usernameSecret;
   }
 

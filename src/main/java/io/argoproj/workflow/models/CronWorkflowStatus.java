@@ -35,7 +35,7 @@ import java.util.List;
 public class CronWorkflowStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
-  private List<io.kubernetes.client.models.V1ObjectReference> active = null;
+  private List<io.kubernetes.client.openapi.models.V1ObjectReference> active = null;
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -46,15 +46,15 @@ public class CronWorkflowStatus {
   private org.joda.time.DateTime lastScheduledTime;
 
 
-  public CronWorkflowStatus active(List<io.kubernetes.client.models.V1ObjectReference> active) {
+  public CronWorkflowStatus active(List<io.kubernetes.client.openapi.models.V1ObjectReference> active) {
     
     this.active = active;
     return this;
   }
 
-  public CronWorkflowStatus addActiveItem(io.kubernetes.client.models.V1ObjectReference activeItem) {
+  public CronWorkflowStatus addActiveItem(io.kubernetes.client.openapi.models.V1ObjectReference activeItem) {
     if (this.active == null) {
-      this.active = new ArrayList<io.kubernetes.client.models.V1ObjectReference>();
+      this.active = new ArrayList<io.kubernetes.client.openapi.models.V1ObjectReference>();
     }
     this.active.add(activeItem);
     return this;
@@ -67,12 +67,12 @@ public class CronWorkflowStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Active is a list of active workflows stemming from this CronWorkflow")
 
-  public List<io.kubernetes.client.models.V1ObjectReference> getActive() {
+  public List<io.kubernetes.client.openapi.models.V1ObjectReference> getActive() {
     return active;
   }
 
 
-  public void setActive(List<io.kubernetes.client.models.V1ObjectReference> active) {
+  public void setActive(List<io.kubernetes.client.openapi.models.V1ObjectReference> active) {
     this.active = active;
   }
 

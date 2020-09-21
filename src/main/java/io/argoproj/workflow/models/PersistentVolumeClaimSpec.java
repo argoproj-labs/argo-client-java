@@ -44,7 +44,7 @@ public class PersistentVolumeClaimSpec {
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
-  private io.kubernetes.client.models.V1ResourceRequirements resources;
+  private io.kubernetes.client.openapi.models.V1ResourceRequirements resources;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
@@ -117,7 +117,7 @@ public class PersistentVolumeClaimSpec {
   }
 
 
-  public PersistentVolumeClaimSpec resources(io.kubernetes.client.models.V1ResourceRequirements resources) {
+  public PersistentVolumeClaimSpec resources(io.kubernetes.client.openapi.models.V1ResourceRequirements resources) {
     
     this.resources = resources;
     return this;
@@ -130,12 +130,12 @@ public class PersistentVolumeClaimSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1ResourceRequirements getResources() {
+  public io.kubernetes.client.openapi.models.V1ResourceRequirements getResources() {
     return resources;
   }
 
 
-  public void setResources(io.kubernetes.client.models.V1ResourceRequirements resources) {
+  public void setResources(io.kubernetes.client.openapi.models.V1ResourceRequirements resources) {
     this.resources = resources;
   }
 

@@ -47,7 +47,7 @@ public class ClusterWorkflowTemplateList {
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private io.kubernetes.client.models.V1ListMeta metadata;
+  private io.kubernetes.client.openapi.models.V1ListMeta metadata;
 
 
   public ClusterWorkflowTemplateList apiVersion(String apiVersion) {
@@ -123,7 +123,7 @@ public class ClusterWorkflowTemplateList {
   }
 
 
-  public ClusterWorkflowTemplateList metadata(io.kubernetes.client.models.V1ListMeta metadata) {
+  public ClusterWorkflowTemplateList metadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
     
     this.metadata = metadata;
     return this;
@@ -135,12 +135,12 @@ public class ClusterWorkflowTemplateList {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public io.kubernetes.client.models.V1ListMeta getMetadata() {
+  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(io.kubernetes.client.models.V1ListMeta metadata) {
+  public void setMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
     this.metadata = metadata;
   }
 

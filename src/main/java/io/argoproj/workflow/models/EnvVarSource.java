@@ -34,7 +34,7 @@ import java.io.IOException;
 public class EnvVarSource {
   public static final String SERIALIZED_NAME_CONFIG_MAP_KEY_REF = "configMapKeyRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_KEY_REF)
-  private io.kubernetes.client.models.V1ConfigMapKeySelector configMapKeyRef;
+  private io.kubernetes.client.openapi.models.V1ConfigMapKeySelector configMapKeyRef;
 
   public static final String SERIALIZED_NAME_FIELD_REF = "fieldRef";
   @SerializedName(SERIALIZED_NAME_FIELD_REF)
@@ -46,10 +46,10 @@ public class EnvVarSource {
 
   public static final String SERIALIZED_NAME_SECRET_KEY_REF = "secretKeyRef";
   @SerializedName(SERIALIZED_NAME_SECRET_KEY_REF)
-  private io.kubernetes.client.models.V1SecretKeySelector secretKeyRef;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector secretKeyRef;
 
 
-  public EnvVarSource configMapKeyRef(io.kubernetes.client.models.V1ConfigMapKeySelector configMapKeyRef) {
+  public EnvVarSource configMapKeyRef(io.kubernetes.client.openapi.models.V1ConfigMapKeySelector configMapKeyRef) {
     
     this.configMapKeyRef = configMapKeyRef;
     return this;
@@ -62,12 +62,12 @@ public class EnvVarSource {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1ConfigMapKeySelector getConfigMapKeyRef() {
+  public io.kubernetes.client.openapi.models.V1ConfigMapKeySelector getConfigMapKeyRef() {
     return configMapKeyRef;
   }
 
 
-  public void setConfigMapKeyRef(io.kubernetes.client.models.V1ConfigMapKeySelector configMapKeyRef) {
+  public void setConfigMapKeyRef(io.kubernetes.client.openapi.models.V1ConfigMapKeySelector configMapKeyRef) {
     this.configMapKeyRef = configMapKeyRef;
   }
 
@@ -118,7 +118,7 @@ public class EnvVarSource {
   }
 
 
-  public EnvVarSource secretKeyRef(io.kubernetes.client.models.V1SecretKeySelector secretKeyRef) {
+  public EnvVarSource secretKeyRef(io.kubernetes.client.openapi.models.V1SecretKeySelector secretKeyRef) {
     
     this.secretKeyRef = secretKeyRef;
     return this;
@@ -131,12 +131,12 @@ public class EnvVarSource {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getSecretKeyRef() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getSecretKeyRef() {
     return secretKeyRef;
   }
 
 
-  public void setSecretKeyRef(io.kubernetes.client.models.V1SecretKeySelector secretKeyRef) {
+  public void setSecretKeyRef(io.kubernetes.client.openapi.models.V1SecretKeySelector secretKeyRef) {
     this.secretKeyRef = secretKeyRef;
   }
 

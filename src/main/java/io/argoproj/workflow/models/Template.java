@@ -56,7 +56,7 @@ public class Template {
 
   public static final String SERIALIZED_NAME_AFFINITY = "affinity";
   @SerializedName(SERIALIZED_NAME_AFFINITY)
-  private io.kubernetes.client.models.V1Affinity affinity;
+  private io.kubernetes.client.openapi.models.V1Affinity affinity;
 
   public static final String SERIALIZED_NAME_ARCHIVE_LOCATION = "archiveLocation";
   @SerializedName(SERIALIZED_NAME_ARCHIVE_LOCATION)
@@ -72,7 +72,7 @@ public class Template {
 
   public static final String SERIALIZED_NAME_CONTAINER = "container";
   @SerializedName(SERIALIZED_NAME_CONTAINER)
-  private io.kubernetes.client.models.V1Container container;
+  private io.kubernetes.client.openapi.models.V1Container container;
 
   public static final String SERIALIZED_NAME_DAEMON = "daemon";
   @SerializedName(SERIALIZED_NAME_DAEMON)
@@ -88,7 +88,7 @@ public class Template {
 
   public static final String SERIALIZED_NAME_HOST_ALIASES = "hostAliases";
   @SerializedName(SERIALIZED_NAME_HOST_ALIASES)
-  private List<io.kubernetes.client.models.V1HostAlias> hostAliases = null;
+  private List<io.kubernetes.client.openapi.models.V1HostAlias> hostAliases = null;
 
   public static final String SERIALIZED_NAME_INIT_CONTAINERS = "initContainers";
   @SerializedName(SERIALIZED_NAME_INIT_CONTAINERS)
@@ -156,7 +156,7 @@ public class Template {
 
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
-  private io.kubernetes.client.models.V1PodSecurityContext securityContext;
+  private io.kubernetes.client.openapi.models.V1PodSecurityContext securityContext;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_NAME = "serviceAccountName";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_NAME)
@@ -188,11 +188,11 @@ public class Template {
 
   public static final String SERIALIZED_NAME_TOLERATIONS = "tolerations";
   @SerializedName(SERIALIZED_NAME_TOLERATIONS)
-  private List<io.kubernetes.client.models.V1Toleration> tolerations = null;
+  private List<io.kubernetes.client.openapi.models.V1Toleration> tolerations = null;
 
   public static final String SERIALIZED_NAME_VOLUMES = "volumes";
   @SerializedName(SERIALIZED_NAME_VOLUMES)
-  private List<io.kubernetes.client.models.V1Volume> volumes = null;
+  private List<io.kubernetes.client.openapi.models.V1Volume> volumes = null;
 
 
   public Template activeDeadlineSeconds(Long activeDeadlineSeconds) {
@@ -218,7 +218,7 @@ public class Template {
   }
 
 
-  public Template affinity(io.kubernetes.client.models.V1Affinity affinity) {
+  public Template affinity(io.kubernetes.client.openapi.models.V1Affinity affinity) {
     
     this.affinity = affinity;
     return this;
@@ -231,12 +231,12 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1Affinity getAffinity() {
+  public io.kubernetes.client.openapi.models.V1Affinity getAffinity() {
     return affinity;
   }
 
 
-  public void setAffinity(io.kubernetes.client.models.V1Affinity affinity) {
+  public void setAffinity(io.kubernetes.client.openapi.models.V1Affinity affinity) {
     this.affinity = affinity;
   }
 
@@ -310,7 +310,7 @@ public class Template {
   }
 
 
-  public Template container(io.kubernetes.client.models.V1Container container) {
+  public Template container(io.kubernetes.client.openapi.models.V1Container container) {
     
     this.container = container;
     return this;
@@ -323,12 +323,12 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1Container getContainer() {
+  public io.kubernetes.client.openapi.models.V1Container getContainer() {
     return container;
   }
 
 
-  public void setContainer(io.kubernetes.client.models.V1Container container) {
+  public void setContainer(io.kubernetes.client.openapi.models.V1Container container) {
     this.container = container;
   }
 
@@ -402,15 +402,15 @@ public class Template {
   }
 
 
-  public Template hostAliases(List<io.kubernetes.client.models.V1HostAlias> hostAliases) {
+  public Template hostAliases(List<io.kubernetes.client.openapi.models.V1HostAlias> hostAliases) {
     
     this.hostAliases = hostAliases;
     return this;
   }
 
-  public Template addHostAliasesItem(io.kubernetes.client.models.V1HostAlias hostAliasesItem) {
+  public Template addHostAliasesItem(io.kubernetes.client.openapi.models.V1HostAlias hostAliasesItem) {
     if (this.hostAliases == null) {
-      this.hostAliases = new ArrayList<io.kubernetes.client.models.V1HostAlias>();
+      this.hostAliases = new ArrayList<io.kubernetes.client.openapi.models.V1HostAlias>();
     }
     this.hostAliases.add(hostAliasesItem);
     return this;
@@ -423,12 +423,12 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "HostAliases is an optional list of hosts and IPs that will be injected into the pod spec")
 
-  public List<io.kubernetes.client.models.V1HostAlias> getHostAliases() {
+  public List<io.kubernetes.client.openapi.models.V1HostAlias> getHostAliases() {
     return hostAliases;
   }
 
 
-  public void setHostAliases(List<io.kubernetes.client.models.V1HostAlias> hostAliases) {
+  public void setHostAliases(List<io.kubernetes.client.openapi.models.V1HostAlias> hostAliases) {
     this.hostAliases = hostAliases;
   }
 
@@ -816,7 +816,7 @@ public class Template {
   }
 
 
-  public Template securityContext(io.kubernetes.client.models.V1PodSecurityContext securityContext) {
+  public Template securityContext(io.kubernetes.client.openapi.models.V1PodSecurityContext securityContext) {
     
     this.securityContext = securityContext;
     return this;
@@ -829,12 +829,12 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1PodSecurityContext getSecurityContext() {
+  public io.kubernetes.client.openapi.models.V1PodSecurityContext getSecurityContext() {
     return securityContext;
   }
 
 
-  public void setSecurityContext(io.kubernetes.client.models.V1PodSecurityContext securityContext) {
+  public void setSecurityContext(io.kubernetes.client.openapi.models.V1PodSecurityContext securityContext) {
     this.securityContext = securityContext;
   }
 
@@ -1016,15 +1016,15 @@ public class Template {
   }
 
 
-  public Template tolerations(List<io.kubernetes.client.models.V1Toleration> tolerations) {
+  public Template tolerations(List<io.kubernetes.client.openapi.models.V1Toleration> tolerations) {
     
     this.tolerations = tolerations;
     return this;
   }
 
-  public Template addTolerationsItem(io.kubernetes.client.models.V1Toleration tolerationsItem) {
+  public Template addTolerationsItem(io.kubernetes.client.openapi.models.V1Toleration tolerationsItem) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList<io.kubernetes.client.models.V1Toleration>();
+      this.tolerations = new ArrayList<io.kubernetes.client.openapi.models.V1Toleration>();
     }
     this.tolerations.add(tolerationsItem);
     return this;
@@ -1037,25 +1037,25 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Tolerations to apply to workflow pods.")
 
-  public List<io.kubernetes.client.models.V1Toleration> getTolerations() {
+  public List<io.kubernetes.client.openapi.models.V1Toleration> getTolerations() {
     return tolerations;
   }
 
 
-  public void setTolerations(List<io.kubernetes.client.models.V1Toleration> tolerations) {
+  public void setTolerations(List<io.kubernetes.client.openapi.models.V1Toleration> tolerations) {
     this.tolerations = tolerations;
   }
 
 
-  public Template volumes(List<io.kubernetes.client.models.V1Volume> volumes) {
+  public Template volumes(List<io.kubernetes.client.openapi.models.V1Volume> volumes) {
     
     this.volumes = volumes;
     return this;
   }
 
-  public Template addVolumesItem(io.kubernetes.client.models.V1Volume volumesItem) {
+  public Template addVolumesItem(io.kubernetes.client.openapi.models.V1Volume volumesItem) {
     if (this.volumes == null) {
-      this.volumes = new ArrayList<io.kubernetes.client.models.V1Volume>();
+      this.volumes = new ArrayList<io.kubernetes.client.openapi.models.V1Volume>();
     }
     this.volumes.add(volumesItem);
     return this;
@@ -1068,12 +1068,12 @@ public class Template {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Volumes is a list of volumes that can be mounted by containers in a template.")
 
-  public List<io.kubernetes.client.models.V1Volume> getVolumes() {
+  public List<io.kubernetes.client.openapi.models.V1Volume> getVolumes() {
     return volumes;
   }
 
 
-  public void setVolumes(List<io.kubernetes.client.models.V1Volume> volumes) {
+  public void setVolumes(List<io.kubernetes.client.openapi.models.V1Volume> volumes) {
     this.volumes = volumes;
   }
 

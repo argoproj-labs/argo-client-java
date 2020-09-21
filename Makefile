@@ -19,33 +19,33 @@ build:
 		--artifact-id argo-client-java \
 		--artifact-version $(VERSION) \
 		--import-mappings Time=org.joda.time.DateTime \
-		--import-mappings Affinity=io.kubernetes.client.models.V1Affinity \
-		--import-mappings ConfigMapKeySelector=io.kubernetes.client.models.V1ConfigMapKeySelector \
-		--import-mappings Container=io.kubernetes.client.models.V1Container \
-		--import-mappings ContainerPort=io.kubernetes.client.models.V1ContainerPort \
-		--import-mappings EnvFromSource=io.kubernetes.client.models.V1EnvFromSource \
-		--import-mappings EnvVar=io.kubernetes.client.models.V1EnvVar \
-		--import-mappings HostAlias=io.kubernetes.client.models.V1HostAlias \
-		--import-mappings Lifecycle=io.kubernetes.client.models.V1Lifecycle \
-		--import-mappings ListMeta=io.kubernetes.client.models.V1ListMeta \
-		--import-mappings LocalObjectReference=io.kubernetes.client.models.V1LocalObjectReference \
-		--import-mappings ObjectMeta=io.kubernetes.client.models.V1ObjectMeta \
-		--import-mappings ObjectReference=io.kubernetes.client.models.V1ObjectReference \
-		--import-mappings PersistentVolumeClaim=io.kubernetes.client.models.V1PersistentVolumeClaim \
-		--import-mappings PodDisruptionBudgetSpec=io.kubernetes.client.models.V1beta1PodDisruptionBudgetSpec \
-		--import-mappings PodDNSConfig=io.kubernetes.client.models.V1PodDNSConfig \
-		--import-mappings PodSecurityContext=io.kubernetes.client.models.V1PodSecurityContext \
-		--import-mappings Probe=io.kubernetes.client.models.V1Probe \
-		--import-mappings ResourceRequirements=io.kubernetes.client.models.V1ResourceRequirements \
-		--import-mappings SecretKeySelector=io.kubernetes.client.models.V1SecretKeySelector \
-		--import-mappings SecurityContext=io.kubernetes.client.models.V1SecurityContext \
-		--import-mappings Toleration=io.kubernetes.client.models.V1Toleration \
-		--import-mappings Volume=io.kubernetes.client.models.V1Volume \
-		--import-mappings VolumeDevice=io.kubernetes.client.models.V1VolumeDevice \
-		--import-mappings VolumeMount=io.kubernetes.client.models.V1VolumeMount \
+		--import-mappings Affinity=io.kubernetes.client.openapi.models.V1Affinity \
+		--import-mappings ConfigMapKeySelector=io.kubernetes.client.openapi.models.V1ConfigMapKeySelector \
+		--import-mappings Container=io.kubernetes.client.openapi.models.V1Container \
+		--import-mappings ContainerPort=io.kubernetes.client.openapi.models.V1ContainerPort \
+		--import-mappings EnvFromSource=io.kubernetes.client.openapi.models.V1EnvFromSource \
+		--import-mappings EnvVar=io.kubernetes.client.openapi.models.V1EnvVar \
+		--import-mappings HostAlias=io.kubernetes.client.openapi.models.V1HostAlias \
+		--import-mappings Lifecycle=io.kubernetes.client.openapi.models.V1Lifecycle \
+		--import-mappings ListMeta=io.kubernetes.client.openapi.models.V1ListMeta \
+		--import-mappings LocalObjectReference=io.kubernetes.client.openapi.models.V1LocalObjectReference \
+		--import-mappings ObjectMeta=io.kubernetes.client.openapi.models.V1ObjectMeta \
+		--import-mappings ObjectReference=io.kubernetes.client.openapi.models.V1ObjectReference \
+		--import-mappings PersistentVolumeClaim=io.kubernetes.client.openapi.models.V1PersistentVolumeClaim \
+		--import-mappings PodDisruptionBudgetSpec=io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetSpec \
+		--import-mappings PodDNSConfig=io.kubernetes.client.openapi.models.V1PodDNSConfig \
+		--import-mappings PodSecurityContext=io.kubernetes.client.openapi.models.V1PodSecurityContext \
+		--import-mappings Probe=io.kubernetes.client.openapi.models.V1Probe \
+		--import-mappings ResourceRequirements=io.kubernetes.client.openapi.models.V1ResourceRequirements \
+		--import-mappings SecretKeySelector=io.kubernetes.client.openapi.models.V1SecretKeySelector \
+		--import-mappings SecurityContext=io.kubernetes.client.openapi.models.V1SecurityContext \
+		--import-mappings Toleration=io.kubernetes.client.openapi.models.V1Toleration \
+		--import-mappings Volume=io.kubernetes.client.openapi.models.V1Volume \
+		--import-mappings VolumeDevice=io.kubernetes.client.openapi.models.V1VolumeDevice \
+		--import-mappings VolumeMount=io.kubernetes.client.openapi.models.V1VolumeMount \
 		--generate-alias-as-model
 	# add the io.kubernetes:java-client to the deps
-	sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>5.0.0<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
+	sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>9.0.0<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
 	docker run -v ~/.m2:/root/.m2 -v `pwd`:/wd -w /wd maven:3-openjdk-8 \
 		mvn install -DskipTests -Dmaven.javadoc.skip
 	git add .

@@ -53,7 +53,7 @@ public class Status {
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private io.kubernetes.client.models.V1ListMeta metadata;
+  private io.kubernetes.client.openapi.models.V1ListMeta metadata;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -179,7 +179,7 @@ public class Status {
   }
 
 
-  public Status metadata(io.kubernetes.client.models.V1ListMeta metadata) {
+  public Status metadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
     
     this.metadata = metadata;
     return this;
@@ -192,12 +192,12 @@ public class Status {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1ListMeta getMetadata() {
+  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(io.kubernetes.client.models.V1ListMeta metadata) {
+  public void setMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
     this.metadata = metadata;
   }
 
