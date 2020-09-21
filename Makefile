@@ -45,7 +45,7 @@ build:
 		--import-mappings VolumeMount=io.kubernetes.client.openapi.models.V1VolumeMount \
 		--generate-alias-as-model
 	# add the io.kubernetes:java-client to the deps
-	sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>9.0.0<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
+	sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>9.0.2<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
 	docker run -v ~/.m2:/root/.m2 -v `pwd`:/wd -w /wd maven:3-openjdk-8 \
 		mvn install -DskipTests -Dmaven.javadoc.skip
 	git add .

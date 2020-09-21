@@ -209,7 +209,7 @@
         </profile>
     </profiles>
 
-    <dependencies><dependency><groupId>io.kubernetes</groupId><artifactId>client-java</artifactId><version>9.0.0</version></dependency>
+    <dependencies><dependency><groupId>io.kubernetes</groupId><artifactId>client-java</artifactId><version>9.0.2</version></dependency>
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
