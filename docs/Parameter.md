@@ -7,10 +7,10 @@ Parameter indicate a passed string parameter to a service template with an optio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_default** | **String** | IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number. |  [optional]
+**_default** | **String** | Default is the default value to use for an input parameter if a value was not supplied |  [optional]
 **globalName** | **String** | GlobalName exports an output parameter to the global scope, making it available as &#39;{{outputs.parameters.XXXX}} and in workflow.status.outputs.parameters |  [optional]
 **name** | **String** | Name is the parameter name | 
-**value** | **String** | IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number. |  [optional]
+**value** | **String** | Value is the literal value to use for the parameter. If specified in the context of an input parameter, the value takes precedence over any passed values |  [optional]
 **valueFrom** | [**ValueFrom**](ValueFrom.md) |  |  [optional]
 
 
