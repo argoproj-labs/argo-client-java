@@ -32,10 +32,10 @@ import java.io.IOException;
 public class SemaphoreRef {
   public static final String SERIALIZED_NAME_CONFIG_MAP_KEY_REF = "configMapKeyRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_KEY_REF)
-  private io.kubernetes.client.models.V1ConfigMapKeySelector configMapKeyRef;
+  private io.kubernetes.client.openapi.models.V1ConfigMapKeySelector configMapKeyRef;
 
 
-  public SemaphoreRef configMapKeyRef(io.kubernetes.client.models.V1ConfigMapKeySelector configMapKeyRef) {
+  public SemaphoreRef configMapKeyRef(io.kubernetes.client.openapi.models.V1ConfigMapKeySelector configMapKeyRef) {
     
     this.configMapKeyRef = configMapKeyRef;
     return this;
@@ -48,12 +48,12 @@ public class SemaphoreRef {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1ConfigMapKeySelector getConfigMapKeyRef() {
+  public io.kubernetes.client.openapi.models.V1ConfigMapKeySelector getConfigMapKeyRef() {
     return configMapKeyRef;
   }
 
 
-  public void setConfigMapKeyRef(io.kubernetes.client.models.V1ConfigMapKeySelector configMapKeyRef) {
+  public void setConfigMapKeyRef(io.kubernetes.client.openapi.models.V1ConfigMapKeySelector configMapKeyRef) {
     this.configMapKeyRef = configMapKeyRef;
   }
 

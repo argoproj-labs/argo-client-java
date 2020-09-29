@@ -42,11 +42,11 @@ public class ScriptTemplate {
 
   public static final String SERIALIZED_NAME_ENV = "env";
   @SerializedName(SERIALIZED_NAME_ENV)
-  private List<io.kubernetes.client.models.V1EnvVar> env = null;
+  private List<io.kubernetes.client.openapi.models.V1EnvVar> env = null;
 
   public static final String SERIALIZED_NAME_ENV_FROM = "envFrom";
   @SerializedName(SERIALIZED_NAME_ENV_FROM)
-  private List<io.kubernetes.client.models.V1EnvFromSource> envFrom = null;
+  private List<io.kubernetes.client.openapi.models.V1EnvFromSource> envFrom = null;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
@@ -58,11 +58,11 @@ public class ScriptTemplate {
 
   public static final String SERIALIZED_NAME_LIFECYCLE = "lifecycle";
   @SerializedName(SERIALIZED_NAME_LIFECYCLE)
-  private io.kubernetes.client.models.V1Lifecycle lifecycle;
+  private io.kubernetes.client.openapi.models.V1Lifecycle lifecycle;
 
   public static final String SERIALIZED_NAME_LIVENESS_PROBE = "livenessProbe";
   @SerializedName(SERIALIZED_NAME_LIVENESS_PROBE)
-  private io.kubernetes.client.models.V1Probe livenessProbe;
+  private io.kubernetes.client.openapi.models.V1Probe livenessProbe;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -70,19 +70,19 @@ public class ScriptTemplate {
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
-  private List<io.kubernetes.client.models.V1ContainerPort> ports = null;
+  private List<io.kubernetes.client.openapi.models.V1ContainerPort> ports = null;
 
   public static final String SERIALIZED_NAME_READINESS_PROBE = "readinessProbe";
   @SerializedName(SERIALIZED_NAME_READINESS_PROBE)
-  private io.kubernetes.client.models.V1Probe readinessProbe;
+  private io.kubernetes.client.openapi.models.V1Probe readinessProbe;
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
-  private io.kubernetes.client.models.V1ResourceRequirements resources;
+  private io.kubernetes.client.openapi.models.V1ResourceRequirements resources;
 
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
-  private io.kubernetes.client.models.V1SecurityContext securityContext;
+  private io.kubernetes.client.openapi.models.V1SecurityContext securityContext;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -90,7 +90,7 @@ public class ScriptTemplate {
 
   public static final String SERIALIZED_NAME_STARTUP_PROBE = "startupProbe";
   @SerializedName(SERIALIZED_NAME_STARTUP_PROBE)
-  private io.kubernetes.client.models.V1Probe startupProbe;
+  private io.kubernetes.client.openapi.models.V1Probe startupProbe;
 
   public static final String SERIALIZED_NAME_STDIN = "stdin";
   @SerializedName(SERIALIZED_NAME_STDIN)
@@ -114,11 +114,11 @@ public class ScriptTemplate {
 
   public static final String SERIALIZED_NAME_VOLUME_DEVICES = "volumeDevices";
   @SerializedName(SERIALIZED_NAME_VOLUME_DEVICES)
-  private List<io.kubernetes.client.models.V1VolumeDevice> volumeDevices = null;
+  private List<io.kubernetes.client.openapi.models.V1VolumeDevice> volumeDevices = null;
 
   public static final String SERIALIZED_NAME_VOLUME_MOUNTS = "volumeMounts";
   @SerializedName(SERIALIZED_NAME_VOLUME_MOUNTS)
-  private List<io.kubernetes.client.models.V1VolumeMount> volumeMounts = null;
+  private List<io.kubernetes.client.openapi.models.V1VolumeMount> volumeMounts = null;
 
   public static final String SERIALIZED_NAME_WORKING_DIR = "workingDir";
   @SerializedName(SERIALIZED_NAME_WORKING_DIR)
@@ -187,15 +187,15 @@ public class ScriptTemplate {
   }
 
 
-  public ScriptTemplate env(List<io.kubernetes.client.models.V1EnvVar> env) {
+  public ScriptTemplate env(List<io.kubernetes.client.openapi.models.V1EnvVar> env) {
     
     this.env = env;
     return this;
   }
 
-  public ScriptTemplate addEnvItem(io.kubernetes.client.models.V1EnvVar envItem) {
+  public ScriptTemplate addEnvItem(io.kubernetes.client.openapi.models.V1EnvVar envItem) {
     if (this.env == null) {
-      this.env = new ArrayList<io.kubernetes.client.models.V1EnvVar>();
+      this.env = new ArrayList<io.kubernetes.client.openapi.models.V1EnvVar>();
     }
     this.env.add(envItem);
     return this;
@@ -208,25 +208,25 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of environment variables to set in the container. Cannot be updated.")
 
-  public List<io.kubernetes.client.models.V1EnvVar> getEnv() {
+  public List<io.kubernetes.client.openapi.models.V1EnvVar> getEnv() {
     return env;
   }
 
 
-  public void setEnv(List<io.kubernetes.client.models.V1EnvVar> env) {
+  public void setEnv(List<io.kubernetes.client.openapi.models.V1EnvVar> env) {
     this.env = env;
   }
 
 
-  public ScriptTemplate envFrom(List<io.kubernetes.client.models.V1EnvFromSource> envFrom) {
+  public ScriptTemplate envFrom(List<io.kubernetes.client.openapi.models.V1EnvFromSource> envFrom) {
     
     this.envFrom = envFrom;
     return this;
   }
 
-  public ScriptTemplate addEnvFromItem(io.kubernetes.client.models.V1EnvFromSource envFromItem) {
+  public ScriptTemplate addEnvFromItem(io.kubernetes.client.openapi.models.V1EnvFromSource envFromItem) {
     if (this.envFrom == null) {
-      this.envFrom = new ArrayList<io.kubernetes.client.models.V1EnvFromSource>();
+      this.envFrom = new ArrayList<io.kubernetes.client.openapi.models.V1EnvFromSource>();
     }
     this.envFrom.add(envFromItem);
     return this;
@@ -239,12 +239,12 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.")
 
-  public List<io.kubernetes.client.models.V1EnvFromSource> getEnvFrom() {
+  public List<io.kubernetes.client.openapi.models.V1EnvFromSource> getEnvFrom() {
     return envFrom;
   }
 
 
-  public void setEnvFrom(List<io.kubernetes.client.models.V1EnvFromSource> envFrom) {
+  public void setEnvFrom(List<io.kubernetes.client.openapi.models.V1EnvFromSource> envFrom) {
     this.envFrom = envFrom;
   }
 
@@ -294,7 +294,7 @@ public class ScriptTemplate {
   }
 
 
-  public ScriptTemplate lifecycle(io.kubernetes.client.models.V1Lifecycle lifecycle) {
+  public ScriptTemplate lifecycle(io.kubernetes.client.openapi.models.V1Lifecycle lifecycle) {
     
     this.lifecycle = lifecycle;
     return this;
@@ -307,17 +307,17 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1Lifecycle getLifecycle() {
+  public io.kubernetes.client.openapi.models.V1Lifecycle getLifecycle() {
     return lifecycle;
   }
 
 
-  public void setLifecycle(io.kubernetes.client.models.V1Lifecycle lifecycle) {
+  public void setLifecycle(io.kubernetes.client.openapi.models.V1Lifecycle lifecycle) {
     this.lifecycle = lifecycle;
   }
 
 
-  public ScriptTemplate livenessProbe(io.kubernetes.client.models.V1Probe livenessProbe) {
+  public ScriptTemplate livenessProbe(io.kubernetes.client.openapi.models.V1Probe livenessProbe) {
     
     this.livenessProbe = livenessProbe;
     return this;
@@ -330,12 +330,12 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1Probe getLivenessProbe() {
+  public io.kubernetes.client.openapi.models.V1Probe getLivenessProbe() {
     return livenessProbe;
   }
 
 
-  public void setLivenessProbe(io.kubernetes.client.models.V1Probe livenessProbe) {
+  public void setLivenessProbe(io.kubernetes.client.openapi.models.V1Probe livenessProbe) {
     this.livenessProbe = livenessProbe;
   }
 
@@ -363,15 +363,15 @@ public class ScriptTemplate {
   }
 
 
-  public ScriptTemplate ports(List<io.kubernetes.client.models.V1ContainerPort> ports) {
+  public ScriptTemplate ports(List<io.kubernetes.client.openapi.models.V1ContainerPort> ports) {
     
     this.ports = ports;
     return this;
   }
 
-  public ScriptTemplate addPortsItem(io.kubernetes.client.models.V1ContainerPort portsItem) {
+  public ScriptTemplate addPortsItem(io.kubernetes.client.openapi.models.V1ContainerPort portsItem) {
     if (this.ports == null) {
-      this.ports = new ArrayList<io.kubernetes.client.models.V1ContainerPort>();
+      this.ports = new ArrayList<io.kubernetes.client.openapi.models.V1ContainerPort>();
     }
     this.ports.add(portsItem);
     return this;
@@ -384,17 +384,17 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Cannot be updated.")
 
-  public List<io.kubernetes.client.models.V1ContainerPort> getPorts() {
+  public List<io.kubernetes.client.openapi.models.V1ContainerPort> getPorts() {
     return ports;
   }
 
 
-  public void setPorts(List<io.kubernetes.client.models.V1ContainerPort> ports) {
+  public void setPorts(List<io.kubernetes.client.openapi.models.V1ContainerPort> ports) {
     this.ports = ports;
   }
 
 
-  public ScriptTemplate readinessProbe(io.kubernetes.client.models.V1Probe readinessProbe) {
+  public ScriptTemplate readinessProbe(io.kubernetes.client.openapi.models.V1Probe readinessProbe) {
     
     this.readinessProbe = readinessProbe;
     return this;
@@ -407,17 +407,17 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1Probe getReadinessProbe() {
+  public io.kubernetes.client.openapi.models.V1Probe getReadinessProbe() {
     return readinessProbe;
   }
 
 
-  public void setReadinessProbe(io.kubernetes.client.models.V1Probe readinessProbe) {
+  public void setReadinessProbe(io.kubernetes.client.openapi.models.V1Probe readinessProbe) {
     this.readinessProbe = readinessProbe;
   }
 
 
-  public ScriptTemplate resources(io.kubernetes.client.models.V1ResourceRequirements resources) {
+  public ScriptTemplate resources(io.kubernetes.client.openapi.models.V1ResourceRequirements resources) {
     
     this.resources = resources;
     return this;
@@ -430,17 +430,17 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1ResourceRequirements getResources() {
+  public io.kubernetes.client.openapi.models.V1ResourceRequirements getResources() {
     return resources;
   }
 
 
-  public void setResources(io.kubernetes.client.models.V1ResourceRequirements resources) {
+  public void setResources(io.kubernetes.client.openapi.models.V1ResourceRequirements resources) {
     this.resources = resources;
   }
 
 
-  public ScriptTemplate securityContext(io.kubernetes.client.models.V1SecurityContext securityContext) {
+  public ScriptTemplate securityContext(io.kubernetes.client.openapi.models.V1SecurityContext securityContext) {
     
     this.securityContext = securityContext;
     return this;
@@ -453,12 +453,12 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1SecurityContext getSecurityContext() {
+  public io.kubernetes.client.openapi.models.V1SecurityContext getSecurityContext() {
     return securityContext;
   }
 
 
-  public void setSecurityContext(io.kubernetes.client.models.V1SecurityContext securityContext) {
+  public void setSecurityContext(io.kubernetes.client.openapi.models.V1SecurityContext securityContext) {
     this.securityContext = securityContext;
   }
 
@@ -485,7 +485,7 @@ public class ScriptTemplate {
   }
 
 
-  public ScriptTemplate startupProbe(io.kubernetes.client.models.V1Probe startupProbe) {
+  public ScriptTemplate startupProbe(io.kubernetes.client.openapi.models.V1Probe startupProbe) {
     
     this.startupProbe = startupProbe;
     return this;
@@ -498,12 +498,12 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1Probe getStartupProbe() {
+  public io.kubernetes.client.openapi.models.V1Probe getStartupProbe() {
     return startupProbe;
   }
 
 
-  public void setStartupProbe(io.kubernetes.client.models.V1Probe startupProbe) {
+  public void setStartupProbe(io.kubernetes.client.openapi.models.V1Probe startupProbe) {
     this.startupProbe = startupProbe;
   }
 
@@ -623,15 +623,15 @@ public class ScriptTemplate {
   }
 
 
-  public ScriptTemplate volumeDevices(List<io.kubernetes.client.models.V1VolumeDevice> volumeDevices) {
+  public ScriptTemplate volumeDevices(List<io.kubernetes.client.openapi.models.V1VolumeDevice> volumeDevices) {
     
     this.volumeDevices = volumeDevices;
     return this;
   }
 
-  public ScriptTemplate addVolumeDevicesItem(io.kubernetes.client.models.V1VolumeDevice volumeDevicesItem) {
+  public ScriptTemplate addVolumeDevicesItem(io.kubernetes.client.openapi.models.V1VolumeDevice volumeDevicesItem) {
     if (this.volumeDevices == null) {
-      this.volumeDevices = new ArrayList<io.kubernetes.client.models.V1VolumeDevice>();
+      this.volumeDevices = new ArrayList<io.kubernetes.client.openapi.models.V1VolumeDevice>();
     }
     this.volumeDevices.add(volumeDevicesItem);
     return this;
@@ -644,25 +644,25 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "volumeDevices is the list of block devices to be used by the container. This is a beta feature.")
 
-  public List<io.kubernetes.client.models.V1VolumeDevice> getVolumeDevices() {
+  public List<io.kubernetes.client.openapi.models.V1VolumeDevice> getVolumeDevices() {
     return volumeDevices;
   }
 
 
-  public void setVolumeDevices(List<io.kubernetes.client.models.V1VolumeDevice> volumeDevices) {
+  public void setVolumeDevices(List<io.kubernetes.client.openapi.models.V1VolumeDevice> volumeDevices) {
     this.volumeDevices = volumeDevices;
   }
 
 
-  public ScriptTemplate volumeMounts(List<io.kubernetes.client.models.V1VolumeMount> volumeMounts) {
+  public ScriptTemplate volumeMounts(List<io.kubernetes.client.openapi.models.V1VolumeMount> volumeMounts) {
     
     this.volumeMounts = volumeMounts;
     return this;
   }
 
-  public ScriptTemplate addVolumeMountsItem(io.kubernetes.client.models.V1VolumeMount volumeMountsItem) {
+  public ScriptTemplate addVolumeMountsItem(io.kubernetes.client.openapi.models.V1VolumeMount volumeMountsItem) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList<io.kubernetes.client.models.V1VolumeMount>();
+      this.volumeMounts = new ArrayList<io.kubernetes.client.openapi.models.V1VolumeMount>();
     }
     this.volumeMounts.add(volumeMountsItem);
     return this;
@@ -675,12 +675,12 @@ public class ScriptTemplate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Pod volumes to mount into the container's filesystem. Cannot be updated.")
 
-  public List<io.kubernetes.client.models.V1VolumeMount> getVolumeMounts() {
+  public List<io.kubernetes.client.openapi.models.V1VolumeMount> getVolumeMounts() {
     return volumeMounts;
   }
 
 
-  public void setVolumeMounts(List<io.kubernetes.client.models.V1VolumeMount> volumeMounts) {
+  public void setVolumeMounts(List<io.kubernetes.client.openapi.models.V1VolumeMount> volumeMounts) {
     this.volumeMounts = volumeMounts;
   }
 

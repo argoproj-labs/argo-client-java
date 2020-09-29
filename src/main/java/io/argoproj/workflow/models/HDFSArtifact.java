@@ -46,15 +46,15 @@ public class HDFSArtifact {
 
   public static final String SERIALIZED_NAME_KRB_C_CACHE_SECRET = "krbCCacheSecret";
   @SerializedName(SERIALIZED_NAME_KRB_C_CACHE_SECRET)
-  private io.kubernetes.client.models.V1SecretKeySelector krbCCacheSecret;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector krbCCacheSecret;
 
   public static final String SERIALIZED_NAME_KRB_CONFIG_CONFIG_MAP = "krbConfigConfigMap";
   @SerializedName(SERIALIZED_NAME_KRB_CONFIG_CONFIG_MAP)
-  private io.kubernetes.client.models.V1ConfigMapKeySelector krbConfigConfigMap;
+  private io.kubernetes.client.openapi.models.V1ConfigMapKeySelector krbConfigConfigMap;
 
   public static final String SERIALIZED_NAME_KRB_KEYTAB_SECRET = "krbKeytabSecret";
   @SerializedName(SERIALIZED_NAME_KRB_KEYTAB_SECRET)
-  private io.kubernetes.client.models.V1SecretKeySelector krbKeytabSecret;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector krbKeytabSecret;
 
   public static final String SERIALIZED_NAME_KRB_REALM = "krbRealm";
   @SerializedName(SERIALIZED_NAME_KRB_REALM)
@@ -146,7 +146,7 @@ public class HDFSArtifact {
   }
 
 
-  public HDFSArtifact krbCCacheSecret(io.kubernetes.client.models.V1SecretKeySelector krbCCacheSecret) {
+  public HDFSArtifact krbCCacheSecret(io.kubernetes.client.openapi.models.V1SecretKeySelector krbCCacheSecret) {
     
     this.krbCCacheSecret = krbCCacheSecret;
     return this;
@@ -159,17 +159,17 @@ public class HDFSArtifact {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getKrbCCacheSecret() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getKrbCCacheSecret() {
     return krbCCacheSecret;
   }
 
 
-  public void setKrbCCacheSecret(io.kubernetes.client.models.V1SecretKeySelector krbCCacheSecret) {
+  public void setKrbCCacheSecret(io.kubernetes.client.openapi.models.V1SecretKeySelector krbCCacheSecret) {
     this.krbCCacheSecret = krbCCacheSecret;
   }
 
 
-  public HDFSArtifact krbConfigConfigMap(io.kubernetes.client.models.V1ConfigMapKeySelector krbConfigConfigMap) {
+  public HDFSArtifact krbConfigConfigMap(io.kubernetes.client.openapi.models.V1ConfigMapKeySelector krbConfigConfigMap) {
     
     this.krbConfigConfigMap = krbConfigConfigMap;
     return this;
@@ -182,17 +182,17 @@ public class HDFSArtifact {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1ConfigMapKeySelector getKrbConfigConfigMap() {
+  public io.kubernetes.client.openapi.models.V1ConfigMapKeySelector getKrbConfigConfigMap() {
     return krbConfigConfigMap;
   }
 
 
-  public void setKrbConfigConfigMap(io.kubernetes.client.models.V1ConfigMapKeySelector krbConfigConfigMap) {
+  public void setKrbConfigConfigMap(io.kubernetes.client.openapi.models.V1ConfigMapKeySelector krbConfigConfigMap) {
     this.krbConfigConfigMap = krbConfigConfigMap;
   }
 
 
-  public HDFSArtifact krbKeytabSecret(io.kubernetes.client.models.V1SecretKeySelector krbKeytabSecret) {
+  public HDFSArtifact krbKeytabSecret(io.kubernetes.client.openapi.models.V1SecretKeySelector krbKeytabSecret) {
     
     this.krbKeytabSecret = krbKeytabSecret;
     return this;
@@ -205,12 +205,12 @@ public class HDFSArtifact {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getKrbKeytabSecret() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getKrbKeytabSecret() {
     return krbKeytabSecret;
   }
 
 
-  public void setKrbKeytabSecret(io.kubernetes.client.models.V1SecretKeySelector krbKeytabSecret) {
+  public void setKrbKeytabSecret(io.kubernetes.client.openapi.models.V1SecretKeySelector krbKeytabSecret) {
     this.krbKeytabSecret = krbKeytabSecret;
   }
 

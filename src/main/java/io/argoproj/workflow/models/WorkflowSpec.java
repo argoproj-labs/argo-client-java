@@ -50,7 +50,7 @@ public class WorkflowSpec {
 
   public static final String SERIALIZED_NAME_AFFINITY = "affinity";
   @SerializedName(SERIALIZED_NAME_AFFINITY)
-  private io.kubernetes.client.models.V1Affinity affinity;
+  private io.kubernetes.client.openapi.models.V1Affinity affinity;
 
   public static final String SERIALIZED_NAME_ARGUMENTS = "arguments";
   @SerializedName(SERIALIZED_NAME_ARGUMENTS)
@@ -66,7 +66,7 @@ public class WorkflowSpec {
 
   public static final String SERIALIZED_NAME_DNS_CONFIG = "dnsConfig";
   @SerializedName(SERIALIZED_NAME_DNS_CONFIG)
-  private io.kubernetes.client.models.V1PodDNSConfig dnsConfig;
+  private io.kubernetes.client.openapi.models.V1PodDNSConfig dnsConfig;
 
   public static final String SERIALIZED_NAME_DNS_POLICY = "dnsPolicy";
   @SerializedName(SERIALIZED_NAME_DNS_POLICY)
@@ -82,7 +82,7 @@ public class WorkflowSpec {
 
   public static final String SERIALIZED_NAME_HOST_ALIASES = "hostAliases";
   @SerializedName(SERIALIZED_NAME_HOST_ALIASES)
-  private List<io.kubernetes.client.models.V1HostAlias> hostAliases = null;
+  private List<io.kubernetes.client.openapi.models.V1HostAlias> hostAliases = null;
 
   public static final String SERIALIZED_NAME_HOST_NETWORK = "hostNetwork";
   @SerializedName(SERIALIZED_NAME_HOST_NETWORK)
@@ -90,7 +90,7 @@ public class WorkflowSpec {
 
   public static final String SERIALIZED_NAME_IMAGE_PULL_SECRETS = "imagePullSecrets";
   @SerializedName(SERIALIZED_NAME_IMAGE_PULL_SECRETS)
-  private List<io.kubernetes.client.models.V1LocalObjectReference> imagePullSecrets = null;
+  private List<io.kubernetes.client.openapi.models.V1LocalObjectReference> imagePullSecrets = null;
 
   public static final String SERIALIZED_NAME_METRICS = "metrics";
   @SerializedName(SERIALIZED_NAME_METRICS)
@@ -138,7 +138,7 @@ public class WorkflowSpec {
 
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
-  private io.kubernetes.client.models.V1PodSecurityContext securityContext;
+  private io.kubernetes.client.openapi.models.V1PodSecurityContext securityContext;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_NAME = "serviceAccountName";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_NAME)
@@ -162,7 +162,7 @@ public class WorkflowSpec {
 
   public static final String SERIALIZED_NAME_TOLERATIONS = "tolerations";
   @SerializedName(SERIALIZED_NAME_TOLERATIONS)
-  private List<io.kubernetes.client.models.V1Toleration> tolerations = null;
+  private List<io.kubernetes.client.openapi.models.V1Toleration> tolerations = null;
 
   public static final String SERIALIZED_NAME_TTL_SECONDS_AFTER_FINISHED = "ttlSecondsAfterFinished";
   @SerializedName(SERIALIZED_NAME_TTL_SECONDS_AFTER_FINISHED)
@@ -174,11 +174,11 @@ public class WorkflowSpec {
 
   public static final String SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATES = "volumeClaimTemplates";
   @SerializedName(SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATES)
-  private List<io.kubernetes.client.models.V1PersistentVolumeClaim> volumeClaimTemplates = null;
+  private List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim> volumeClaimTemplates = null;
 
   public static final String SERIALIZED_NAME_VOLUMES = "volumes";
   @SerializedName(SERIALIZED_NAME_VOLUMES)
-  private List<io.kubernetes.client.models.V1Volume> volumes = null;
+  private List<io.kubernetes.client.openapi.models.V1Volume> volumes = null;
 
   public static final String SERIALIZED_NAME_WORKFLOW_TEMPLATE_REF = "workflowTemplateRef";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_TEMPLATE_REF)
@@ -208,7 +208,7 @@ public class WorkflowSpec {
   }
 
 
-  public WorkflowSpec affinity(io.kubernetes.client.models.V1Affinity affinity) {
+  public WorkflowSpec affinity(io.kubernetes.client.openapi.models.V1Affinity affinity) {
     
     this.affinity = affinity;
     return this;
@@ -221,12 +221,12 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1Affinity getAffinity() {
+  public io.kubernetes.client.openapi.models.V1Affinity getAffinity() {
     return affinity;
   }
 
 
-  public void setAffinity(io.kubernetes.client.models.V1Affinity affinity) {
+  public void setAffinity(io.kubernetes.client.openapi.models.V1Affinity affinity) {
     this.affinity = affinity;
   }
 
@@ -300,7 +300,7 @@ public class WorkflowSpec {
   }
 
 
-  public WorkflowSpec dnsConfig(io.kubernetes.client.models.V1PodDNSConfig dnsConfig) {
+  public WorkflowSpec dnsConfig(io.kubernetes.client.openapi.models.V1PodDNSConfig dnsConfig) {
     
     this.dnsConfig = dnsConfig;
     return this;
@@ -313,12 +313,12 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1PodDNSConfig getDnsConfig() {
+  public io.kubernetes.client.openapi.models.V1PodDNSConfig getDnsConfig() {
     return dnsConfig;
   }
 
 
-  public void setDnsConfig(io.kubernetes.client.models.V1PodDNSConfig dnsConfig) {
+  public void setDnsConfig(io.kubernetes.client.openapi.models.V1PodDNSConfig dnsConfig) {
     this.dnsConfig = dnsConfig;
   }
 
@@ -392,15 +392,15 @@ public class WorkflowSpec {
   }
 
 
-  public WorkflowSpec hostAliases(List<io.kubernetes.client.models.V1HostAlias> hostAliases) {
+  public WorkflowSpec hostAliases(List<io.kubernetes.client.openapi.models.V1HostAlias> hostAliases) {
     
     this.hostAliases = hostAliases;
     return this;
   }
 
-  public WorkflowSpec addHostAliasesItem(io.kubernetes.client.models.V1HostAlias hostAliasesItem) {
+  public WorkflowSpec addHostAliasesItem(io.kubernetes.client.openapi.models.V1HostAlias hostAliasesItem) {
     if (this.hostAliases == null) {
-      this.hostAliases = new ArrayList<io.kubernetes.client.models.V1HostAlias>();
+      this.hostAliases = new ArrayList<io.kubernetes.client.openapi.models.V1HostAlias>();
     }
     this.hostAliases.add(hostAliasesItem);
     return this;
@@ -413,12 +413,12 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<io.kubernetes.client.models.V1HostAlias> getHostAliases() {
+  public List<io.kubernetes.client.openapi.models.V1HostAlias> getHostAliases() {
     return hostAliases;
   }
 
 
-  public void setHostAliases(List<io.kubernetes.client.models.V1HostAlias> hostAliases) {
+  public void setHostAliases(List<io.kubernetes.client.openapi.models.V1HostAlias> hostAliases) {
     this.hostAliases = hostAliases;
   }
 
@@ -446,15 +446,15 @@ public class WorkflowSpec {
   }
 
 
-  public WorkflowSpec imagePullSecrets(List<io.kubernetes.client.models.V1LocalObjectReference> imagePullSecrets) {
+  public WorkflowSpec imagePullSecrets(List<io.kubernetes.client.openapi.models.V1LocalObjectReference> imagePullSecrets) {
     
     this.imagePullSecrets = imagePullSecrets;
     return this;
   }
 
-  public WorkflowSpec addImagePullSecretsItem(io.kubernetes.client.models.V1LocalObjectReference imagePullSecretsItem) {
+  public WorkflowSpec addImagePullSecretsItem(io.kubernetes.client.openapi.models.V1LocalObjectReference imagePullSecretsItem) {
     if (this.imagePullSecrets == null) {
-      this.imagePullSecrets = new ArrayList<io.kubernetes.client.models.V1LocalObjectReference>();
+      this.imagePullSecrets = new ArrayList<io.kubernetes.client.openapi.models.V1LocalObjectReference>();
     }
     this.imagePullSecrets.add(imagePullSecretsItem);
     return this;
@@ -467,12 +467,12 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount. ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod")
 
-  public List<io.kubernetes.client.models.V1LocalObjectReference> getImagePullSecrets() {
+  public List<io.kubernetes.client.openapi.models.V1LocalObjectReference> getImagePullSecrets() {
     return imagePullSecrets;
   }
 
 
-  public void setImagePullSecrets(List<io.kubernetes.client.models.V1LocalObjectReference> imagePullSecrets) {
+  public void setImagePullSecrets(List<io.kubernetes.client.openapi.models.V1LocalObjectReference> imagePullSecrets) {
     this.imagePullSecrets = imagePullSecrets;
   }
 
@@ -738,7 +738,7 @@ public class WorkflowSpec {
   }
 
 
-  public WorkflowSpec securityContext(io.kubernetes.client.models.V1PodSecurityContext securityContext) {
+  public WorkflowSpec securityContext(io.kubernetes.client.openapi.models.V1PodSecurityContext securityContext) {
     
     this.securityContext = securityContext;
     return this;
@@ -751,12 +751,12 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1PodSecurityContext getSecurityContext() {
+  public io.kubernetes.client.openapi.models.V1PodSecurityContext getSecurityContext() {
     return securityContext;
   }
 
 
-  public void setSecurityContext(io.kubernetes.client.models.V1PodSecurityContext securityContext) {
+  public void setSecurityContext(io.kubernetes.client.openapi.models.V1PodSecurityContext securityContext) {
     this.securityContext = securityContext;
   }
 
@@ -884,15 +884,15 @@ public class WorkflowSpec {
   }
 
 
-  public WorkflowSpec tolerations(List<io.kubernetes.client.models.V1Toleration> tolerations) {
+  public WorkflowSpec tolerations(List<io.kubernetes.client.openapi.models.V1Toleration> tolerations) {
     
     this.tolerations = tolerations;
     return this;
   }
 
-  public WorkflowSpec addTolerationsItem(io.kubernetes.client.models.V1Toleration tolerationsItem) {
+  public WorkflowSpec addTolerationsItem(io.kubernetes.client.openapi.models.V1Toleration tolerationsItem) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList<io.kubernetes.client.models.V1Toleration>();
+      this.tolerations = new ArrayList<io.kubernetes.client.openapi.models.V1Toleration>();
     }
     this.tolerations.add(tolerationsItem);
     return this;
@@ -905,12 +905,12 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Tolerations to apply to workflow pods.")
 
-  public List<io.kubernetes.client.models.V1Toleration> getTolerations() {
+  public List<io.kubernetes.client.openapi.models.V1Toleration> getTolerations() {
     return tolerations;
   }
 
 
-  public void setTolerations(List<io.kubernetes.client.models.V1Toleration> tolerations) {
+  public void setTolerations(List<io.kubernetes.client.openapi.models.V1Toleration> tolerations) {
     this.tolerations = tolerations;
   }
 
@@ -961,15 +961,15 @@ public class WorkflowSpec {
   }
 
 
-  public WorkflowSpec volumeClaimTemplates(List<io.kubernetes.client.models.V1PersistentVolumeClaim> volumeClaimTemplates) {
+  public WorkflowSpec volumeClaimTemplates(List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim> volumeClaimTemplates) {
     
     this.volumeClaimTemplates = volumeClaimTemplates;
     return this;
   }
 
-  public WorkflowSpec addVolumeClaimTemplatesItem(io.kubernetes.client.models.V1PersistentVolumeClaim volumeClaimTemplatesItem) {
+  public WorkflowSpec addVolumeClaimTemplatesItem(io.kubernetes.client.openapi.models.V1PersistentVolumeClaim volumeClaimTemplatesItem) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates = new ArrayList<io.kubernetes.client.models.V1PersistentVolumeClaim>();
+      this.volumeClaimTemplates = new ArrayList<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim>();
     }
     this.volumeClaimTemplates.add(volumeClaimTemplatesItem);
     return this;
@@ -982,25 +982,25 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "VolumeClaimTemplates is a list of claims that containers are allowed to reference. The Workflow controller will create the claims at the beginning of the workflow and delete the claims upon completion of the workflow")
 
-  public List<io.kubernetes.client.models.V1PersistentVolumeClaim> getVolumeClaimTemplates() {
+  public List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim> getVolumeClaimTemplates() {
     return volumeClaimTemplates;
   }
 
 
-  public void setVolumeClaimTemplates(List<io.kubernetes.client.models.V1PersistentVolumeClaim> volumeClaimTemplates) {
+  public void setVolumeClaimTemplates(List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim> volumeClaimTemplates) {
     this.volumeClaimTemplates = volumeClaimTemplates;
   }
 
 
-  public WorkflowSpec volumes(List<io.kubernetes.client.models.V1Volume> volumes) {
+  public WorkflowSpec volumes(List<io.kubernetes.client.openapi.models.V1Volume> volumes) {
     
     this.volumes = volumes;
     return this;
   }
 
-  public WorkflowSpec addVolumesItem(io.kubernetes.client.models.V1Volume volumesItem) {
+  public WorkflowSpec addVolumesItem(io.kubernetes.client.openapi.models.V1Volume volumesItem) {
     if (this.volumes == null) {
-      this.volumes = new ArrayList<io.kubernetes.client.models.V1Volume>();
+      this.volumes = new ArrayList<io.kubernetes.client.openapi.models.V1Volume>();
     }
     this.volumes.add(volumesItem);
     return this;
@@ -1013,12 +1013,12 @@ public class WorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Volumes is a list of volumes that can be mounted by containers in a ")
 
-  public List<io.kubernetes.client.models.V1Volume> getVolumes() {
+  public List<io.kubernetes.client.openapi.models.V1Volume> getVolumes() {
     return volumes;
   }
 
 
-  public void setVolumes(List<io.kubernetes.client.models.V1Volume> volumes) {
+  public void setVolumes(List<io.kubernetes.client.openapi.models.V1Volume> volumes) {
     this.volumes = volumes;
   }
 

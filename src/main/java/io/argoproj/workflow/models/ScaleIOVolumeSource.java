@@ -48,7 +48,7 @@ public class ScaleIOVolumeSource {
 
   public static final String SERIALIZED_NAME_SECRET_REF = "secretRef";
   @SerializedName(SERIALIZED_NAME_SECRET_REF)
-  private io.kubernetes.client.models.V1LocalObjectReference secretRef;
+  private io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef;
 
   public static final String SERIALIZED_NAME_SSL_ENABLED = "sslEnabled";
   @SerializedName(SERIALIZED_NAME_SSL_ENABLED)
@@ -162,7 +162,7 @@ public class ScaleIOVolumeSource {
   }
 
 
-  public ScaleIOVolumeSource secretRef(io.kubernetes.client.models.V1LocalObjectReference secretRef) {
+  public ScaleIOVolumeSource secretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
     
     this.secretRef = secretRef;
     return this;
@@ -174,12 +174,12 @@ public class ScaleIOVolumeSource {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public io.kubernetes.client.models.V1LocalObjectReference getSecretRef() {
+  public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef() {
     return secretRef;
   }
 
 
-  public void setSecretRef(io.kubernetes.client.models.V1LocalObjectReference secretRef) {
+  public void setSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
     this.secretRef = secretRef;
   }
 

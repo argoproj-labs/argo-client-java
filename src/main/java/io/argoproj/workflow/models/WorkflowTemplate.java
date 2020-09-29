@@ -41,7 +41,7 @@ public class WorkflowTemplate {
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private io.kubernetes.client.models.V1ObjectMeta metadata;
+  private io.kubernetes.client.openapi.models.V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
@@ -94,7 +94,7 @@ public class WorkflowTemplate {
   }
 
 
-  public WorkflowTemplate metadata(io.kubernetes.client.models.V1ObjectMeta metadata) {
+  public WorkflowTemplate metadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     
     this.metadata = metadata;
     return this;
@@ -106,12 +106,12 @@ public class WorkflowTemplate {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public io.kubernetes.client.models.V1ObjectMeta getMetadata() {
+  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(io.kubernetes.client.models.V1ObjectMeta metadata) {
+  public void setMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 

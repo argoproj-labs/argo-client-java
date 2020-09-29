@@ -70,7 +70,7 @@ public class WorkflowStatus {
 
   public static final String SERIALIZED_NAME_PERSISTENT_VOLUME_CLAIMS = "persistentVolumeClaims";
   @SerializedName(SERIALIZED_NAME_PERSISTENT_VOLUME_CLAIMS)
-  private List<io.kubernetes.client.models.V1Volume> persistentVolumeClaims = null;
+  private List<io.kubernetes.client.openapi.models.V1Volume> persistentVolumeClaims = null;
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
@@ -274,15 +274,15 @@ public class WorkflowStatus {
   }
 
 
-  public WorkflowStatus persistentVolumeClaims(List<io.kubernetes.client.models.V1Volume> persistentVolumeClaims) {
+  public WorkflowStatus persistentVolumeClaims(List<io.kubernetes.client.openapi.models.V1Volume> persistentVolumeClaims) {
     
     this.persistentVolumeClaims = persistentVolumeClaims;
     return this;
   }
 
-  public WorkflowStatus addPersistentVolumeClaimsItem(io.kubernetes.client.models.V1Volume persistentVolumeClaimsItem) {
+  public WorkflowStatus addPersistentVolumeClaimsItem(io.kubernetes.client.openapi.models.V1Volume persistentVolumeClaimsItem) {
     if (this.persistentVolumeClaims == null) {
-      this.persistentVolumeClaims = new ArrayList<io.kubernetes.client.models.V1Volume>();
+      this.persistentVolumeClaims = new ArrayList<io.kubernetes.client.openapi.models.V1Volume>();
     }
     this.persistentVolumeClaims.add(persistentVolumeClaimsItem);
     return this;
@@ -295,12 +295,12 @@ public class WorkflowStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "PersistentVolumeClaims tracks all PVCs that were created as part of the  The contents of this list are drained at the end of the workflow.")
 
-  public List<io.kubernetes.client.models.V1Volume> getPersistentVolumeClaims() {
+  public List<io.kubernetes.client.openapi.models.V1Volume> getPersistentVolumeClaims() {
     return persistentVolumeClaims;
   }
 
 
-  public void setPersistentVolumeClaims(List<io.kubernetes.client.models.V1Volume> persistentVolumeClaims) {
+  public void setPersistentVolumeClaims(List<io.kubernetes.client.openapi.models.V1Volume> persistentVolumeClaims) {
     this.persistentVolumeClaims = persistentVolumeClaims;
   }
 

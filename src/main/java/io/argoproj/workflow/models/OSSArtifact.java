@@ -32,7 +32,7 @@ import java.io.IOException;
 public class OSSArtifact {
   public static final String SERIALIZED_NAME_ACCESS_KEY_SECRET = "accessKeySecret";
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY_SECRET)
-  private io.kubernetes.client.models.V1SecretKeySelector accessKeySecret;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector accessKeySecret;
 
   public static final String SERIALIZED_NAME_BUCKET = "bucket";
   @SerializedName(SERIALIZED_NAME_BUCKET)
@@ -48,10 +48,10 @@ public class OSSArtifact {
 
   public static final String SERIALIZED_NAME_SECRET_KEY_SECRET = "secretKeySecret";
   @SerializedName(SERIALIZED_NAME_SECRET_KEY_SECRET)
-  private io.kubernetes.client.models.V1SecretKeySelector secretKeySecret;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector secretKeySecret;
 
 
-  public OSSArtifact accessKeySecret(io.kubernetes.client.models.V1SecretKeySelector accessKeySecret) {
+  public OSSArtifact accessKeySecret(io.kubernetes.client.openapi.models.V1SecretKeySelector accessKeySecret) {
     
     this.accessKeySecret = accessKeySecret;
     return this;
@@ -63,12 +63,12 @@ public class OSSArtifact {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getAccessKeySecret() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getAccessKeySecret() {
     return accessKeySecret;
   }
 
 
-  public void setAccessKeySecret(io.kubernetes.client.models.V1SecretKeySelector accessKeySecret) {
+  public void setAccessKeySecret(io.kubernetes.client.openapi.models.V1SecretKeySelector accessKeySecret) {
     this.accessKeySecret = accessKeySecret;
   }
 
@@ -139,7 +139,7 @@ public class OSSArtifact {
   }
 
 
-  public OSSArtifact secretKeySecret(io.kubernetes.client.models.V1SecretKeySelector secretKeySecret) {
+  public OSSArtifact secretKeySecret(io.kubernetes.client.openapi.models.V1SecretKeySelector secretKeySecret) {
     
     this.secretKeySecret = secretKeySecret;
     return this;
@@ -151,12 +151,12 @@ public class OSSArtifact {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getSecretKeySecret() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getSecretKeySecret() {
     return secretKeySecret;
   }
 
 
-  public void setSecretKeySecret(io.kubernetes.client.models.V1SecretKeySelector secretKeySecret) {
+  public void setSecretKeySecret(io.kubernetes.client.openapi.models.V1SecretKeySelector secretKeySecret) {
     this.secretKeySecret = secretKeySecret;
   }
 

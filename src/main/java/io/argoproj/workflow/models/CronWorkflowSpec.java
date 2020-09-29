@@ -61,7 +61,7 @@ public class CronWorkflowSpec {
 
   public static final String SERIALIZED_NAME_WORKFLOW_METADATA = "workflowMetadata";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_METADATA)
-  private io.kubernetes.client.models.V1ObjectMeta workflowMetadata;
+  private io.kubernetes.client.openapi.models.V1ObjectMeta workflowMetadata;
 
   public static final String SERIALIZED_NAME_WORKFLOW_SPEC = "workflowSpec";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_SPEC)
@@ -228,7 +228,7 @@ public class CronWorkflowSpec {
   }
 
 
-  public CronWorkflowSpec workflowMetadata(io.kubernetes.client.models.V1ObjectMeta workflowMetadata) {
+  public CronWorkflowSpec workflowMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta workflowMetadata) {
     
     this.workflowMetadata = workflowMetadata;
     return this;
@@ -241,12 +241,12 @@ public class CronWorkflowSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1ObjectMeta getWorkflowMetadata() {
+  public io.kubernetes.client.openapi.models.V1ObjectMeta getWorkflowMetadata() {
     return workflowMetadata;
   }
 
 
-  public void setWorkflowMetadata(io.kubernetes.client.models.V1ObjectMeta workflowMetadata) {
+  public void setWorkflowMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta workflowMetadata) {
     this.workflowMetadata = workflowMetadata;
   }
 

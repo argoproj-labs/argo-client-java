@@ -43,7 +43,7 @@ public class CSIVolumeSource {
 
   public static final String SERIALIZED_NAME_NODE_PUBLISH_SECRET_REF = "nodePublishSecretRef";
   @SerializedName(SERIALIZED_NAME_NODE_PUBLISH_SECRET_REF)
-  private io.kubernetes.client.models.V1LocalObjectReference nodePublishSecretRef;
+  private io.kubernetes.client.openapi.models.V1LocalObjectReference nodePublishSecretRef;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
@@ -99,7 +99,7 @@ public class CSIVolumeSource {
   }
 
 
-  public CSIVolumeSource nodePublishSecretRef(io.kubernetes.client.models.V1LocalObjectReference nodePublishSecretRef) {
+  public CSIVolumeSource nodePublishSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference nodePublishSecretRef) {
     
     this.nodePublishSecretRef = nodePublishSecretRef;
     return this;
@@ -112,12 +112,12 @@ public class CSIVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1LocalObjectReference getNodePublishSecretRef() {
+  public io.kubernetes.client.openapi.models.V1LocalObjectReference getNodePublishSecretRef() {
     return nodePublishSecretRef;
   }
 
 
-  public void setNodePublishSecretRef(io.kubernetes.client.models.V1LocalObjectReference nodePublishSecretRef) {
+  public void setNodePublishSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference nodePublishSecretRef) {
     this.nodePublishSecretRef = nodePublishSecretRef;
   }
 

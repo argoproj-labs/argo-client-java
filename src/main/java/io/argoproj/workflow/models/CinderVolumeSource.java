@@ -40,7 +40,7 @@ public class CinderVolumeSource {
 
   public static final String SERIALIZED_NAME_SECRET_REF = "secretRef";
   @SerializedName(SERIALIZED_NAME_SECRET_REF)
-  private io.kubernetes.client.models.V1LocalObjectReference secretRef;
+  private io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef;
 
   public static final String SERIALIZED_NAME_VOLUME_I_D = "volumeID";
   @SerializedName(SERIALIZED_NAME_VOLUME_I_D)
@@ -93,7 +93,7 @@ public class CinderVolumeSource {
   }
 
 
-  public CinderVolumeSource secretRef(io.kubernetes.client.models.V1LocalObjectReference secretRef) {
+  public CinderVolumeSource secretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
     
     this.secretRef = secretRef;
     return this;
@@ -106,12 +106,12 @@ public class CinderVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1LocalObjectReference getSecretRef() {
+  public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef() {
     return secretRef;
   }
 
 
-  public void setSecretRef(io.kubernetes.client.models.V1LocalObjectReference secretRef) {
+  public void setSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
     this.secretRef = secretRef;
   }
 

@@ -40,7 +40,7 @@ public class GCSArtifact {
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_KEY_SECRET = "serviceAccountKeySecret";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_KEY_SECRET)
-  private io.kubernetes.client.models.V1SecretKeySelector serviceAccountKeySecret;
+  private io.kubernetes.client.openapi.models.V1SecretKeySelector serviceAccountKeySecret;
 
 
   public GCSArtifact bucket(String bucket) {
@@ -87,7 +87,7 @@ public class GCSArtifact {
   }
 
 
-  public GCSArtifact serviceAccountKeySecret(io.kubernetes.client.models.V1SecretKeySelector serviceAccountKeySecret) {
+  public GCSArtifact serviceAccountKeySecret(io.kubernetes.client.openapi.models.V1SecretKeySelector serviceAccountKeySecret) {
     
     this.serviceAccountKeySecret = serviceAccountKeySecret;
     return this;
@@ -100,12 +100,12 @@ public class GCSArtifact {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1SecretKeySelector getServiceAccountKeySecret() {
+  public io.kubernetes.client.openapi.models.V1SecretKeySelector getServiceAccountKeySecret() {
     return serviceAccountKeySecret;
   }
 
 
-  public void setServiceAccountKeySecret(io.kubernetes.client.models.V1SecretKeySelector serviceAccountKeySecret) {
+  public void setServiceAccountKeySecret(io.kubernetes.client.openapi.models.V1SecretKeySelector serviceAccountKeySecret) {
     this.serviceAccountKeySecret = serviceAccountKeySecret;
   }
 

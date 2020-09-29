@@ -58,7 +58,7 @@ public class RBDVolumeSource {
 
   public static final String SERIALIZED_NAME_SECRET_REF = "secretRef";
   @SerializedName(SERIALIZED_NAME_SECRET_REF)
-  private io.kubernetes.client.models.V1LocalObjectReference secretRef;
+  private io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
@@ -206,7 +206,7 @@ public class RBDVolumeSource {
   }
 
 
-  public RBDVolumeSource secretRef(io.kubernetes.client.models.V1LocalObjectReference secretRef) {
+  public RBDVolumeSource secretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
     
     this.secretRef = secretRef;
     return this;
@@ -219,12 +219,12 @@ public class RBDVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public io.kubernetes.client.models.V1LocalObjectReference getSecretRef() {
+  public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef() {
     return secretRef;
   }
 
 
-  public void setSecretRef(io.kubernetes.client.models.V1LocalObjectReference secretRef) {
+  public void setSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
     this.secretRef = secretRef;
   }
 
