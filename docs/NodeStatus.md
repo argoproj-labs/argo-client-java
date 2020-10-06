@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **resourcesDuration** | **Map&lt;String, Long&gt;** | ResourcesDuration is indicative, but not accurate, resource duration. This is populated when the nodes completes. |  [optional]
 **startedAt** | [**org.joda.time.DateTime**](org.joda.time.DateTime.md) |  |  [optional]
 **storedTemplateID** | **String** | StoredTemplateID is the ID of stored template. DEPRECATED: This value is not used anymore. |  [optional]
+**synchronizationStatus** | [**NodeSynchronizationStatus**](NodeSynchronizationStatus.md) |  |  [optional]
 **templateName** | **String** | TemplateName is the template name which this node corresponds to. Not applicable to virtual nodes (e.g. Retry, StepGroup) |  [optional]
 **templateRef** | [**TemplateRef**](TemplateRef.md) |  |  [optional]
 **templateScope** | **String** | TemplateScope is the template scope in which the template of this node was retrieved. |  [optional]
