@@ -15,6 +15,7 @@ build:
 		--api-package io.argoproj.workflow.apis \
 		--invoker-package io.argoproj.workflow \
 		--model-package io.argoproj.workflow.models \
+		--skip-validate-spec \
 		--group-id io.argoproj.workflow \
 		--artifact-id argo-client-java \
 		--artifact-version $(VERSION) \

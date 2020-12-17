@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **oss** | [**OSSArtifact**](OSSArtifact.md) |  |  [optional]
 **path** | **String** | Path is the container path to the artifact |  [optional]
 **raw** | [**RawArtifact**](RawArtifact.md) |  |  [optional]
+**recurseMode** | **Boolean** | If mode is set, apply the permission recursively into the artifact if it is a folder |  [optional]
 **s3** | [**S3Artifact**](S3Artifact.md) |  |  [optional]
 **subPath** | **String** | SubPath allows an artifact to be sourced from a subpath within the specified source |  [optional]
 

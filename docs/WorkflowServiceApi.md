@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**getWorkflow**](WorkflowServiceApi.md#getWorkflow) | **GET** /api/v1/workflows/{namespace}/{name} | 
 [**lintWorkflow**](WorkflowServiceApi.md#lintWorkflow) | **POST** /api/v1/workflows/{namespace}/lint | 
 [**listWorkflows**](WorkflowServiceApi.md#listWorkflows) | **GET** /api/v1/workflows/{namespace} | 
-[**podLogs**](WorkflowServiceApi.md#podLogs) | **GET** /api/v1/workflows/{namespace}/{name}/{podName}/log | 
+[**podLogs**](WorkflowServiceApi.md#podLogs) | **GET** /api/v1/workflows/{namespace}/{name}/{podName}/log | DEPRECATED: Cannot work via HTTP if podName is an empty string. Use WorkflowLogs.
 [**resubmitWorkflow**](WorkflowServiceApi.md#resubmitWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resubmit | 
 [**resumeWorkflow**](WorkflowServiceApi.md#resumeWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resume | 
 [**retryWorkflow**](WorkflowServiceApi.md#retryWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/retry | 
@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**terminateWorkflow**](WorkflowServiceApi.md#terminateWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/terminate | 
 [**watchEvents**](WorkflowServiceApi.md#watchEvents) | **GET** /api/v1/stream/events/{namespace} | 
 [**watchWorkflows**](WorkflowServiceApi.md#watchWorkflows) | **GET** /api/v1/workflow-events/{namespace} | 
+[**workflowLogs**](WorkflowServiceApi.md#workflowLogs) | **GET** /api/v1/workflows/{namespace}/{name}/log | 
 
 
 <a name="createWorkflow"></a>
@@ -368,7 +369,7 @@ No authorization required
 # **podLogs**
 > StreamResultOfLogEntry podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend)
 
-
+DEPRECATED: Cannot work via HTTP if podName is an empty string. Use WorkflowLogs.
 
 ### Example
 ```java
@@ -1095,6 +1096,90 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StreamResultOfWorkflowWatchEvent**](StreamResultOfWorkflowWatchEvent.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response.(streaming responses) |  -  |
+
+<a name="workflowLogs"></a>
+# **workflowLogs**
+> StreamResultOfLogEntry workflowLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend)
+
+
+
+### Example
+```java
+// Import classes:
+import io.argoproj.workflow.ApiClient;
+import io.argoproj.workflow.ApiException;
+import io.argoproj.workflow.Configuration;
+import io.argoproj.workflow.models.*;
+import io.argoproj.workflow.apis.WorkflowServiceApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
+    String namespace = "namespace_example"; // String | 
+    String name = "name_example"; // String | 
+    String podName = "podName_example"; // String | 
+    String logOptionsContainer = "logOptionsContainer_example"; // String | The container for which to stream logs. Defaults to only container if there is one container in the pod. +optional.
+    Boolean logOptionsFollow = true; // Boolean | Follow the log stream of the pod. Defaults to false. +optional.
+    Boolean logOptionsPrevious = true; // Boolean | Return previous terminated container logs. Defaults to false. +optional.
+    String logOptionsSinceSeconds = "logOptionsSinceSeconds_example"; // String | A relative time in seconds before the current time from which to show logs. If this value precedes the time a pod was started, only logs since the pod start will be returned. If this value is in the future, no logs will be returned. Only one of sinceSeconds or sinceTime may be specified. +optional.
+    String logOptionsSinceTimeSeconds = "logOptionsSinceTimeSeconds_example"; // String | Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive.
+    Integer logOptionsSinceTimeNanos = 56; // Integer | Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive. This field may be limited in precision depending on context.
+    Boolean logOptionsTimestamps = true; // Boolean | If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line of log output. Defaults to false. +optional.
+    String logOptionsTailLines = "logOptionsTailLines_example"; // String | If set, the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime +optional.
+    String logOptionsLimitBytes = "logOptionsLimitBytes_example"; // String | If set, the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. +optional.
+    Boolean logOptionsInsecureSkipTLSVerifyBackend = true; // Boolean | insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the serving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver and the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real kubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the connection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept the actual log data coming from the real kubelet). +optional.
+    try {
+      StreamResultOfLogEntry result = apiInstance.workflowLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WorkflowServiceApi#workflowLogs");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **String**|  |
+ **name** | **String**|  |
+ **podName** | **String**|  | [optional]
+ **logOptionsContainer** | **String**| The container for which to stream logs. Defaults to only container if there is one container in the pod. +optional. | [optional]
+ **logOptionsFollow** | **Boolean**| Follow the log stream of the pod. Defaults to false. +optional. | [optional]
+ **logOptionsPrevious** | **Boolean**| Return previous terminated container logs. Defaults to false. +optional. | [optional]
+ **logOptionsSinceSeconds** | **String**| A relative time in seconds before the current time from which to show logs. If this value precedes the time a pod was started, only logs since the pod start will be returned. If this value is in the future, no logs will be returned. Only one of sinceSeconds or sinceTime may be specified. +optional. | [optional]
+ **logOptionsSinceTimeSeconds** | **String**| Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive. | [optional]
+ **logOptionsSinceTimeNanos** | **Integer**| Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive. This field may be limited in precision depending on context. | [optional]
+ **logOptionsTimestamps** | **Boolean**| If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line of log output. Defaults to false. +optional. | [optional]
+ **logOptionsTailLines** | **String**| If set, the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime +optional. | [optional]
+ **logOptionsLimitBytes** | **String**| If set, the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. +optional. | [optional]
+ **logOptionsInsecureSkipTLSVerifyBackend** | **Boolean**| insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the serving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver and the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real kubelet.  If the kubelet is configured to verify the apiserver&#39;s TLS credentials, it does not mean the connection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept the actual log data coming from the real kubelet). +optional. | [optional]
+
+### Return type
+
+[**StreamResultOfLogEntry**](StreamResultOfLogEntry.md)
 
 ### Authorization
 
