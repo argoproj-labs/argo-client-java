@@ -7,7 +7,7 @@ Template is a reusable and composable unit of execution in a workflow
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**activeDeadlineSeconds** | **String** | IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number. |  [optional]
+**activeDeadlineSeconds** | [**Object**](.md) |  |  [optional]
 **affinity** | [**io.kubernetes.client.openapi.models.V1Affinity**](io.kubernetes.client.openapi.models.V1Affinity.md) |  |  [optional]
 **archiveLocation** | [**ArtifactLocation**](ArtifactLocation.md) |  |  [optional]
 **arguments** | [**Arguments**](Arguments.md) |  |  [optional]
@@ -25,12 +25,11 @@ Name | Type | Description | Notes
 **name** | **String** | Name is the name of the template | 
 **nodeSelector** | **Map&lt;String, String&gt;** | NodeSelector is a selector to schedule this step of the workflow to be run on the selected node(s). Overrides the selector set at the workflow level. |  [optional]
 **outputs** | [**Outputs**](Outputs.md) |  |  [optional]
-**parallelism** | **Long** | Parallelism limits the max total parallel pods that can execute at the same time within the boundaries of this template invocation. If additional steps/dag templates are invoked, the pods created by those templates will not be counted towards this total. |  [optional]
+**parallelism** | **Integer** | Parallelism limits the max total parallel pods that can execute at the same time within the boundaries of this template invocation. If additional steps/dag templates are invoked, the pods created by those templates will not be counted towards this total. |  [optional]
 **podSpecPatch** | **String** | PodSpecPatch holds strategic merge patch to apply against the pod spec. Allows parameterization of container fields which are not strings (e.g. resource limits). |  [optional]
 **priority** | **Integer** | Priority to apply to workflow pods. |  [optional]
 **priorityClassName** | **String** | PriorityClassName to apply to workflow pods. |  [optional]
 **resource** | [**ResourceTemplate**](ResourceTemplate.md) |  |  [optional]
-**resubmitPendingPods** | **Boolean** | ResubmitPendingPods is a flag to enable resubmitting pods that remain Pending after initial submission |  [optional]
 **retryStrategy** | [**RetryStrategy**](RetryStrategy.md) |  |  [optional]
 **schedulerName** | **String** | If specified, the pod will be dispatched by specified scheduler. Or it will be dispatched by workflow scope scheduler if specified. If neither specified, the pod will be dispatched by default scheduler. |  [optional]
 **script** | [**ScriptTemplate**](ScriptTemplate.md) |  |  [optional]

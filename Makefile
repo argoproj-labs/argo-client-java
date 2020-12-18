@@ -12,6 +12,7 @@ build:
 		-o /wd \
 		-p hideGenerationTimestamp=true \
 		-p dateLibrary=joda \
+		--skip-validate-spec \
 		--api-package io.argoproj.workflow.apis \
 		--invoker-package io.argoproj.workflow \
 		--model-package io.argoproj.workflow.models \

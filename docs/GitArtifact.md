@@ -7,7 +7,7 @@ GitArtifact is the location of an git artifact
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**depth** | **Long** | Depth specifies clones/fetches should be shallow and include the given number of commits from the branch tip |  [optional]
+**depth** | **Integer** | Depth specifies clones/fetches should be shallow and include the given number of commits from the branch tip |  [optional]
 **fetch** | **List&lt;String&gt;** | Fetch specifies a number of refs that should be fetched before checkout |  [optional]
 **insecureIgnoreHostKey** | **Boolean** | InsecureIgnoreHostKey disables SSH strict host key checking during git clone |  [optional]
 **passwordSecret** | [**io.kubernetes.client.openapi.models.V1SecretKeySelector**](io.kubernetes.client.openapi.models.V1SecretKeySelector.md) |  |  [optional]

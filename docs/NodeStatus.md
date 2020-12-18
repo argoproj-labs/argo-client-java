@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **children** | **List&lt;String&gt;** | Children is a list of child node IDs |  [optional]
 **daemoned** | **Boolean** | Daemoned tracks whether or not this node was daemoned and need to be terminated |  [optional]
 **displayName** | **String** | DisplayName is a human readable representation of the node. Unique within a template boundary |  [optional]
+**estimatedDuration** | **Integer** | EstimatedDuration in seconds. |  [optional]
 **finishedAt** | [**org.joda.time.DateTime**](org.joda.time.DateTime.md) |  |  [optional]
 **hostNodeName** | **String** | HostNodeName name of the Kubernetes node on which the Pod is running, if applicable |  [optional]
 **id** | **String** | ID is a unique identifier of a node within the worklow It is implemented as a hash of the node name, which makes the ID deterministic | 
@@ -22,6 +23,7 @@ Name | Type | Description | Notes
 **outputs** | [**Outputs**](Outputs.md) |  |  [optional]
 **phase** | **String** | Phase a simple, high-level summary of where the node is in its lifecycle. Can be used as a state machine. |  [optional]
 **podIP** | **String** | PodIP captures the IP of the pod for daemoned steps |  [optional]
+**progress** | **String** | Progress to completion |  [optional]
 **resourcesDuration** | **Map&lt;String, Long&gt;** | ResourcesDuration is indicative, but not accurate, resource duration. This is populated when the nodes completes. |  [optional]
 **startedAt** | [**org.joda.time.DateTime**](org.joda.time.DateTime.md) |  |  [optional]
 **storedTemplateID** | **String** | StoredTemplateID is the ID of stored template. DEPRECATED: This value is not used anymore. |  [optional]

@@ -1,7 +1,7 @@
 # argo-client-java
 
 Argo Server API
-- API version: v2.11.8
+- API version: v2.12.2
 
 You can get examples of requests and responses by using the CLI with `--gloglevel=9`, e.g. `argo list --gloglevel=9`
 
@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.argoproj.workflow</groupId>
   <artifactId>argo-client-java</artifactId>
-  <version>v2.11.8</version>
+  <version>v2.12.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.argoproj.workflow:argo-client-java:v2.11.8"
+compile "io.argoproj.workflow:argo-client-java:v2.12.2"
 ```
 
 ### Others
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/argo-client-java-v2.11.8.jar`
+* `target/argo-client-java-v2.12.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -120,6 +120,8 @@ Class | Method | HTTP request | Description
 *CronWorkflowServiceApi* | [**getCronWorkflow**](docs/CronWorkflowServiceApi.md#getCronWorkflow) | **GET** /api/v1/cron-workflows/{namespace}/{name} | 
 *CronWorkflowServiceApi* | [**lintCronWorkflow**](docs/CronWorkflowServiceApi.md#lintCronWorkflow) | **POST** /api/v1/cron-workflows/{namespace}/lint | 
 *CronWorkflowServiceApi* | [**listCronWorkflows**](docs/CronWorkflowServiceApi.md#listCronWorkflows) | **GET** /api/v1/cron-workflows/{namespace} | 
+*CronWorkflowServiceApi* | [**resumeCronWorkflow**](docs/CronWorkflowServiceApi.md#resumeCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name}/resume | 
+*CronWorkflowServiceApi* | [**suspendCronWorkflow**](docs/CronWorkflowServiceApi.md#suspendCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name}/suspend | 
 *CronWorkflowServiceApi* | [**updateCronWorkflow**](docs/CronWorkflowServiceApi.md#updateCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name} | 
 *EventServiceApi* | [**receiveEvent**](docs/EventServiceApi.md#receiveEvent) | **POST** /api/v1/events/{namespace}/{discriminator} | 
 *InfoServiceApi* | [**getInfo**](docs/InfoServiceApi.md#getInfo) | **GET** /api/v1/info | 
@@ -130,7 +132,7 @@ Class | Method | HTTP request | Description
 *WorkflowServiceApi* | [**getWorkflow**](docs/WorkflowServiceApi.md#getWorkflow) | **GET** /api/v1/workflows/{namespace}/{name} | 
 *WorkflowServiceApi* | [**lintWorkflow**](docs/WorkflowServiceApi.md#lintWorkflow) | **POST** /api/v1/workflows/{namespace}/lint | 
 *WorkflowServiceApi* | [**listWorkflows**](docs/WorkflowServiceApi.md#listWorkflows) | **GET** /api/v1/workflows/{namespace} | 
-*WorkflowServiceApi* | [**podLogs**](docs/WorkflowServiceApi.md#podLogs) | **GET** /api/v1/workflows/{namespace}/{name}/{podName}/log | 
+*WorkflowServiceApi* | [**podLogs**](docs/WorkflowServiceApi.md#podLogs) | **GET** /api/v1/workflows/{namespace}/{name}/{podName}/log | DEPRECATED: Cannot work via HTTP if podName is an empty string. Use WorkflowLogs.
 *WorkflowServiceApi* | [**resubmitWorkflow**](docs/WorkflowServiceApi.md#resubmitWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resubmit | 
 *WorkflowServiceApi* | [**resumeWorkflow**](docs/WorkflowServiceApi.md#resumeWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resume | 
 *WorkflowServiceApi* | [**retryWorkflow**](docs/WorkflowServiceApi.md#retryWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/retry | 
@@ -141,6 +143,7 @@ Class | Method | HTTP request | Description
 *WorkflowServiceApi* | [**terminateWorkflow**](docs/WorkflowServiceApi.md#terminateWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/terminate | 
 *WorkflowServiceApi* | [**watchEvents**](docs/WorkflowServiceApi.md#watchEvents) | **GET** /api/v1/stream/events/{namespace} | 
 *WorkflowServiceApi* | [**watchWorkflows**](docs/WorkflowServiceApi.md#watchWorkflows) | **GET** /api/v1/workflow-events/{namespace} | 
+*WorkflowServiceApi* | [**workflowLogs**](docs/WorkflowServiceApi.md#workflowLogs) | **GET** /api/v1/workflows/{namespace}/{name}/log | 
 *WorkflowTemplateServiceApi* | [**createWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#createWorkflowTemplate) | **POST** /api/v1/workflow-templates/{namespace} | 
 *WorkflowTemplateServiceApi* | [**deleteWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#deleteWorkflowTemplate) | **DELETE** /api/v1/workflow-templates/{namespace}/{name} | 
 *WorkflowTemplateServiceApi* | [**getWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#getWorkflowTemplate) | **GET** /api/v1/workflow-templates/{namespace}/{name} | 
@@ -181,8 +184,10 @@ Class | Method | HTTP request | Description
  - [CreateOptions](docs/CreateOptions.md)
  - [CronWorkflow](docs/CronWorkflow.md)
  - [CronWorkflowList](docs/CronWorkflowList.md)
+ - [CronWorkflowResumeRequest](docs/CronWorkflowResumeRequest.md)
  - [CronWorkflowSpec](docs/CronWorkflowSpec.md)
  - [CronWorkflowStatus](docs/CronWorkflowStatus.md)
+ - [CronWorkflowSuspendRequest](docs/CronWorkflowSuspendRequest.md)
  - [DAGTask](docs/DAGTask.md)
  - [DAGTemplate](docs/DAGTemplate.md)
  - [DownwardAPIProjection](docs/DownwardAPIProjection.md)
@@ -212,12 +217,11 @@ Class | Method | HTTP request | Description
  - [HTTPGetAction](docs/HTTPGetAction.md)
  - [HTTPHeader](docs/HTTPHeader.md)
  - [Handler](docs/Handler.md)
+ - [Header](docs/Header.md)
  - [Histogram](docs/Histogram.md)
  - [HostPathVolumeSource](docs/HostPathVolumeSource.md)
  - [ISCSIVolumeSource](docs/ISCSIVolumeSource.md)
  - [InfoResponse](docs/InfoResponse.md)
- - [Initializer](docs/Initializer.md)
- - [Initializers](docs/Initializers.md)
  - [Inputs](docs/Inputs.md)
  - [IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec](docs/IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec.md)
  - [KeyToPath](docs/KeyToPath.md)
@@ -280,7 +284,6 @@ Class | Method | HTTP request | Description
  - [SemaphoreStatus](docs/SemaphoreStatus.md)
  - [Sequence](docs/Sequence.md)
  - [ServiceAccountTokenProjection](docs/ServiceAccountTokenProjection.md)
- - [Status](docs/Status.md)
  - [StatusCause](docs/StatusCause.md)
  - [StatusDetails](docs/StatusDetails.md)
  - [StorageOSVolumeSource](docs/StorageOSVolumeSource.md)
@@ -303,6 +306,7 @@ Class | Method | HTTP request | Description
  - [UserContainer](docs/UserContainer.md)
  - [ValueFrom](docs/ValueFrom.md)
  - [Version](docs/Version.md)
+ - [VolumeClaimGC](docs/VolumeClaimGC.md)
  - [VolumeProjection](docs/VolumeProjection.md)
  - [VsphereVirtualDiskVolumeSource](docs/VsphereVirtualDiskVolumeSource.md)
  - [WeightedPodAffinityTerm](docs/WeightedPodAffinityTerm.md)
