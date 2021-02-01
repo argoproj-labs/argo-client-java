@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "io.argoproj.workflow",
     name := "argo-client-java",
-    version := "v2.12.6",
+    version := "v2.12.7",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),
