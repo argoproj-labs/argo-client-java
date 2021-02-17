@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'io.argoproj.workflow'
-version = 'v2.12.8'
+version = 'v2.12.9'
 
 buildscript {
     repositories {
