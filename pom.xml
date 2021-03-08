@@ -5,7 +5,7 @@
     <artifactId>argo-client-java</artifactId>
     <packaging>jar</packaging>
     <name>argo-client-java</name>
-    <version>v2.12.9</version>
+    <version>v2.12.10</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>
     <scm>
