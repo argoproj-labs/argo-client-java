@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getInfo**](InfoServiceApi.md#getInfo) | **GET** /api/v1/info | 
-[**getUserInfo**](InfoServiceApi.md#getUserInfo) | **GET** /api/v1/userinfo | 
-[**getVersion**](InfoServiceApi.md#getVersion) | **GET** /api/v1/version | 
+[**infoServiceGetInfo**](InfoServiceApi.md#infoServiceGetInfo) | **GET** /api/v1/info | 
+[**infoServiceGetUserInfo**](InfoServiceApi.md#infoServiceGetUserInfo) | **GET** /api/v1/userinfo | 
+[**infoServiceGetVersion**](InfoServiceApi.md#infoServiceGetVersion) | **GET** /api/v1/version | 
 
 
-<a name="getInfo"></a>
-# **getInfo**
-> InfoResponse getInfo()
+<a name="infoServiceGetInfo"></a>
+# **infoServiceGetInfo**
+> InfoResponse infoServiceGetInfo()
 
 
 
@@ -31,10 +31,10 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      InfoResponse result = apiInstance.getInfo();
+      InfoResponse result = apiInstance.infoServiceGetInfo();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InfoServiceApi#getInfo");
+      System.err.println("Exception when calling InfoServiceApi#infoServiceGetInfo");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -64,10 +64,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="getUserInfo"></a>
-# **getUserInfo**
-> GetUserInfoResponse getUserInfo()
+<a name="infoServiceGetUserInfo"></a>
+# **infoServiceGetUserInfo**
+> GetUserInfoResponse infoServiceGetUserInfo()
 
 
 
@@ -87,10 +88,10 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      GetUserInfoResponse result = apiInstance.getUserInfo();
+      GetUserInfoResponse result = apiInstance.infoServiceGetUserInfo();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InfoServiceApi#getUserInfo");
+      System.err.println("Exception when calling InfoServiceApi#infoServiceGetUserInfo");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -120,10 +121,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="getVersion"></a>
-# **getVersion**
-> Version getVersion()
+<a name="infoServiceGetVersion"></a>
+# **infoServiceGetVersion**
+> Version infoServiceGetVersion()
 
 
 
@@ -143,10 +145,10 @@ public class Example {
 
     InfoServiceApi apiInstance = new InfoServiceApi(defaultClient);
     try {
-      Version result = apiInstance.getVersion();
+      Version result = apiInstance.infoServiceGetVersion();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InfoServiceApi#getVersion");
+      System.err.println("Exception when calling InfoServiceApi#infoServiceGetVersion");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -176,4 +178,5 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 

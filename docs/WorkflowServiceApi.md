@@ -4,28 +4,28 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createWorkflow**](WorkflowServiceApi.md#createWorkflow) | **POST** /api/v1/workflows/{namespace} | 
-[**deleteWorkflow**](WorkflowServiceApi.md#deleteWorkflow) | **DELETE** /api/v1/workflows/{namespace}/{name} | 
-[**getWorkflow**](WorkflowServiceApi.md#getWorkflow) | **GET** /api/v1/workflows/{namespace}/{name} | 
-[**lintWorkflow**](WorkflowServiceApi.md#lintWorkflow) | **POST** /api/v1/workflows/{namespace}/lint | 
-[**listWorkflows**](WorkflowServiceApi.md#listWorkflows) | **GET** /api/v1/workflows/{namespace} | 
-[**podLogs**](WorkflowServiceApi.md#podLogs) | **GET** /api/v1/workflows/{namespace}/{name}/{podName}/log | DEPRECATED: Cannot work via HTTP if podName is an empty string. Use WorkflowLogs.
-[**resubmitWorkflow**](WorkflowServiceApi.md#resubmitWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resubmit | 
-[**resumeWorkflow**](WorkflowServiceApi.md#resumeWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resume | 
-[**retryWorkflow**](WorkflowServiceApi.md#retryWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/retry | 
-[**setWorkflow**](WorkflowServiceApi.md#setWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/set | 
-[**stopWorkflow**](WorkflowServiceApi.md#stopWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/stop | 
-[**submitWorkflow**](WorkflowServiceApi.md#submitWorkflow) | **POST** /api/v1/workflows/{namespace}/submit | 
-[**suspendWorkflow**](WorkflowServiceApi.md#suspendWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/suspend | 
-[**terminateWorkflow**](WorkflowServiceApi.md#terminateWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/terminate | 
-[**watchEvents**](WorkflowServiceApi.md#watchEvents) | **GET** /api/v1/stream/events/{namespace} | 
-[**watchWorkflows**](WorkflowServiceApi.md#watchWorkflows) | **GET** /api/v1/workflow-events/{namespace} | 
-[**workflowLogs**](WorkflowServiceApi.md#workflowLogs) | **GET** /api/v1/workflows/{namespace}/{name}/log | 
+[**workflowServiceCreateWorkflow**](WorkflowServiceApi.md#workflowServiceCreateWorkflow) | **POST** /api/v1/workflows/{namespace} | 
+[**workflowServiceDeleteWorkflow**](WorkflowServiceApi.md#workflowServiceDeleteWorkflow) | **DELETE** /api/v1/workflows/{namespace}/{name} | 
+[**workflowServiceGetWorkflow**](WorkflowServiceApi.md#workflowServiceGetWorkflow) | **GET** /api/v1/workflows/{namespace}/{name} | 
+[**workflowServiceLintWorkflow**](WorkflowServiceApi.md#workflowServiceLintWorkflow) | **POST** /api/v1/workflows/{namespace}/lint | 
+[**workflowServiceListWorkflows**](WorkflowServiceApi.md#workflowServiceListWorkflows) | **GET** /api/v1/workflows/{namespace} | 
+[**workflowServicePodLogs**](WorkflowServiceApi.md#workflowServicePodLogs) | **GET** /api/v1/workflows/{namespace}/{name}/{podName}/log | DEPRECATED: Cannot work via HTTP if podName is an empty string. Use WorkflowLogs.
+[**workflowServiceResubmitWorkflow**](WorkflowServiceApi.md#workflowServiceResubmitWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resubmit | 
+[**workflowServiceResumeWorkflow**](WorkflowServiceApi.md#workflowServiceResumeWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resume | 
+[**workflowServiceRetryWorkflow**](WorkflowServiceApi.md#workflowServiceRetryWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/retry | 
+[**workflowServiceSetWorkflow**](WorkflowServiceApi.md#workflowServiceSetWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/set | 
+[**workflowServiceStopWorkflow**](WorkflowServiceApi.md#workflowServiceStopWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/stop | 
+[**workflowServiceSubmitWorkflow**](WorkflowServiceApi.md#workflowServiceSubmitWorkflow) | **POST** /api/v1/workflows/{namespace}/submit | 
+[**workflowServiceSuspendWorkflow**](WorkflowServiceApi.md#workflowServiceSuspendWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/suspend | 
+[**workflowServiceTerminateWorkflow**](WorkflowServiceApi.md#workflowServiceTerminateWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/terminate | 
+[**workflowServiceWatchEvents**](WorkflowServiceApi.md#workflowServiceWatchEvents) | **GET** /api/v1/stream/events/{namespace} | 
+[**workflowServiceWatchWorkflows**](WorkflowServiceApi.md#workflowServiceWatchWorkflows) | **GET** /api/v1/workflow-events/{namespace} | 
+[**workflowServiceWorkflowLogs**](WorkflowServiceApi.md#workflowServiceWorkflowLogs) | **GET** /api/v1/workflows/{namespace}/{name}/log | 
 
 
-<a name="createWorkflow"></a>
-# **createWorkflow**
-> Workflow createWorkflow(namespace, body)
+<a name="workflowServiceCreateWorkflow"></a>
+# **workflowServiceCreateWorkflow**
+> Workflow workflowServiceCreateWorkflow(namespace, body)
 
 
 
@@ -47,10 +47,10 @@ public class Example {
     String namespace = "namespace_example"; // String | 
     WorkflowCreateRequest body = new WorkflowCreateRequest(); // WorkflowCreateRequest | 
     try {
-      Workflow result = apiInstance.createWorkflow(namespace, body);
+      Workflow result = apiInstance.workflowServiceCreateWorkflow(namespace, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#createWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceCreateWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -84,10 +84,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="deleteWorkflow"></a>
-# **deleteWorkflow**
-> Object deleteWorkflow(namespace, name, deleteOptionsGracePeriodSeconds, deleteOptionsPreconditionsUid, deleteOptionsPreconditionsResourceVersion, deleteOptionsOrphanDependents, deleteOptionsPropagationPolicy, deleteOptionsDryRun)
+<a name="workflowServiceDeleteWorkflow"></a>
+# **workflowServiceDeleteWorkflow**
+> Object workflowServiceDeleteWorkflow(namespace, name, deleteOptionsGracePeriodSeconds, deleteOptionsPreconditionsUid, deleteOptionsPreconditionsResourceVersion, deleteOptionsOrphanDependents, deleteOptionsPropagationPolicy, deleteOptionsDryRun)
 
 
 
@@ -115,10 +116,10 @@ public class Example {
     String deleteOptionsPropagationPolicy = "deleteOptionsPropagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground. +optional.
     List<String> deleteOptionsDryRun = Arrays.asList(); // List<String> | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed +optional.
     try {
-      Object result = apiInstance.deleteWorkflow(namespace, name, deleteOptionsGracePeriodSeconds, deleteOptionsPreconditionsUid, deleteOptionsPreconditionsResourceVersion, deleteOptionsOrphanDependents, deleteOptionsPropagationPolicy, deleteOptionsDryRun);
+      Object result = apiInstance.workflowServiceDeleteWorkflow(namespace, name, deleteOptionsGracePeriodSeconds, deleteOptionsPreconditionsUid, deleteOptionsPreconditionsResourceVersion, deleteOptionsOrphanDependents, deleteOptionsPropagationPolicy, deleteOptionsDryRun);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#deleteWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceDeleteWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -158,10 +159,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="getWorkflow"></a>
-# **getWorkflow**
-> Workflow getWorkflow(namespace, name, getOptionsResourceVersion, fields)
+<a name="workflowServiceGetWorkflow"></a>
+# **workflowServiceGetWorkflow**
+> Workflow workflowServiceGetWorkflow(namespace, name, getOptionsResourceVersion, fields)
 
 
 
@@ -182,13 +184,13 @@ public class Example {
     WorkflowServiceApi apiInstance = new WorkflowServiceApi(defaultClient);
     String namespace = "namespace_example"; // String | 
     String name = "name_example"; // String | 
-    String getOptionsResourceVersion = "getOptionsResourceVersion_example"; // String | When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+    String getOptionsResourceVersion = "getOptionsResourceVersion_example"; // String | resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional
     String fields = "fields_example"; // String | Fields to be included or excluded in the response. e.g. \"spec,status.phase\", \"-status.nodes\".
     try {
-      Workflow result = apiInstance.getWorkflow(namespace, name, getOptionsResourceVersion, fields);
+      Workflow result = apiInstance.workflowServiceGetWorkflow(namespace, name, getOptionsResourceVersion, fields);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#getWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceGetWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -204,7 +206,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**|  |
  **name** | **String**|  |
- **getOptionsResourceVersion** | **String**| When specified: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **getOptionsResourceVersion** | **String**| resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional | [optional]
  **fields** | **String**| Fields to be included or excluded in the response. e.g. \&quot;spec,status.phase\&quot;, \&quot;-status.nodes\&quot;. | [optional]
 
 ### Return type
@@ -224,10 +226,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="lintWorkflow"></a>
-# **lintWorkflow**
-> Workflow lintWorkflow(namespace, body)
+<a name="workflowServiceLintWorkflow"></a>
+# **workflowServiceLintWorkflow**
+> Workflow workflowServiceLintWorkflow(namespace, body)
 
 
 
@@ -249,10 +252,10 @@ public class Example {
     String namespace = "namespace_example"; // String | 
     WorkflowLintRequest body = new WorkflowLintRequest(); // WorkflowLintRequest | 
     try {
-      Workflow result = apiInstance.lintWorkflow(namespace, body);
+      Workflow result = apiInstance.workflowServiceLintWorkflow(namespace, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#lintWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceLintWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -286,10 +289,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="listWorkflows"></a>
-# **listWorkflows**
-> WorkflowList listWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields)
+<a name="workflowServiceListWorkflows"></a>
+# **workflowServiceListWorkflows**
+> WorkflowList workflowServiceListWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsResourceVersionMatch, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields)
 
 
 
@@ -313,16 +317,17 @@ public class Example {
     String listOptionsFieldSelector = "listOptionsFieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything. +optional.
     Boolean listOptionsWatch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. +optional.
     Boolean listOptionsAllowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. +optional.
-    String listOptionsResourceVersion = "listOptionsResourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. +optional.
+    String listOptionsResourceVersion = "listOptionsResourceVersion_example"; // String | resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional
+    String listOptionsResourceVersionMatch = "listOptionsResourceVersionMatch_example"; // String | resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional
     String listOptionsTimeoutSeconds = "listOptionsTimeoutSeconds_example"; // String | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional.
     String listOptionsLimit = "listOptionsLimit_example"; // String | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
     String listOptionsContinue = "listOptionsContinue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
     String fields = "fields_example"; // String | Fields to be included or excluded in the response. e.g. \"items.spec,items.status.phase\", \"-items.status.nodes\".
     try {
-      WorkflowList result = apiInstance.listWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
+      WorkflowList result = apiInstance.workflowServiceListWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsResourceVersionMatch, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue, fields);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#listWorkflows");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceListWorkflows");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -341,7 +346,8 @@ Name | Type | Description  | Notes
  **listOptionsFieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. +optional. | [optional]
  **listOptionsWatch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. +optional. | [optional]
  **listOptionsAllowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. +optional. | [optional]
- **listOptionsResourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. +optional. | [optional]
+ **listOptionsResourceVersion** | **String**| resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional | [optional]
+ **listOptionsResourceVersionMatch** | **String**| resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional | [optional]
  **listOptionsTimeoutSeconds** | **String**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. | [optional]
  **listOptionsLimit** | **String**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **listOptionsContinue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
@@ -364,10 +370,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="podLogs"></a>
-# **podLogs**
-> StreamResultOfLogEntry podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend)
+<a name="workflowServicePodLogs"></a>
+# **workflowServicePodLogs**
+> StreamResultOfLogEntry workflowServicePodLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend)
 
 DEPRECATED: Cannot work via HTTP if podName is an empty string. Use WorkflowLogs.
 
@@ -400,10 +407,10 @@ public class Example {
     String logOptionsLimitBytes = "logOptionsLimitBytes_example"; // String | If set, the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. +optional.
     Boolean logOptionsInsecureSkipTLSVerifyBackend = true; // Boolean | insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the serving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver and the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real kubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the connection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept the actual log data coming from the real kubelet). +optional.
     try {
-      StreamResultOfLogEntry result = apiInstance.podLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
+      StreamResultOfLogEntry result = apiInstance.workflowServicePodLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#podLogs");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServicePodLogs");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -448,10 +455,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response.(streaming responses) |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="resubmitWorkflow"></a>
-# **resubmitWorkflow**
-> Workflow resubmitWorkflow(namespace, name, body)
+<a name="workflowServiceResubmitWorkflow"></a>
+# **workflowServiceResubmitWorkflow**
+> Workflow workflowServiceResubmitWorkflow(namespace, name, body)
 
 
 
@@ -474,10 +482,10 @@ public class Example {
     String name = "name_example"; // String | 
     WorkflowResubmitRequest body = new WorkflowResubmitRequest(); // WorkflowResubmitRequest | 
     try {
-      Workflow result = apiInstance.resubmitWorkflow(namespace, name, body);
+      Workflow result = apiInstance.workflowServiceResubmitWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#resubmitWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceResubmitWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -512,10 +520,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="resumeWorkflow"></a>
-# **resumeWorkflow**
-> Workflow resumeWorkflow(namespace, name, body)
+<a name="workflowServiceResumeWorkflow"></a>
+# **workflowServiceResumeWorkflow**
+> Workflow workflowServiceResumeWorkflow(namespace, name, body)
 
 
 
@@ -538,10 +547,10 @@ public class Example {
     String name = "name_example"; // String | 
     WorkflowResumeRequest body = new WorkflowResumeRequest(); // WorkflowResumeRequest | 
     try {
-      Workflow result = apiInstance.resumeWorkflow(namespace, name, body);
+      Workflow result = apiInstance.workflowServiceResumeWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#resumeWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceResumeWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -576,10 +585,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="retryWorkflow"></a>
-# **retryWorkflow**
-> Workflow retryWorkflow(namespace, name, body)
+<a name="workflowServiceRetryWorkflow"></a>
+# **workflowServiceRetryWorkflow**
+> Workflow workflowServiceRetryWorkflow(namespace, name, body)
 
 
 
@@ -602,10 +612,10 @@ public class Example {
     String name = "name_example"; // String | 
     WorkflowRetryRequest body = new WorkflowRetryRequest(); // WorkflowRetryRequest | 
     try {
-      Workflow result = apiInstance.retryWorkflow(namespace, name, body);
+      Workflow result = apiInstance.workflowServiceRetryWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#retryWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceRetryWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -640,10 +650,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="setWorkflow"></a>
-# **setWorkflow**
-> Workflow setWorkflow(namespace, name, body)
+<a name="workflowServiceSetWorkflow"></a>
+# **workflowServiceSetWorkflow**
+> Workflow workflowServiceSetWorkflow(namespace, name, body)
 
 
 
@@ -666,10 +677,10 @@ public class Example {
     String name = "name_example"; // String | 
     WorkflowSetRequest body = new WorkflowSetRequest(); // WorkflowSetRequest | 
     try {
-      Workflow result = apiInstance.setWorkflow(namespace, name, body);
+      Workflow result = apiInstance.workflowServiceSetWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#setWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceSetWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -704,10 +715,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="stopWorkflow"></a>
-# **stopWorkflow**
-> Workflow stopWorkflow(namespace, name, body)
+<a name="workflowServiceStopWorkflow"></a>
+# **workflowServiceStopWorkflow**
+> Workflow workflowServiceStopWorkflow(namespace, name, body)
 
 
 
@@ -730,10 +742,10 @@ public class Example {
     String name = "name_example"; // String | 
     WorkflowStopRequest body = new WorkflowStopRequest(); // WorkflowStopRequest | 
     try {
-      Workflow result = apiInstance.stopWorkflow(namespace, name, body);
+      Workflow result = apiInstance.workflowServiceStopWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#stopWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceStopWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -768,10 +780,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="submitWorkflow"></a>
-# **submitWorkflow**
-> Workflow submitWorkflow(namespace, body)
+<a name="workflowServiceSubmitWorkflow"></a>
+# **workflowServiceSubmitWorkflow**
+> Workflow workflowServiceSubmitWorkflow(namespace, body)
 
 
 
@@ -793,10 +806,10 @@ public class Example {
     String namespace = "namespace_example"; // String | 
     WorkflowSubmitRequest body = new WorkflowSubmitRequest(); // WorkflowSubmitRequest | 
     try {
-      Workflow result = apiInstance.submitWorkflow(namespace, body);
+      Workflow result = apiInstance.workflowServiceSubmitWorkflow(namespace, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#submitWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceSubmitWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -830,10 +843,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="suspendWorkflow"></a>
-# **suspendWorkflow**
-> Workflow suspendWorkflow(namespace, name, body)
+<a name="workflowServiceSuspendWorkflow"></a>
+# **workflowServiceSuspendWorkflow**
+> Workflow workflowServiceSuspendWorkflow(namespace, name, body)
 
 
 
@@ -856,10 +870,10 @@ public class Example {
     String name = "name_example"; // String | 
     WorkflowSuspendRequest body = new WorkflowSuspendRequest(); // WorkflowSuspendRequest | 
     try {
-      Workflow result = apiInstance.suspendWorkflow(namespace, name, body);
+      Workflow result = apiInstance.workflowServiceSuspendWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#suspendWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceSuspendWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -894,10 +908,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="terminateWorkflow"></a>
-# **terminateWorkflow**
-> Workflow terminateWorkflow(namespace, name, body)
+<a name="workflowServiceTerminateWorkflow"></a>
+# **workflowServiceTerminateWorkflow**
+> Workflow workflowServiceTerminateWorkflow(namespace, name, body)
 
 
 
@@ -920,10 +935,10 @@ public class Example {
     String name = "name_example"; // String | 
     WorkflowTerminateRequest body = new WorkflowTerminateRequest(); // WorkflowTerminateRequest | 
     try {
-      Workflow result = apiInstance.terminateWorkflow(namespace, name, body);
+      Workflow result = apiInstance.workflowServiceTerminateWorkflow(namespace, name, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#terminateWorkflow");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceTerminateWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -958,10 +973,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="watchEvents"></a>
-# **watchEvents**
-> StreamResultOfEvent watchEvents(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue)
+<a name="workflowServiceWatchEvents"></a>
+# **workflowServiceWatchEvents**
+> StreamResultOfEvent workflowServiceWatchEvents(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsResourceVersionMatch, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue)
 
 
 
@@ -985,15 +1001,16 @@ public class Example {
     String listOptionsFieldSelector = "listOptionsFieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything. +optional.
     Boolean listOptionsWatch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. +optional.
     Boolean listOptionsAllowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. +optional.
-    String listOptionsResourceVersion = "listOptionsResourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. +optional.
+    String listOptionsResourceVersion = "listOptionsResourceVersion_example"; // String | resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional
+    String listOptionsResourceVersionMatch = "listOptionsResourceVersionMatch_example"; // String | resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional
     String listOptionsTimeoutSeconds = "listOptionsTimeoutSeconds_example"; // String | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional.
     String listOptionsLimit = "listOptionsLimit_example"; // String | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
     String listOptionsContinue = "listOptionsContinue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
     try {
-      StreamResultOfEvent result = apiInstance.watchEvents(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+      StreamResultOfEvent result = apiInstance.workflowServiceWatchEvents(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsResourceVersionMatch, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#watchEvents");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceWatchEvents");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1012,7 +1029,8 @@ Name | Type | Description  | Notes
  **listOptionsFieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. +optional. | [optional]
  **listOptionsWatch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. +optional. | [optional]
  **listOptionsAllowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. +optional. | [optional]
- **listOptionsResourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. +optional. | [optional]
+ **listOptionsResourceVersion** | **String**| resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional | [optional]
+ **listOptionsResourceVersionMatch** | **String**| resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional | [optional]
  **listOptionsTimeoutSeconds** | **String**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. | [optional]
  **listOptionsLimit** | **String**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **listOptionsContinue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
@@ -1034,10 +1052,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response.(streaming responses) |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="watchWorkflows"></a>
-# **watchWorkflows**
-> StreamResultOfWorkflowWatchEvent watchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue)
+<a name="workflowServiceWatchWorkflows"></a>
+# **workflowServiceWatchWorkflows**
+> StreamResultOfWorkflowWatchEvent workflowServiceWatchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsResourceVersionMatch, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue)
 
 
 
@@ -1061,15 +1080,16 @@ public class Example {
     String listOptionsFieldSelector = "listOptionsFieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything. +optional.
     Boolean listOptionsWatch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. +optional.
     Boolean listOptionsAllowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. +optional.
-    String listOptionsResourceVersion = "listOptionsResourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. +optional.
+    String listOptionsResourceVersion = "listOptionsResourceVersion_example"; // String | resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional
+    String listOptionsResourceVersionMatch = "listOptionsResourceVersionMatch_example"; // String | resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional
     String listOptionsTimeoutSeconds = "listOptionsTimeoutSeconds_example"; // String | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional.
     String listOptionsLimit = "listOptionsLimit_example"; // String | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
     String listOptionsContinue = "listOptionsContinue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
     try {
-      StreamResultOfWorkflowWatchEvent result = apiInstance.watchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
+      StreamResultOfWorkflowWatchEvent result = apiInstance.workflowServiceWatchWorkflows(namespace, listOptionsLabelSelector, listOptionsFieldSelector, listOptionsWatch, listOptionsAllowWatchBookmarks, listOptionsResourceVersion, listOptionsResourceVersionMatch, listOptionsTimeoutSeconds, listOptionsLimit, listOptionsContinue);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#watchWorkflows");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceWatchWorkflows");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1088,7 +1108,8 @@ Name | Type | Description  | Notes
  **listOptionsFieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. +optional. | [optional]
  **listOptionsWatch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. +optional. | [optional]
  **listOptionsAllowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. +optional. | [optional]
- **listOptionsResourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. +optional. | [optional]
+ **listOptionsResourceVersion** | **String**| resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional | [optional]
+ **listOptionsResourceVersionMatch** | **String**| resourceVersionMatch determines how resourceVersion is applied to list calls. It is highly recommended that resourceVersionMatch be set for list calls where resourceVersion is set See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.  Defaults to unset +optional | [optional]
  **listOptionsTimeoutSeconds** | **String**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. +optional. | [optional]
  **listOptionsLimit** | **String**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **listOptionsContinue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
@@ -1110,10 +1131,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response.(streaming responses) |  -  |
+**0** | An unexpected error response. |  -  |
 
-<a name="workflowLogs"></a>
-# **workflowLogs**
-> StreamResultOfLogEntry workflowLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend)
+<a name="workflowServiceWorkflowLogs"></a>
+# **workflowServiceWorkflowLogs**
+> StreamResultOfLogEntry workflowServiceWorkflowLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend)
 
 
 
@@ -1146,10 +1168,10 @@ public class Example {
     String logOptionsLimitBytes = "logOptionsLimitBytes_example"; // String | If set, the number of bytes to read from the server before terminating the log output. This may not display a complete final line of logging, and may return slightly more or slightly less than the specified limit. +optional.
     Boolean logOptionsInsecureSkipTLSVerifyBackend = true; // Boolean | insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the serving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver and the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real kubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the connection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept the actual log data coming from the real kubelet). +optional.
     try {
-      StreamResultOfLogEntry result = apiInstance.workflowLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
+      StreamResultOfLogEntry result = apiInstance.workflowServiceWorkflowLogs(namespace, name, podName, logOptionsContainer, logOptionsFollow, logOptionsPrevious, logOptionsSinceSeconds, logOptionsSinceTimeSeconds, logOptionsSinceTimeNanos, logOptionsTimestamps, logOptionsTailLines, logOptionsLimitBytes, logOptionsInsecureSkipTLSVerifyBackend);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowServiceApi#workflowLogs");
+      System.err.println("Exception when calling WorkflowServiceApi#workflowServiceWorkflowLogs");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1194,4 +1216,5 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response.(streaming responses) |  -  |
+**0** | An unexpected error response. |  -  |
 

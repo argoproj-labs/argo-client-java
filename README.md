@@ -1,7 +1,7 @@
 # argo-client-java
 
 Argo Server API
-- API version: v2.12.10
+- API version: v3.0.0
 
 You can get examples of requests and responses by using the CLI with `--gloglevel=9`, e.g. `argo list --gloglevel=9`
 
@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.argoproj.workflow</groupId>
   <artifactId>argo-client-java</artifactId>
-  <version>v2.12.10</version>
+  <version>v3.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.argoproj.workflow:argo-client-java:v2.12.10"
+compile "io.argoproj.workflow:argo-client-java:v3.0.0"
 ```
 
 ### Others
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/argo-client-java-v2.12.10.jar`
+* `target/argo-client-java-v3.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -86,10 +86,10 @@ public class Example {
     ArchivedWorkflowServiceApi apiInstance = new ArchivedWorkflowServiceApi(defaultClient);
     String uid = "uid_example"; // String | 
     try {
-      Object result = apiInstance.deleteArchivedWorkflow(uid);
+      Object result = apiInstance.archivedWorkflowServiceDeleteArchivedWorkflow(uid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ArchivedWorkflowServiceApi#deleteArchivedWorkflow");
+      System.err.println("Exception when calling ArchivedWorkflowServiceApi#archivedWorkflowServiceDeleteArchivedWorkflow");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -106,50 +106,65 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ArchivedWorkflowServiceApi* | [**deleteArchivedWorkflow**](docs/ArchivedWorkflowServiceApi.md#deleteArchivedWorkflow) | **DELETE** /api/v1/archived-workflows/{uid} | 
-*ArchivedWorkflowServiceApi* | [**getArchivedWorkflow**](docs/ArchivedWorkflowServiceApi.md#getArchivedWorkflow) | **GET** /api/v1/archived-workflows/{uid} | 
-*ArchivedWorkflowServiceApi* | [**listArchivedWorkflows**](docs/ArchivedWorkflowServiceApi.md#listArchivedWorkflows) | **GET** /api/v1/archived-workflows | 
-*ClusterWorkflowTemplateServiceApi* | [**createClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#createClusterWorkflowTemplate) | **POST** /api/v1/cluster-workflow-templates | 
-*ClusterWorkflowTemplateServiceApi* | [**deleteClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#deleteClusterWorkflowTemplate) | **DELETE** /api/v1/cluster-workflow-templates/{name} | 
-*ClusterWorkflowTemplateServiceApi* | [**getClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#getClusterWorkflowTemplate) | **GET** /api/v1/cluster-workflow-templates/{name} | 
-*ClusterWorkflowTemplateServiceApi* | [**lintClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#lintClusterWorkflowTemplate) | **POST** /api/v1/cluster-workflow-templates/lint | 
-*ClusterWorkflowTemplateServiceApi* | [**listClusterWorkflowTemplates**](docs/ClusterWorkflowTemplateServiceApi.md#listClusterWorkflowTemplates) | **GET** /api/v1/cluster-workflow-templates | 
-*ClusterWorkflowTemplateServiceApi* | [**updateClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#updateClusterWorkflowTemplate) | **PUT** /api/v1/cluster-workflow-templates/{name} | 
-*CronWorkflowServiceApi* | [**createCronWorkflow**](docs/CronWorkflowServiceApi.md#createCronWorkflow) | **POST** /api/v1/cron-workflows/{namespace} | 
-*CronWorkflowServiceApi* | [**deleteCronWorkflow**](docs/CronWorkflowServiceApi.md#deleteCronWorkflow) | **DELETE** /api/v1/cron-workflows/{namespace}/{name} | 
-*CronWorkflowServiceApi* | [**getCronWorkflow**](docs/CronWorkflowServiceApi.md#getCronWorkflow) | **GET** /api/v1/cron-workflows/{namespace}/{name} | 
-*CronWorkflowServiceApi* | [**lintCronWorkflow**](docs/CronWorkflowServiceApi.md#lintCronWorkflow) | **POST** /api/v1/cron-workflows/{namespace}/lint | 
-*CronWorkflowServiceApi* | [**listCronWorkflows**](docs/CronWorkflowServiceApi.md#listCronWorkflows) | **GET** /api/v1/cron-workflows/{namespace} | 
-*CronWorkflowServiceApi* | [**resumeCronWorkflow**](docs/CronWorkflowServiceApi.md#resumeCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name}/resume | 
-*CronWorkflowServiceApi* | [**suspendCronWorkflow**](docs/CronWorkflowServiceApi.md#suspendCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name}/suspend | 
-*CronWorkflowServiceApi* | [**updateCronWorkflow**](docs/CronWorkflowServiceApi.md#updateCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name} | 
-*EventServiceApi* | [**receiveEvent**](docs/EventServiceApi.md#receiveEvent) | **POST** /api/v1/events/{namespace}/{discriminator} | 
-*InfoServiceApi* | [**getInfo**](docs/InfoServiceApi.md#getInfo) | **GET** /api/v1/info | 
-*InfoServiceApi* | [**getUserInfo**](docs/InfoServiceApi.md#getUserInfo) | **GET** /api/v1/userinfo | 
-*InfoServiceApi* | [**getVersion**](docs/InfoServiceApi.md#getVersion) | **GET** /api/v1/version | 
-*WorkflowServiceApi* | [**createWorkflow**](docs/WorkflowServiceApi.md#createWorkflow) | **POST** /api/v1/workflows/{namespace} | 
-*WorkflowServiceApi* | [**deleteWorkflow**](docs/WorkflowServiceApi.md#deleteWorkflow) | **DELETE** /api/v1/workflows/{namespace}/{name} | 
-*WorkflowServiceApi* | [**getWorkflow**](docs/WorkflowServiceApi.md#getWorkflow) | **GET** /api/v1/workflows/{namespace}/{name} | 
-*WorkflowServiceApi* | [**lintWorkflow**](docs/WorkflowServiceApi.md#lintWorkflow) | **POST** /api/v1/workflows/{namespace}/lint | 
-*WorkflowServiceApi* | [**listWorkflows**](docs/WorkflowServiceApi.md#listWorkflows) | **GET** /api/v1/workflows/{namespace} | 
-*WorkflowServiceApi* | [**podLogs**](docs/WorkflowServiceApi.md#podLogs) | **GET** /api/v1/workflows/{namespace}/{name}/{podName}/log | DEPRECATED: Cannot work via HTTP if podName is an empty string. Use WorkflowLogs.
-*WorkflowServiceApi* | [**resubmitWorkflow**](docs/WorkflowServiceApi.md#resubmitWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resubmit | 
-*WorkflowServiceApi* | [**resumeWorkflow**](docs/WorkflowServiceApi.md#resumeWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resume | 
-*WorkflowServiceApi* | [**retryWorkflow**](docs/WorkflowServiceApi.md#retryWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/retry | 
-*WorkflowServiceApi* | [**setWorkflow**](docs/WorkflowServiceApi.md#setWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/set | 
-*WorkflowServiceApi* | [**stopWorkflow**](docs/WorkflowServiceApi.md#stopWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/stop | 
-*WorkflowServiceApi* | [**submitWorkflow**](docs/WorkflowServiceApi.md#submitWorkflow) | **POST** /api/v1/workflows/{namespace}/submit | 
-*WorkflowServiceApi* | [**suspendWorkflow**](docs/WorkflowServiceApi.md#suspendWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/suspend | 
-*WorkflowServiceApi* | [**terminateWorkflow**](docs/WorkflowServiceApi.md#terminateWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/terminate | 
-*WorkflowServiceApi* | [**watchEvents**](docs/WorkflowServiceApi.md#watchEvents) | **GET** /api/v1/stream/events/{namespace} | 
-*WorkflowServiceApi* | [**watchWorkflows**](docs/WorkflowServiceApi.md#watchWorkflows) | **GET** /api/v1/workflow-events/{namespace} | 
-*WorkflowServiceApi* | [**workflowLogs**](docs/WorkflowServiceApi.md#workflowLogs) | **GET** /api/v1/workflows/{namespace}/{name}/log | 
-*WorkflowTemplateServiceApi* | [**createWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#createWorkflowTemplate) | **POST** /api/v1/workflow-templates/{namespace} | 
-*WorkflowTemplateServiceApi* | [**deleteWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#deleteWorkflowTemplate) | **DELETE** /api/v1/workflow-templates/{namespace}/{name} | 
-*WorkflowTemplateServiceApi* | [**getWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#getWorkflowTemplate) | **GET** /api/v1/workflow-templates/{namespace}/{name} | 
-*WorkflowTemplateServiceApi* | [**lintWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#lintWorkflowTemplate) | **POST** /api/v1/workflow-templates/{namespace}/lint | 
-*WorkflowTemplateServiceApi* | [**listWorkflowTemplates**](docs/WorkflowTemplateServiceApi.md#listWorkflowTemplates) | **GET** /api/v1/workflow-templates/{namespace} | 
-*WorkflowTemplateServiceApi* | [**updateWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#updateWorkflowTemplate) | **PUT** /api/v1/workflow-templates/{namespace}/{name} | 
+*ArchivedWorkflowServiceApi* | [**archivedWorkflowServiceDeleteArchivedWorkflow**](docs/ArchivedWorkflowServiceApi.md#archivedWorkflowServiceDeleteArchivedWorkflow) | **DELETE** /api/v1/archived-workflows/{uid} | 
+*ArchivedWorkflowServiceApi* | [**archivedWorkflowServiceGetArchivedWorkflow**](docs/ArchivedWorkflowServiceApi.md#archivedWorkflowServiceGetArchivedWorkflow) | **GET** /api/v1/archived-workflows/{uid} | 
+*ArchivedWorkflowServiceApi* | [**archivedWorkflowServiceListArchivedWorkflows**](docs/ArchivedWorkflowServiceApi.md#archivedWorkflowServiceListArchivedWorkflows) | **GET** /api/v1/archived-workflows | 
+*ClusterWorkflowTemplateServiceApi* | [**clusterWorkflowTemplateServiceCreateClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#clusterWorkflowTemplateServiceCreateClusterWorkflowTemplate) | **POST** /api/v1/cluster-workflow-templates | 
+*ClusterWorkflowTemplateServiceApi* | [**clusterWorkflowTemplateServiceDeleteClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#clusterWorkflowTemplateServiceDeleteClusterWorkflowTemplate) | **DELETE** /api/v1/cluster-workflow-templates/{name} | 
+*ClusterWorkflowTemplateServiceApi* | [**clusterWorkflowTemplateServiceGetClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#clusterWorkflowTemplateServiceGetClusterWorkflowTemplate) | **GET** /api/v1/cluster-workflow-templates/{name} | 
+*ClusterWorkflowTemplateServiceApi* | [**clusterWorkflowTemplateServiceLintClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#clusterWorkflowTemplateServiceLintClusterWorkflowTemplate) | **POST** /api/v1/cluster-workflow-templates/lint | 
+*ClusterWorkflowTemplateServiceApi* | [**clusterWorkflowTemplateServiceListClusterWorkflowTemplates**](docs/ClusterWorkflowTemplateServiceApi.md#clusterWorkflowTemplateServiceListClusterWorkflowTemplates) | **GET** /api/v1/cluster-workflow-templates | 
+*ClusterWorkflowTemplateServiceApi* | [**clusterWorkflowTemplateServiceUpdateClusterWorkflowTemplate**](docs/ClusterWorkflowTemplateServiceApi.md#clusterWorkflowTemplateServiceUpdateClusterWorkflowTemplate) | **PUT** /api/v1/cluster-workflow-templates/{name} | 
+*CronWorkflowServiceApi* | [**cronWorkflowServiceCreateCronWorkflow**](docs/CronWorkflowServiceApi.md#cronWorkflowServiceCreateCronWorkflow) | **POST** /api/v1/cron-workflows/{namespace} | 
+*CronWorkflowServiceApi* | [**cronWorkflowServiceDeleteCronWorkflow**](docs/CronWorkflowServiceApi.md#cronWorkflowServiceDeleteCronWorkflow) | **DELETE** /api/v1/cron-workflows/{namespace}/{name} | 
+*CronWorkflowServiceApi* | [**cronWorkflowServiceGetCronWorkflow**](docs/CronWorkflowServiceApi.md#cronWorkflowServiceGetCronWorkflow) | **GET** /api/v1/cron-workflows/{namespace}/{name} | 
+*CronWorkflowServiceApi* | [**cronWorkflowServiceLintCronWorkflow**](docs/CronWorkflowServiceApi.md#cronWorkflowServiceLintCronWorkflow) | **POST** /api/v1/cron-workflows/{namespace}/lint | 
+*CronWorkflowServiceApi* | [**cronWorkflowServiceListCronWorkflows**](docs/CronWorkflowServiceApi.md#cronWorkflowServiceListCronWorkflows) | **GET** /api/v1/cron-workflows/{namespace} | 
+*CronWorkflowServiceApi* | [**cronWorkflowServiceResumeCronWorkflow**](docs/CronWorkflowServiceApi.md#cronWorkflowServiceResumeCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name}/resume | 
+*CronWorkflowServiceApi* | [**cronWorkflowServiceSuspendCronWorkflow**](docs/CronWorkflowServiceApi.md#cronWorkflowServiceSuspendCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name}/suspend | 
+*CronWorkflowServiceApi* | [**cronWorkflowServiceUpdateCronWorkflow**](docs/CronWorkflowServiceApi.md#cronWorkflowServiceUpdateCronWorkflow) | **PUT** /api/v1/cron-workflows/{namespace}/{name} | 
+*EventServiceApi* | [**eventServiceListWorkflowEventBindings**](docs/EventServiceApi.md#eventServiceListWorkflowEventBindings) | **GET** /api/v1/workflow-event-bindings/{namespace} | 
+*EventServiceApi* | [**eventServiceReceiveEvent**](docs/EventServiceApi.md#eventServiceReceiveEvent) | **POST** /api/v1/events/{namespace}/{discriminator} | 
+*EventSourceServiceApi* | [**eventSourceServiceCreateEventSource**](docs/EventSourceServiceApi.md#eventSourceServiceCreateEventSource) | **POST** /api/v1/event-sources/{namespace} | 
+*EventSourceServiceApi* | [**eventSourceServiceDeleteEventSource**](docs/EventSourceServiceApi.md#eventSourceServiceDeleteEventSource) | **DELETE** /api/v1/event-sources/{namespace}/{name} | 
+*EventSourceServiceApi* | [**eventSourceServiceEventSourcesLogs**](docs/EventSourceServiceApi.md#eventSourceServiceEventSourcesLogs) | **GET** /api/v1/stream/event-sources/{namespace}/logs | 
+*EventSourceServiceApi* | [**eventSourceServiceGetEventSource**](docs/EventSourceServiceApi.md#eventSourceServiceGetEventSource) | **GET** /api/v1/event-sources/{namespace}/{name} | 
+*EventSourceServiceApi* | [**eventSourceServiceListEventSources**](docs/EventSourceServiceApi.md#eventSourceServiceListEventSources) | **GET** /api/v1/event-sources/{namespace} | 
+*EventSourceServiceApi* | [**eventSourceServiceUpdateEventSource**](docs/EventSourceServiceApi.md#eventSourceServiceUpdateEventSource) | **PUT** /api/v1/event-sources/{namespace}/{name} | 
+*EventSourceServiceApi* | [**eventSourceServiceWatchEventSources**](docs/EventSourceServiceApi.md#eventSourceServiceWatchEventSources) | **GET** /api/v1/stream/event-sources/{namespace} | 
+*InfoServiceApi* | [**infoServiceGetInfo**](docs/InfoServiceApi.md#infoServiceGetInfo) | **GET** /api/v1/info | 
+*InfoServiceApi* | [**infoServiceGetUserInfo**](docs/InfoServiceApi.md#infoServiceGetUserInfo) | **GET** /api/v1/userinfo | 
+*InfoServiceApi* | [**infoServiceGetVersion**](docs/InfoServiceApi.md#infoServiceGetVersion) | **GET** /api/v1/version | 
+*SensorServiceApi* | [**sensorServiceCreateSensor**](docs/SensorServiceApi.md#sensorServiceCreateSensor) | **POST** /api/v1/sensors/{namespace} | 
+*SensorServiceApi* | [**sensorServiceDeleteSensor**](docs/SensorServiceApi.md#sensorServiceDeleteSensor) | **DELETE** /api/v1/sensors/{namespace}/{name} | 
+*SensorServiceApi* | [**sensorServiceGetSensor**](docs/SensorServiceApi.md#sensorServiceGetSensor) | **GET** /api/v1/sensors/{namespace}/{name} | 
+*SensorServiceApi* | [**sensorServiceListSensors**](docs/SensorServiceApi.md#sensorServiceListSensors) | **GET** /api/v1/sensors/{namespace} | 
+*SensorServiceApi* | [**sensorServiceSensorsLogs**](docs/SensorServiceApi.md#sensorServiceSensorsLogs) | **GET** /api/v1/stream/sensors/{namespace}/logs | 
+*SensorServiceApi* | [**sensorServiceUpdateSensor**](docs/SensorServiceApi.md#sensorServiceUpdateSensor) | **PUT** /api/v1/sensors/{namespace}/{name} | 
+*SensorServiceApi* | [**sensorServiceWatchSensors**](docs/SensorServiceApi.md#sensorServiceWatchSensors) | **GET** /api/v1/stream/sensors/{namespace} | 
+*WorkflowServiceApi* | [**workflowServiceCreateWorkflow**](docs/WorkflowServiceApi.md#workflowServiceCreateWorkflow) | **POST** /api/v1/workflows/{namespace} | 
+*WorkflowServiceApi* | [**workflowServiceDeleteWorkflow**](docs/WorkflowServiceApi.md#workflowServiceDeleteWorkflow) | **DELETE** /api/v1/workflows/{namespace}/{name} | 
+*WorkflowServiceApi* | [**workflowServiceGetWorkflow**](docs/WorkflowServiceApi.md#workflowServiceGetWorkflow) | **GET** /api/v1/workflows/{namespace}/{name} | 
+*WorkflowServiceApi* | [**workflowServiceLintWorkflow**](docs/WorkflowServiceApi.md#workflowServiceLintWorkflow) | **POST** /api/v1/workflows/{namespace}/lint | 
+*WorkflowServiceApi* | [**workflowServiceListWorkflows**](docs/WorkflowServiceApi.md#workflowServiceListWorkflows) | **GET** /api/v1/workflows/{namespace} | 
+*WorkflowServiceApi* | [**workflowServicePodLogs**](docs/WorkflowServiceApi.md#workflowServicePodLogs) | **GET** /api/v1/workflows/{namespace}/{name}/{podName}/log | DEPRECATED: Cannot work via HTTP if podName is an empty string. Use WorkflowLogs.
+*WorkflowServiceApi* | [**workflowServiceResubmitWorkflow**](docs/WorkflowServiceApi.md#workflowServiceResubmitWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resubmit | 
+*WorkflowServiceApi* | [**workflowServiceResumeWorkflow**](docs/WorkflowServiceApi.md#workflowServiceResumeWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/resume | 
+*WorkflowServiceApi* | [**workflowServiceRetryWorkflow**](docs/WorkflowServiceApi.md#workflowServiceRetryWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/retry | 
+*WorkflowServiceApi* | [**workflowServiceSetWorkflow**](docs/WorkflowServiceApi.md#workflowServiceSetWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/set | 
+*WorkflowServiceApi* | [**workflowServiceStopWorkflow**](docs/WorkflowServiceApi.md#workflowServiceStopWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/stop | 
+*WorkflowServiceApi* | [**workflowServiceSubmitWorkflow**](docs/WorkflowServiceApi.md#workflowServiceSubmitWorkflow) | **POST** /api/v1/workflows/{namespace}/submit | 
+*WorkflowServiceApi* | [**workflowServiceSuspendWorkflow**](docs/WorkflowServiceApi.md#workflowServiceSuspendWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/suspend | 
+*WorkflowServiceApi* | [**workflowServiceTerminateWorkflow**](docs/WorkflowServiceApi.md#workflowServiceTerminateWorkflow) | **PUT** /api/v1/workflows/{namespace}/{name}/terminate | 
+*WorkflowServiceApi* | [**workflowServiceWatchEvents**](docs/WorkflowServiceApi.md#workflowServiceWatchEvents) | **GET** /api/v1/stream/events/{namespace} | 
+*WorkflowServiceApi* | [**workflowServiceWatchWorkflows**](docs/WorkflowServiceApi.md#workflowServiceWatchWorkflows) | **GET** /api/v1/workflow-events/{namespace} | 
+*WorkflowServiceApi* | [**workflowServiceWorkflowLogs**](docs/WorkflowServiceApi.md#workflowServiceWorkflowLogs) | **GET** /api/v1/workflows/{namespace}/{name}/log | 
+*WorkflowTemplateServiceApi* | [**workflowTemplateServiceCreateWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#workflowTemplateServiceCreateWorkflowTemplate) | **POST** /api/v1/workflow-templates/{namespace} | 
+*WorkflowTemplateServiceApi* | [**workflowTemplateServiceDeleteWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#workflowTemplateServiceDeleteWorkflowTemplate) | **DELETE** /api/v1/workflow-templates/{namespace}/{name} | 
+*WorkflowTemplateServiceApi* | [**workflowTemplateServiceGetWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#workflowTemplateServiceGetWorkflowTemplate) | **GET** /api/v1/workflow-templates/{namespace}/{name} | 
+*WorkflowTemplateServiceApi* | [**workflowTemplateServiceLintWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#workflowTemplateServiceLintWorkflowTemplate) | **POST** /api/v1/workflow-templates/{namespace}/lint | 
+*WorkflowTemplateServiceApi* | [**workflowTemplateServiceListWorkflowTemplates**](docs/WorkflowTemplateServiceApi.md#workflowTemplateServiceListWorkflowTemplates) | **GET** /api/v1/workflow-templates/{namespace} | 
+*WorkflowTemplateServiceApi* | [**workflowTemplateServiceUpdateWorkflowTemplate**](docs/WorkflowTemplateServiceApi.md#workflowTemplateServiceUpdateWorkflowTemplate) | **PUT** /api/v1/workflow-templates/{namespace}/{name} | 
 
 
 ## Documentation for Models
@@ -160,6 +175,7 @@ Class | Method | HTTP request | Description
  - [Artifact](docs/Artifact.md)
  - [ArtifactLocation](docs/ArtifactLocation.md)
  - [ArtifactRepositoryRef](docs/ArtifactRepositoryRef.md)
+ - [ArtifactRepositoryRefStatus](docs/ArtifactRepositoryRefStatus.md)
  - [ArtifactoryArtifact](docs/ArtifactoryArtifact.md)
  - [AzureDiskVolumeSource](docs/AzureDiskVolumeSource.md)
  - [AzureFileVolumeSource](docs/AzureFileVolumeSource.md)
@@ -182,6 +198,7 @@ Class | Method | HTTP request | Description
  - [Counter](docs/Counter.md)
  - [CreateCronWorkflowRequest](docs/CreateCronWorkflowRequest.md)
  - [CreateOptions](docs/CreateOptions.md)
+ - [CreateS3BucketOptions](docs/CreateS3BucketOptions.md)
  - [CronWorkflow](docs/CronWorkflow.md)
  - [CronWorkflowList](docs/CronWorkflowList.md)
  - [CronWorkflowResumeRequest](docs/CronWorkflowResumeRequest.md)
@@ -195,9 +212,14 @@ Class | Method | HTTP request | Description
  - [DownwardAPIVolumeSource](docs/DownwardAPIVolumeSource.md)
  - [EmptyDirVolumeSource](docs/EmptyDirVolumeSource.md)
  - [EnvVarSource](docs/EnvVarSource.md)
+ - [EphemeralVolumeSource](docs/EphemeralVolumeSource.md)
  - [Event](docs/Event.md)
  - [EventSeries](docs/EventSeries.md)
  - [EventSource](docs/EventSource.md)
+ - [EventsourceCreateEventSourceRequest](docs/EventsourceCreateEventSourceRequest.md)
+ - [EventsourceEventSourceWatchEvent](docs/EventsourceEventSourceWatchEvent.md)
+ - [EventsourceLogEntry](docs/EventsourceLogEntry.md)
+ - [EventsourceUpdateEventSourceRequest](docs/EventsourceUpdateEventSourceRequest.md)
  - [ExecAction](docs/ExecAction.md)
  - [ExecutorConfig](docs/ExecutorConfig.md)
  - [FCVolumeSource](docs/FCVolumeSource.md)
@@ -211,6 +233,8 @@ Class | Method | HTTP request | Description
  - [GitRepoVolumeSource](docs/GitRepoVolumeSource.md)
  - [GlusterfsVolumeSource](docs/GlusterfsVolumeSource.md)
  - [GoogleProtobufAny](docs/GoogleProtobufAny.md)
+ - [GroupVersionResource](docs/GroupVersionResource.md)
+ - [GrpcGatewayRuntimeError](docs/GrpcGatewayRuntimeError.md)
  - [GrpcGatewayRuntimeStreamError](docs/GrpcGatewayRuntimeStreamError.md)
  - [HDFSArtifact](docs/HDFSArtifact.md)
  - [HTTPArtifact](docs/HTTPArtifact.md)
@@ -223,6 +247,88 @@ Class | Method | HTTP request | Description
  - [ISCSIVolumeSource](docs/ISCSIVolumeSource.md)
  - [InfoResponse](docs/InfoResponse.md)
  - [Inputs](docs/Inputs.md)
+ - [IoArgoprojEventsV1alpha1AMQPEventSource](docs/IoArgoprojEventsV1alpha1AMQPEventSource.md)
+ - [IoArgoprojEventsV1alpha1AWSLambdaTrigger](docs/IoArgoprojEventsV1alpha1AWSLambdaTrigger.md)
+ - [IoArgoprojEventsV1alpha1Amount](docs/IoArgoprojEventsV1alpha1Amount.md)
+ - [IoArgoprojEventsV1alpha1ArgoWorkflowTrigger](docs/IoArgoprojEventsV1alpha1ArgoWorkflowTrigger.md)
+ - [IoArgoprojEventsV1alpha1ArtifactLocation](docs/IoArgoprojEventsV1alpha1ArtifactLocation.md)
+ - [IoArgoprojEventsV1alpha1AzureEventsHubEventSource](docs/IoArgoprojEventsV1alpha1AzureEventsHubEventSource.md)
+ - [IoArgoprojEventsV1alpha1Backoff](docs/IoArgoprojEventsV1alpha1Backoff.md)
+ - [IoArgoprojEventsV1alpha1BasicAuth](docs/IoArgoprojEventsV1alpha1BasicAuth.md)
+ - [IoArgoprojEventsV1alpha1CalendarEventSource](docs/IoArgoprojEventsV1alpha1CalendarEventSource.md)
+ - [IoArgoprojEventsV1alpha1CatchupConfiguration](docs/IoArgoprojEventsV1alpha1CatchupConfiguration.md)
+ - [IoArgoprojEventsV1alpha1Condition](docs/IoArgoprojEventsV1alpha1Condition.md)
+ - [IoArgoprojEventsV1alpha1ConfigMapPersistence](docs/IoArgoprojEventsV1alpha1ConfigMapPersistence.md)
+ - [IoArgoprojEventsV1alpha1CustomTrigger](docs/IoArgoprojEventsV1alpha1CustomTrigger.md)
+ - [IoArgoprojEventsV1alpha1DataFilter](docs/IoArgoprojEventsV1alpha1DataFilter.md)
+ - [IoArgoprojEventsV1alpha1DependencyGroup](docs/IoArgoprojEventsV1alpha1DependencyGroup.md)
+ - [IoArgoprojEventsV1alpha1EmitterEventSource](docs/IoArgoprojEventsV1alpha1EmitterEventSource.md)
+ - [IoArgoprojEventsV1alpha1EventContext](docs/IoArgoprojEventsV1alpha1EventContext.md)
+ - [IoArgoprojEventsV1alpha1EventDependency](docs/IoArgoprojEventsV1alpha1EventDependency.md)
+ - [IoArgoprojEventsV1alpha1EventDependencyFilter](docs/IoArgoprojEventsV1alpha1EventDependencyFilter.md)
+ - [IoArgoprojEventsV1alpha1EventPersistence](docs/IoArgoprojEventsV1alpha1EventPersistence.md)
+ - [IoArgoprojEventsV1alpha1EventSource](docs/IoArgoprojEventsV1alpha1EventSource.md)
+ - [IoArgoprojEventsV1alpha1EventSourceList](docs/IoArgoprojEventsV1alpha1EventSourceList.md)
+ - [IoArgoprojEventsV1alpha1EventSourceSpec](docs/IoArgoprojEventsV1alpha1EventSourceSpec.md)
+ - [IoArgoprojEventsV1alpha1EventSourceStatus](docs/IoArgoprojEventsV1alpha1EventSourceStatus.md)
+ - [IoArgoprojEventsV1alpha1FileArtifact](docs/IoArgoprojEventsV1alpha1FileArtifact.md)
+ - [IoArgoprojEventsV1alpha1FileEventSource](docs/IoArgoprojEventsV1alpha1FileEventSource.md)
+ - [IoArgoprojEventsV1alpha1GenericEventSource](docs/IoArgoprojEventsV1alpha1GenericEventSource.md)
+ - [IoArgoprojEventsV1alpha1GitArtifact](docs/IoArgoprojEventsV1alpha1GitArtifact.md)
+ - [IoArgoprojEventsV1alpha1GitCreds](docs/IoArgoprojEventsV1alpha1GitCreds.md)
+ - [IoArgoprojEventsV1alpha1GitRemoteConfig](docs/IoArgoprojEventsV1alpha1GitRemoteConfig.md)
+ - [IoArgoprojEventsV1alpha1GithubEventSource](docs/IoArgoprojEventsV1alpha1GithubEventSource.md)
+ - [IoArgoprojEventsV1alpha1GitlabEventSource](docs/IoArgoprojEventsV1alpha1GitlabEventSource.md)
+ - [IoArgoprojEventsV1alpha1HDFSEventSource](docs/IoArgoprojEventsV1alpha1HDFSEventSource.md)
+ - [IoArgoprojEventsV1alpha1HTTPTrigger](docs/IoArgoprojEventsV1alpha1HTTPTrigger.md)
+ - [IoArgoprojEventsV1alpha1K8SResourcePolicy](docs/IoArgoprojEventsV1alpha1K8SResourcePolicy.md)
+ - [IoArgoprojEventsV1alpha1KafkaConsumerGroup](docs/IoArgoprojEventsV1alpha1KafkaConsumerGroup.md)
+ - [IoArgoprojEventsV1alpha1KafkaEventSource](docs/IoArgoprojEventsV1alpha1KafkaEventSource.md)
+ - [IoArgoprojEventsV1alpha1KafkaTrigger](docs/IoArgoprojEventsV1alpha1KafkaTrigger.md)
+ - [IoArgoprojEventsV1alpha1LogTrigger](docs/IoArgoprojEventsV1alpha1LogTrigger.md)
+ - [IoArgoprojEventsV1alpha1MQTTEventSource](docs/IoArgoprojEventsV1alpha1MQTTEventSource.md)
+ - [IoArgoprojEventsV1alpha1Metadata](docs/IoArgoprojEventsV1alpha1Metadata.md)
+ - [IoArgoprojEventsV1alpha1NATSEventsSource](docs/IoArgoprojEventsV1alpha1NATSEventsSource.md)
+ - [IoArgoprojEventsV1alpha1NATSTrigger](docs/IoArgoprojEventsV1alpha1NATSTrigger.md)
+ - [IoArgoprojEventsV1alpha1NSQEventSource](docs/IoArgoprojEventsV1alpha1NSQEventSource.md)
+ - [IoArgoprojEventsV1alpha1OpenWhiskTrigger](docs/IoArgoprojEventsV1alpha1OpenWhiskTrigger.md)
+ - [IoArgoprojEventsV1alpha1PubSubEventSource](docs/IoArgoprojEventsV1alpha1PubSubEventSource.md)
+ - [IoArgoprojEventsV1alpha1PulsarEventSource](docs/IoArgoprojEventsV1alpha1PulsarEventSource.md)
+ - [IoArgoprojEventsV1alpha1RedisEventSource](docs/IoArgoprojEventsV1alpha1RedisEventSource.md)
+ - [IoArgoprojEventsV1alpha1Resource](docs/IoArgoprojEventsV1alpha1Resource.md)
+ - [IoArgoprojEventsV1alpha1ResourceEventSource](docs/IoArgoprojEventsV1alpha1ResourceEventSource.md)
+ - [IoArgoprojEventsV1alpha1ResourceFilter](docs/IoArgoprojEventsV1alpha1ResourceFilter.md)
+ - [IoArgoprojEventsV1alpha1S3Artifact](docs/IoArgoprojEventsV1alpha1S3Artifact.md)
+ - [IoArgoprojEventsV1alpha1S3Bucket](docs/IoArgoprojEventsV1alpha1S3Bucket.md)
+ - [IoArgoprojEventsV1alpha1S3Filter](docs/IoArgoprojEventsV1alpha1S3Filter.md)
+ - [IoArgoprojEventsV1alpha1SNSEventSource](docs/IoArgoprojEventsV1alpha1SNSEventSource.md)
+ - [IoArgoprojEventsV1alpha1SQSEventSource](docs/IoArgoprojEventsV1alpha1SQSEventSource.md)
+ - [IoArgoprojEventsV1alpha1Selector](docs/IoArgoprojEventsV1alpha1Selector.md)
+ - [IoArgoprojEventsV1alpha1Sensor](docs/IoArgoprojEventsV1alpha1Sensor.md)
+ - [IoArgoprojEventsV1alpha1SensorList](docs/IoArgoprojEventsV1alpha1SensorList.md)
+ - [IoArgoprojEventsV1alpha1SensorSpec](docs/IoArgoprojEventsV1alpha1SensorSpec.md)
+ - [IoArgoprojEventsV1alpha1SensorStatus](docs/IoArgoprojEventsV1alpha1SensorStatus.md)
+ - [IoArgoprojEventsV1alpha1Service](docs/IoArgoprojEventsV1alpha1Service.md)
+ - [IoArgoprojEventsV1alpha1SlackEventSource](docs/IoArgoprojEventsV1alpha1SlackEventSource.md)
+ - [IoArgoprojEventsV1alpha1SlackTrigger](docs/IoArgoprojEventsV1alpha1SlackTrigger.md)
+ - [IoArgoprojEventsV1alpha1StandardK8STrigger](docs/IoArgoprojEventsV1alpha1StandardK8STrigger.md)
+ - [IoArgoprojEventsV1alpha1Status](docs/IoArgoprojEventsV1alpha1Status.md)
+ - [IoArgoprojEventsV1alpha1StatusPolicy](docs/IoArgoprojEventsV1alpha1StatusPolicy.md)
+ - [IoArgoprojEventsV1alpha1StorageGridEventSource](docs/IoArgoprojEventsV1alpha1StorageGridEventSource.md)
+ - [IoArgoprojEventsV1alpha1StorageGridFilter](docs/IoArgoprojEventsV1alpha1StorageGridFilter.md)
+ - [IoArgoprojEventsV1alpha1StripeEventSource](docs/IoArgoprojEventsV1alpha1StripeEventSource.md)
+ - [IoArgoprojEventsV1alpha1TLSConfig](docs/IoArgoprojEventsV1alpha1TLSConfig.md)
+ - [IoArgoprojEventsV1alpha1Template](docs/IoArgoprojEventsV1alpha1Template.md)
+ - [IoArgoprojEventsV1alpha1TimeFilter](docs/IoArgoprojEventsV1alpha1TimeFilter.md)
+ - [IoArgoprojEventsV1alpha1Trigger](docs/IoArgoprojEventsV1alpha1Trigger.md)
+ - [IoArgoprojEventsV1alpha1TriggerParameter](docs/IoArgoprojEventsV1alpha1TriggerParameter.md)
+ - [IoArgoprojEventsV1alpha1TriggerParameterSource](docs/IoArgoprojEventsV1alpha1TriggerParameterSource.md)
+ - [IoArgoprojEventsV1alpha1TriggerPolicy](docs/IoArgoprojEventsV1alpha1TriggerPolicy.md)
+ - [IoArgoprojEventsV1alpha1TriggerSwitch](docs/IoArgoprojEventsV1alpha1TriggerSwitch.md)
+ - [IoArgoprojEventsV1alpha1TriggerTemplate](docs/IoArgoprojEventsV1alpha1TriggerTemplate.md)
+ - [IoArgoprojEventsV1alpha1URLArtifact](docs/IoArgoprojEventsV1alpha1URLArtifact.md)
+ - [IoArgoprojEventsV1alpha1WatchPathConfig](docs/IoArgoprojEventsV1alpha1WatchPathConfig.md)
+ - [IoArgoprojEventsV1alpha1WebhookContext](docs/IoArgoprojEventsV1alpha1WebhookContext.md)
  - [IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec](docs/IoK8sApiPolicyV1beta1PodDisruptionBudgetSpec.md)
  - [KeyToPath](docs/KeyToPath.md)
  - [LabelSelector](docs/LabelSelector.md)
@@ -255,6 +361,7 @@ Class | Method | HTTP request | Description
  - [PersistentVolumeClaimCondition](docs/PersistentVolumeClaimCondition.md)
  - [PersistentVolumeClaimSpec](docs/PersistentVolumeClaimSpec.md)
  - [PersistentVolumeClaimStatus](docs/PersistentVolumeClaimStatus.md)
+ - [PersistentVolumeClaimTemplate](docs/PersistentVolumeClaimTemplate.md)
  - [PersistentVolumeClaimVolumeSource](docs/PersistentVolumeClaimVolumeSource.md)
  - [PhotonPersistentDiskVolumeSource](docs/PhotonPersistentDiskVolumeSource.md)
  - [PodAffinity](docs/PodAffinity.md)
@@ -271,6 +378,7 @@ Class | Method | HTTP request | Description
  - [RawArtifact](docs/RawArtifact.md)
  - [ResourceFieldSelector](docs/ResourceFieldSelector.md)
  - [ResourceTemplate](docs/ResourceTemplate.md)
+ - [RetryAffinity](docs/RetryAffinity.md)
  - [RetryStrategy](docs/RetryStrategy.md)
  - [S3Artifact](docs/S3Artifact.md)
  - [SELinuxOptions](docs/SELinuxOptions.md)
@@ -282,13 +390,22 @@ Class | Method | HTTP request | Description
  - [SemaphoreHolding](docs/SemaphoreHolding.md)
  - [SemaphoreRef](docs/SemaphoreRef.md)
  - [SemaphoreStatus](docs/SemaphoreStatus.md)
+ - [SensorCreateSensorRequest](docs/SensorCreateSensorRequest.md)
+ - [SensorLogEntry](docs/SensorLogEntry.md)
+ - [SensorSensorWatchEvent](docs/SensorSensorWatchEvent.md)
+ - [SensorUpdateSensorRequest](docs/SensorUpdateSensorRequest.md)
  - [Sequence](docs/Sequence.md)
  - [ServiceAccountTokenProjection](docs/ServiceAccountTokenProjection.md)
+ - [ServicePort](docs/ServicePort.md)
  - [StatusCause](docs/StatusCause.md)
  - [StatusDetails](docs/StatusDetails.md)
  - [StorageOSVolumeSource](docs/StorageOSVolumeSource.md)
  - [StreamResultOfEvent](docs/StreamResultOfEvent.md)
+ - [StreamResultOfEventsourceEventSourceWatchEvent](docs/StreamResultOfEventsourceEventSourceWatchEvent.md)
+ - [StreamResultOfEventsourceLogEntry](docs/StreamResultOfEventsourceLogEntry.md)
  - [StreamResultOfLogEntry](docs/StreamResultOfLogEntry.md)
+ - [StreamResultOfSensorLogEntry](docs/StreamResultOfSensorLogEntry.md)
+ - [StreamResultOfSensorSensorWatchEvent](docs/StreamResultOfSensorSensorWatchEvent.md)
  - [StreamResultOfWorkflowWatchEvent](docs/StreamResultOfWorkflowWatchEvent.md)
  - [Submit](docs/Submit.md)
  - [SubmitOpts](docs/SubmitOpts.md)
@@ -314,6 +431,7 @@ Class | Method | HTTP request | Description
  - [Workflow](docs/Workflow.md)
  - [WorkflowCreateRequest](docs/WorkflowCreateRequest.md)
  - [WorkflowEventBinding](docs/WorkflowEventBinding.md)
+ - [WorkflowEventBindingList](docs/WorkflowEventBindingList.md)
  - [WorkflowEventBindingSpec](docs/WorkflowEventBindingSpec.md)
  - [WorkflowLintRequest](docs/WorkflowLintRequest.md)
  - [WorkflowList](docs/WorkflowList.md)

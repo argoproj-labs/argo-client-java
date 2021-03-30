@@ -7,8 +7,8 @@ PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**maxUnavailable** | [**Object**](.md) |  |  [optional]
-**minAvailable** | [**Object**](.md) |  |  [optional]
+**maxUnavailable** | **String** |  |  [optional]
+**minAvailable** | **String** |  |  [optional]
 **selector** | [**LabelSelector**](LabelSelector.md) |  |  [optional]
 
 

@@ -7,10 +7,9 @@ Template is a reusable and composable unit of execution in a workflow
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**activeDeadlineSeconds** | [**Object**](.md) |  |  [optional]
+**activeDeadlineSeconds** | **String** |  |  [optional]
 **affinity** | [**io.kubernetes.client.openapi.models.V1Affinity**](io.kubernetes.client.openapi.models.V1Affinity.md) |  |  [optional]
 **archiveLocation** | [**ArtifactLocation**](ArtifactLocation.md) |  |  [optional]
-**arguments** | [**Arguments**](Arguments.md) |  |  [optional]
 **automountServiceAccountToken** | **Boolean** | AutomountServiceAccountToken indicates whether a service account token should be automatically mounted in pods. ServiceAccountName of ExecutorConfig must be specified if this value is false. |  [optional]
 **container** | [**io.kubernetes.client.openapi.models.V1Container**](io.kubernetes.client.openapi.models.V1Container.md) |  |  [optional]
 **daemon** | **Boolean** | Deamon will allow a workflow to proceed to the next step so long as the container reaches readiness |  [optional]
@@ -39,8 +38,6 @@ Name | Type | Description | Notes
 **steps** | [**List&lt;ParallelSteps&gt;**](ParallelSteps.md) | Steps define a series of sequential/parallel workflow steps |  [optional]
 **suspend** | [**SuspendTemplate**](SuspendTemplate.md) |  |  [optional]
 **synchronization** | [**Synchronization**](Synchronization.md) |  |  [optional]
-**template** | **String** | Template is the name of the template which is used as the base of this template. DEPRECATED: This field is not used. |  [optional]
-**templateRef** | [**TemplateRef**](TemplateRef.md) |  |  [optional]
 **timeout** | **String** | Timout allows to set the total node execution timeout duration counting from the node&#39;s start time. This duration also includes time in which the node spends in Pending state. This duration may not be applied to Step or DAG templates. |  [optional]
 **tolerations** | [**List&lt;io.kubernetes.client.openapi.models.V1Toleration&gt;**](io.kubernetes.client.openapi.models.V1Toleration.md) | Tolerations to apply to workflow pods. |  [optional]
 **volumes** | [**List&lt;io.kubernetes.client.openapi.models.V1Volume&gt;**](io.kubernetes.client.openapi.models.V1Volume.md) | Volumes is a list of volumes that can be mounted by containers in a template. |  [optional]

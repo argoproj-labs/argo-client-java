@@ -7,10 +7,10 @@ Sequence expands a workflow step into numeric range
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | [**Object**](.md) |  |  [optional]
-**end** | [**Object**](.md) |  |  [optional]
+**count** | **String** |  |  [optional]
+**end** | **String** |  |  [optional]
 **format** | **String** | Format is a printf format string to format the value in the sequence |  [optional]
-**start** | [**Object**](.md) |  |  [optional]
+**start** | **String** |  |  [optional]
 
 
 
