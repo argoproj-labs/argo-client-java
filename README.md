@@ -1,7 +1,7 @@
 # argo-client-java
 
 Argo Server API
-- API version: v3.0.1
+- API version: v3.0.5
 
 You can get examples of requests and responses by using the CLI with `--gloglevel=9`, e.g. `argo list --gloglevel=9`
 
@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.argoproj.workflow</groupId>
   <artifactId>argo-client-java</artifactId>
-  <version>v3.0.1</version>
+  <version>v3.0.5</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.argoproj.workflow:argo-client-java:v3.0.1"
+compile "io.argoproj.workflow:argo-client-java:v3.0.5"
 ```
 
 ### Others
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/argo-client-java-v3.0.1.jar`
+* `target/argo-client-java-v3.0.5.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
