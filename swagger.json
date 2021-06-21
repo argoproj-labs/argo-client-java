@@ -13,7 +13,7 @@
   "info": {
     "description": "You can get examples of requests and responses by using the CLI with `--gloglevel=9`, e.g. `argo list --gloglevel=9`",
     "title": "Argo Server API",
-    "version": "v3.0.5"
+    "version": "VERSION"
   },
   "paths": {
     "/api/v1/archived-workflows": {
@@ -2204,6 +2204,11 @@
             "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications.",
             "name": "listOptions.continue",
             "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "fields",
+            "in": "query"
           }
         ],
         "responses": {
@@ -2966,6 +2971,11 @@
             "description": "insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the\nserving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver\nand the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real\nkubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the\nconnection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept\nthe actual log data coming from the real kubelet).\n+optional.",
             "name": "logOptions.insecureSkipTLSVerifyBackend",
             "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "grep",
+            "in": "query"
           }
         ],
         "responses": {
@@ -3390,6 +3400,11 @@
             "type": "boolean",
             "description": "insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the\nserving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver\nand the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real\nkubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the\nconnection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept\nthe actual log data coming from the real kubelet).\n+optional.",
             "name": "logOptions.insecureSkipTLSVerifyBackend",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "grep",
             "in": "query"
           }
         ],
@@ -6075,6 +6090,10 @@
           "description": "From allows an artifact to reference an artifact from a previous step",
           "type": "string"
         },
+        "fromExpression": {
+          "description": "FromExpression, if defined, is evaluated to specify the value for the artifact",
+          "type": "string"
+        },
         "gcs": {
           "description": "GCS contains GCS artifact location details",
           "$ref": "#/definitions/GCSArtifact"
@@ -6172,6 +6191,91 @@
         "s3": {
           "description": "S3 contains S3 artifact location details",
           "$ref": "#/definitions/S3Artifact"
+        }
+      }
+    },
+    "ArtifactPaths": {
+      "description": "ArtifactPaths expands a step from a collection of artifacts",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "archive": {
+          "description": "Archive controls how the artifact will be saved to the artifact repository.",
+          "$ref": "#/definitions/ArchiveStrategy"
+        },
+        "archiveLogs": {
+          "description": "ArchiveLogs indicates if the container logs should be archived",
+          "type": "boolean"
+        },
+        "artifactory": {
+          "description": "Artifactory contains artifactory artifact location details",
+          "$ref": "#/definitions/ArtifactoryArtifact"
+        },
+        "from": {
+          "description": "From allows an artifact to reference an artifact from a previous step",
+          "type": "string"
+        },
+        "fromExpression": {
+          "description": "FromExpression, if defined, is evaluated to specify the value for the artifact",
+          "type": "string"
+        },
+        "gcs": {
+          "description": "GCS contains GCS artifact location details",
+          "$ref": "#/definitions/GCSArtifact"
+        },
+        "git": {
+          "description": "Git contains git artifact location details",
+          "$ref": "#/definitions/GitArtifact"
+        },
+        "globalName": {
+          "description": "GlobalName exports an output artifact to the global scope, making it available as '{{outputs.artifacts.XXXX}} and in workflow.status.outputs.artifacts",
+          "type": "string"
+        },
+        "hdfs": {
+          "description": "HDFS contains HDFS artifact location details",
+          "$ref": "#/definitions/HDFSArtifact"
+        },
+        "http": {
+          "description": "HTTP contains HTTP artifact location details",
+          "$ref": "#/definitions/HTTPArtifact"
+        },
+        "mode": {
+          "description": "mode bits to use on this file, must be a value between 0 and 0777 set when loading input artifacts.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "name of the artifact. must be unique within a template's inputs/outputs.",
+          "type": "string"
+        },
+        "optional": {
+          "description": "Make Artifacts optional, if Artifacts doesn't generate or exist",
+          "type": "boolean"
+        },
+        "oss": {
+          "description": "OSS contains OSS artifact location details",
+          "$ref": "#/definitions/OSSArtifact"
+        },
+        "path": {
+          "description": "Path is the container path to the artifact",
+          "type": "string"
+        },
+        "raw": {
+          "description": "Raw contains raw artifact location details",
+          "$ref": "#/definitions/RawArtifact"
+        },
+        "recurseMode": {
+          "description": "If mode is set, apply the permission recursively into the artifact if it is a folder",
+          "type": "boolean"
+        },
+        "s3": {
+          "description": "S3 contains S3 artifact location details",
+          "$ref": "#/definitions/S3Artifact"
+        },
+        "subPath": {
+          "description": "SubPath allows an artifact to be sourced from a subpath within the specified source",
+          "type": "string"
         }
       }
     },
@@ -6363,6 +6467,162 @@
         "type": {
           "description": "Type is the type of condition",
           "type": "string"
+        }
+      }
+    },
+    "ContainerNode": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "args": {
+          "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "command": {
+          "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "env": {
+          "description": "List of environment variables to set in the container. Cannot be updated.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvVar"
+          },
+          "x-kubernetes-patch-merge-key": "name",
+          "x-kubernetes-patch-strategy": "merge"
+        },
+        "envFrom": {
+          "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvFromSource"
+          }
+        },
+        "image": {
+          "description": "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
+          "type": "string"
+        },
+        "imagePullPolicy": {
+          "description": "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images",
+          "type": "string"
+        },
+        "lifecycle": {
+          "description": "Actions that the management system should take in response to container lifecycle events. Cannot be updated.",
+          "$ref": "#/definitions/Lifecycle"
+        },
+        "livenessProbe": {
+          "description": "Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "$ref": "#/definitions/Probe"
+        },
+        "name": {
+          "description": "Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.",
+          "type": "string"
+        },
+        "ports": {
+          "description": "List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Cannot be updated.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContainerPort"
+          },
+          "x-kubernetes-list-map-keys": [
+            "containerPort",
+            "protocol"
+          ],
+          "x-kubernetes-list-type": "map",
+          "x-kubernetes-patch-merge-key": "containerPort",
+          "x-kubernetes-patch-strategy": "merge"
+        },
+        "readinessProbe": {
+          "description": "Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "$ref": "#/definitions/Probe"
+        },
+        "resources": {
+          "description": "Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/",
+          "$ref": "#/definitions/ResourceRequirements"
+        },
+        "securityContext": {
+          "description": "Security options the pod should run with. More info: https://kubernetes.io/docs/concepts/policy/security-context/ More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/",
+          "$ref": "#/definitions/SecurityContext"
+        },
+        "startupProbe": {
+          "description": "StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. This is a beta feature enabled by the StartupProbe feature flag. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+          "$ref": "#/definitions/Probe"
+        },
+        "stdin": {
+          "description": "Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.",
+          "type": "boolean"
+        },
+        "stdinOnce": {
+          "description": "Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false",
+          "type": "boolean"
+        },
+        "terminationMessagePath": {
+          "description": "Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.",
+          "type": "string"
+        },
+        "terminationMessagePolicy": {
+          "description": "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.",
+          "type": "string"
+        },
+        "tty": {
+          "description": "Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.",
+          "type": "boolean"
+        },
+        "volumeDevices": {
+          "description": "volumeDevices is the list of block devices to be used by the container.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VolumeDevice"
+          },
+          "x-kubernetes-patch-merge-key": "devicePath",
+          "x-kubernetes-patch-strategy": "merge"
+        },
+        "volumeMounts": {
+          "description": "Pod volumes to mount into the container's filesystem. Cannot be updated.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VolumeMount"
+          },
+          "x-kubernetes-patch-merge-key": "mountPath",
+          "x-kubernetes-patch-strategy": "merge"
+        },
+        "workingDir": {
+          "description": "Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.",
+          "type": "string"
+        }
+      }
+    },
+    "ContainerSetTemplate": {
+      "type": "object",
+      "required": [
+        "containers"
+      ],
+      "properties": {
+        "containers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContainerNode"
+          }
+        },
+        "volumeMounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VolumeMount"
+          }
         }
       }
     },
@@ -6595,12 +6855,19 @@
           "description": "Depends are name of other targets which this depends on",
           "type": "string"
         },
+        "hooks": {
+          "description": "Hooks hold the lifecycle hook which is invoked at lifecycle of task, irrespective of the success, failure, or error status of the primary task",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/LifecycleHook"
+          }
+        },
         "name": {
           "description": "Name is the name of the target",
           "type": "string"
         },
         "onExit": {
-          "description": "OnExit is a template reference which is invoked at the end of the template, irrespective of the success, failure, or error of the primary template.",
+          "description": "OnExit is a template reference which is invoked at the end of the template, irrespective of the success, failure, or error of the primary template. DEPRECATED: Use Hooks[exit].Template instead.",
           "type": "string"
         },
         "template": {
@@ -6640,7 +6907,7 @@
       ],
       "properties": {
         "failFast": {
-          "description": "This flag is for DAG logic. The DAG logic has a built-in \"fail fast\" feature to stop scheduling new steps, as soon as it detects that one of the DAG nodes is failed. Then it waits until all DAG nodes are completed before failing the DAG itself. The FailFast flag default is true,  if set to false, it will allow a DAG to run all branches of the DAG to completion (either success or failure), regardless of the failed outcomes of branches in the DAG. More info and example about this feature at https://github.com/argoproj/argo_workflows/issues/1442",
+          "description": "This flag is for DAG logic. The DAG logic has a built-in \"fail fast\" feature to stop scheduling new steps, as soon as it detects that one of the DAG nodes is failed. Then it waits until all DAG nodes are completed before failing the DAG itself. The FailFast flag default is true,  if set to false, it will allow a DAG to run all branches of the DAG to completion (either success or failure), regardless of the failed outcomes of branches in the DAG. More info and example about this feature at https://github.com/argoproj/argo-workflows/issues/1442",
           "type": "boolean"
         },
         "target": {
@@ -6655,6 +6922,37 @@
           },
           "x-kubernetes-patch-merge-key": "name",
           "x-kubernetes-patch-strategy": "merge"
+        }
+      }
+    },
+    "Data": {
+      "description": "Data is a data template",
+      "type": "object",
+      "required": [
+        "source",
+        "transformation"
+      ],
+      "properties": {
+        "source": {
+          "description": "Source sources external data into a data template",
+          "$ref": "#/definitions/DataSource"
+        },
+        "transformation": {
+          "description": "Transformation applies a set of transformations",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransformationStep"
+          }
+        }
+      }
+    },
+    "DataSource": {
+      "description": "DataSource sources external data into a data template",
+      "type": "object",
+      "properties": {
+        "artifactPaths": {
+          "description": "ArtifactPaths is a data transformation that collects a list of artifact paths",
+          "$ref": "#/definitions/ArtifactPaths"
         }
       }
     },
@@ -6758,6 +7056,10 @@
         "depth": {
           "description": "Depth specifies clones/fetches should be shallow and include the given number of commits from the branch tip",
           "type": "integer"
+        },
+        "disableSubmodules": {
+          "description": "DisableSubmodules disables submodules during git clone",
+          "type": "boolean"
         },
         "fetch": {
           "description": "Fetch specifies a number of refs that should be fetched before checkout",
@@ -6944,6 +7246,20 @@
     "Item": {
       "description": "Item expands a single workflow step into multiple parallel steps The value of Item can be a map, string, bool, or number"
     },
+    "LifecycleHook": {
+      "type": "object",
+      "required": [
+        "template"
+      ],
+      "properties": {
+        "arguments": {
+          "$ref": "#/definitions/Arguments"
+        },
+        "template": {
+          "type": "string"
+        }
+      }
+    },
     "Link": {
       "description": "A link to another app.",
       "type": "object",
@@ -6958,11 +7274,11 @@
           "type": "string"
         },
         "scope": {
-          "description": "Either \"workflow\" or \"pod\"",
+          "description": "\"workflow\", \"pod\", \"pod-logs\", \"event-source-logs\", \"sensor-logs\" or \"chat\"",
           "type": "string"
         },
         "url": {
-          "description": "The URL. May contain \"${metadata.namespace}\", \"${metadata.name}\", \"${status.startedAt}\" and \"${status.finishedAt}\".",
+          "description": "The URL. Can contain \"${metadata.namespace}\", \"${metadata.name}\", \"${status.startedAt}\", \"${status.finishedAt}\" or any other element in workflow yaml, e.g. \"${metadata.annotations.userDefinedKey}\"",
           "type": "string"
         }
       },
@@ -7291,9 +7607,31 @@
           "description": "Key is the path in the bucket where the artifact resides",
           "type": "string"
         },
+        "lifecycleRule": {
+          "description": "LifecycleRule specifies how to manage bucket's lifecycle",
+          "$ref": "#/definitions/OSSLifecycleRule"
+        },
         "secretKeySecret": {
           "description": "SecretKeySecret is the secret selector to the bucket's secret key",
           "$ref": "#/definitions/SecretKeySelector"
+        },
+        "securityToken": {
+          "description": "SecurityToken is the user's temporary security token. For more details, check out: https://www.alibabacloud.com/help/doc-detail/100624.htm",
+          "type": "string"
+        }
+      }
+    },
+    "OSSLifecycleRule": {
+      "description": "OSSLifecycleRule specifies how to manage bucket's lifecycle",
+      "type": "object",
+      "properties": {
+        "markDeletionAfterDays": {
+          "description": "MarkDeletionAfterDays is the number of days before we delete objects in the bucket",
+          "type": "integer"
+        },
+        "markInfrequentAccessAfterDays": {
+          "description": "MarkInfrequentAccessAfterDays is the number of days before we convert the objects in the bucket to Infrequent Access (IA) storage type",
+          "type": "integer"
         }
       }
     },
@@ -7517,9 +7855,6 @@
     "S3Artifact": {
       "description": "S3Artifact is the location of an S3 artifact",
       "type": "object",
-      "required": [
-        "key"
-      ],
       "properties": {
         "accessKeySecret": {
           "description": "AccessKeySecret is the secret selector to the bucket's access key",
@@ -7913,9 +8248,6 @@
     "Template": {
       "description": "Template is a reusable and composable unit of execution in a workflow",
       "type": "object",
-      "required": [
-        "name"
-      ],
       "properties": {
         "activeDeadlineSeconds": {
           "description": "Optional duration in seconds relative to the StartTime that the pod may be active on a node before the system actively tries to terminate the pod; value must be positive integer This field is only applicable to container and script templates.",
@@ -7937,6 +8269,10 @@
           "description": "Container is the main container image to run in the pod",
           "$ref": "#/definitions/Container"
         },
+        "containerSet": {
+          "description": "ContainerSet groups multiple containers within a single pod.",
+          "$ref": "#/definitions/ContainerSetTemplate"
+        },
         "daemon": {
           "description": "Deamon will allow a workflow to proceed to the next step so long as the container reaches readiness",
           "type": "boolean"
@@ -7945,9 +8281,17 @@
           "description": "DAG template subtype which runs a DAG",
           "$ref": "#/definitions/DAGTemplate"
         },
+        "data": {
+          "description": "Data is a data template",
+          "$ref": "#/definitions/Data"
+        },
         "executor": {
           "description": "Executor holds configurations of the executor container.",
           "$ref": "#/definitions/ExecutorConfig"
+        },
+        "failFast": {
+          "description": "FailFast, if specified, will fail this template if any of its child pods has failed. This is useful for when this template is expanded with `withItems`, etc.",
+          "type": "boolean"
         },
         "hostAliases": {
           "description": "HostAliases is an optional list of hosts and IPs that will be injected into the pod spec",
@@ -8100,6 +8444,18 @@
         },
         "template": {
           "description": "Template is the name of referred template in the resource.",
+          "type": "string"
+        }
+      }
+    },
+    "TransformationStep": {
+      "type": "object",
+      "required": [
+        "expression"
+      ],
+      "properties": {
+        "expression": {
+          "description": "Expression defines an expr expression to apply",
           "type": "string"
         }
       }
@@ -8264,6 +8620,10 @@
         },
         "event": {
           "description": "Selector (https://github.com/antonmedv/expr) that is evaluated against the event to get the value of the parameter. E.g. `payload.message`",
+          "type": "string"
+        },
+        "expression": {
+          "description": "Expression, if defined, is evaluated to specify the value for the parameter",
           "type": "string"
         },
         "jqFilter": {
@@ -8697,6 +9057,10 @@
           "description": "Synchronization holds synchronization lock configuration for this Workflow",
           "$ref": "#/definitions/Synchronization"
         },
+        "templateDefaults": {
+          "description": "TemplateDefaults holds default template values that will apply to all templates in the Workflow, unless overridden on the template-level",
+          "$ref": "#/definitions/Template"
+        },
         "templates": {
           "description": "Templates is a list of workflow templates used in a workflow",
           "type": "array",
@@ -8849,12 +9213,19 @@
           "description": "ContinueOn makes argo to proceed with the following step even if this step fails. Errors and Failed states can be specified",
           "$ref": "#/definitions/ContinueOn"
         },
+        "hooks": {
+          "description": "Hooks holds the lifecycle hook which is invoked at lifecycle of step, irrespective of the success, failure, or error status of the primary step",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/LifecycleHook"
+          }
+        },
         "name": {
           "description": "Name of the step",
           "type": "string"
         },
         "onExit": {
-          "description": "OnExit is a template reference which is invoked at the end of the template, irrespective of the success, failure, or error of the primary template.",
+          "description": "OnExit is a template reference which is invoked at the end of the template, irrespective of the success, failure, or error of the primary template. DEPRECATED: Use Hooks[exit].Template instead.",
           "type": "string"
         },
         "template": {
@@ -9162,6 +9533,10 @@
         "synchronization": {
           "description": "Synchronization holds synchronization lock configuration for this Workflow",
           "$ref": "#/definitions/Synchronization"
+        },
+        "templateDefaults": {
+          "description": "TemplateDefaults holds default template values that will apply to all templates in the Workflow, unless overridden on the template-level",
+          "$ref": "#/definitions/Template"
         },
         "templates": {
           "description": "Templates is a list of workflow templates used in a workflow",

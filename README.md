@@ -1,7 +1,7 @@
 # argo-client-java
 
 Argo Server API
-- API version: v3.0.5
+- API version: VERSION
 
 You can get examples of requests and responses by using the CLI with `--gloglevel=9`, e.g. `argo list --gloglevel=9`
 
@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.argoproj.workflow</groupId>
   <artifactId>argo-client-java</artifactId>
-  <version>v3.0.5</version>
+  <version>v3.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.argoproj.workflow:argo-client-java:v3.0.5"
+compile "io.argoproj.workflow:argo-client-java:v3.1.0"
 ```
 
 ### Others
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/argo-client-java-v3.0.5.jar`
+* `target/argo-client-java-v3.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
  - [Arguments](docs/Arguments.md)
  - [Artifact](docs/Artifact.md)
  - [ArtifactLocation](docs/ArtifactLocation.md)
+ - [ArtifactPaths](docs/ArtifactPaths.md)
  - [ArtifactRepositoryRef](docs/ArtifactRepositoryRef.md)
  - [ArtifactRepositoryRefStatus](docs/ArtifactRepositoryRefStatus.md)
  - [ArtifactoryArtifact](docs/ArtifactoryArtifact.md)
@@ -194,6 +195,8 @@ Class | Method | HTTP request | Description
  - [ConfigMapEnvSource](docs/ConfigMapEnvSource.md)
  - [ConfigMapProjection](docs/ConfigMapProjection.md)
  - [ConfigMapVolumeSource](docs/ConfigMapVolumeSource.md)
+ - [ContainerNode](docs/ContainerNode.md)
+ - [ContainerSetTemplate](docs/ContainerSetTemplate.md)
  - [ContinueOn](docs/ContinueOn.md)
  - [Counter](docs/Counter.md)
  - [CreateCronWorkflowRequest](docs/CreateCronWorkflowRequest.md)
@@ -207,6 +210,8 @@ Class | Method | HTTP request | Description
  - [CronWorkflowSuspendRequest](docs/CronWorkflowSuspendRequest.md)
  - [DAGTask](docs/DAGTask.md)
  - [DAGTemplate](docs/DAGTemplate.md)
+ - [Data](docs/Data.md)
+ - [DataSource](docs/DataSource.md)
  - [DownwardAPIProjection](docs/DownwardAPIProjection.md)
  - [DownwardAPIVolumeFile](docs/DownwardAPIVolumeFile.md)
  - [DownwardAPIVolumeSource](docs/DownwardAPIVolumeSource.md)
@@ -333,6 +338,7 @@ Class | Method | HTTP request | Description
  - [KeyToPath](docs/KeyToPath.md)
  - [LabelSelector](docs/LabelSelector.md)
  - [LabelSelectorRequirement](docs/LabelSelectorRequirement.md)
+ - [LifecycleHook](docs/LifecycleHook.md)
  - [Link](docs/Link.md)
  - [LintCronWorkflowRequest](docs/LintCronWorkflowRequest.md)
  - [LogEntry](docs/LogEntry.md)
@@ -353,6 +359,7 @@ Class | Method | HTTP request | Description
  - [NodeStatus](docs/NodeStatus.md)
  - [NodeSynchronizationStatus](docs/NodeSynchronizationStatus.md)
  - [OSSArtifact](docs/OSSArtifact.md)
+ - [OSSLifecycleRule](docs/OSSLifecycleRule.md)
  - [ObjectFieldSelector](docs/ObjectFieldSelector.md)
  - [Outputs](docs/Outputs.md)
  - [OwnerReference](docs/OwnerReference.md)
@@ -418,6 +425,7 @@ Class | Method | HTTP request | Description
  - [TarStrategy](docs/TarStrategy.md)
  - [Template](docs/Template.md)
  - [TemplateRef](docs/TemplateRef.md)
+ - [TransformationStep](docs/TransformationStep.md)
  - [TypedLocalObjectReference](docs/TypedLocalObjectReference.md)
  - [UpdateCronWorkflowRequest](docs/UpdateCronWorkflowRequest.md)
  - [UserContainer](docs/UserContainer.md)

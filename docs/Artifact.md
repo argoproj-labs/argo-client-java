@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **archiveLogs** | **Boolean** | ArchiveLogs indicates if the container logs should be archived |  [optional]
 **artifactory** | [**ArtifactoryArtifact**](ArtifactoryArtifact.md) |  |  [optional]
 **from** | **String** | From allows an artifact to reference an artifact from a previous step |  [optional]
+**fromExpression** | **String** | FromExpression, if defined, is evaluated to specify the value for the artifact |  [optional]
 **gcs** | [**GCSArtifact**](GCSArtifact.md) |  |  [optional]
 **git** | [**GitArtifact**](GitArtifact.md) |  |  [optional]
 **globalName** | **String** | GlobalName exports an output artifact to the global scope, making it available as &#39;{{outputs.artifacts.XXXX}} and in workflow.status.outputs.artifacts |  [optional]

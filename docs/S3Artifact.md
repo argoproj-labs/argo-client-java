@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **createBucketIfNotPresent** | [**CreateS3BucketOptions**](CreateS3BucketOptions.md) |  |  [optional]
 **endpoint** | **String** | Endpoint is the hostname of the bucket endpoint |  [optional]
 **insecure** | **Boolean** | Insecure will connect to the service with TLS |  [optional]
-**key** | **String** | Key is the key in the bucket where the artifact resides | 
+**key** | **String** | Key is the key in the bucket where the artifact resides |  [optional]
 **region** | **String** | Region contains the optional bucket region |  [optional]
 **roleARN** | **String** | RoleARN is the Amazon Resource Name (ARN) of the role to assume. |  [optional]
 **secretKeySecret** | [**io.kubernetes.client.openapi.models.V1SecretKeySelector**](io.kubernetes.client.openapi.models.V1SecretKeySelector.md) |  |  [optional]

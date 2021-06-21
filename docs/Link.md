@@ -8,8 +8,8 @@ A link to another app.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | The name of the link, E.g. \&quot;Workflow Logs\&quot; or \&quot;Pod Logs\&quot; | 
-**scope** | **String** | Either \&quot;workflow\&quot; or \&quot;pod\&quot; | 
-**url** | **String** | The URL. May contain \&quot;${metadata.namespace}\&quot;, \&quot;${metadata.name}\&quot;, \&quot;${status.startedAt}\&quot; and \&quot;${status.finishedAt}\&quot;. | 
+**scope** | **String** | \&quot;workflow\&quot;, \&quot;pod\&quot;, \&quot;pod-logs\&quot;, \&quot;event-source-logs\&quot;, \&quot;sensor-logs\&quot; or \&quot;chat\&quot; | 
+**url** | **String** | The URL. Can contain \&quot;${metadata.namespace}\&quot;, \&quot;${metadata.name}\&quot;, \&quot;${status.startedAt}\&quot;, \&quot;${status.finishedAt}\&quot; or any other element in workflow yaml, e.g. \&quot;${metadata.annotations.userDefinedKey}\&quot; | 
 
 
 

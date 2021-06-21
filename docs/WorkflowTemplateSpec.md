@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **shutdown** | **String** | Shutdown will shutdown the workflow according to its ShutdownStrategy |  [optional]
 **suspend** | **Boolean** | Suspend will suspend the workflow and prevent execution of any future steps in the workflow |  [optional]
 **synchronization** | [**Synchronization**](Synchronization.md) |  |  [optional]
+**templateDefaults** | [**Template**](Template.md) |  |  [optional]
 **templates** | [**List&lt;Template&gt;**](Template.md) | Templates is a list of workflow templates used in a workflow |  [optional]
 **tolerations** | [**List&lt;io.kubernetes.client.openapi.models.V1Toleration&gt;**](io.kubernetes.client.openapi.models.V1Toleration.md) | Tolerations to apply to workflow pods. |  [optional]
 **ttlStrategy** | [**TTLStrategy**](TTLStrategy.md) |  |  [optional]
