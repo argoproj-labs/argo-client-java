@@ -1,6 +1,6 @@
-# argo-client-java
+# Argo Workflows java client
 
-Argo Server API
+Argo Workflows Server API
 - API version: VERSION
 
 You can get examples of requests and responses by using the CLI with `--gloglevel=9`, e.g. `argo list --gloglevel=9`
