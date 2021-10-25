@@ -1,3 +1,5 @@
+⚠️⚠️⚠️This repository is no longer maintained, please find your Java SDKs https://github.com/argoproj/argo-workflows/blob/master/docs/client-libraries.md ⚠️⚠️⚠️
+
 # argo-client-java
 
 Argo Server API
